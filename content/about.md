@@ -5,86 +5,86 @@ url: "/about/"
 summary: "About me"
 ---
 
-I'm Arin. I studied naval architecture at IIT Madras and ended up building distributed systems that process tens of millions of identity records across 300+ enterprise tenants. Life is non-linear.
+I'm Arin. I spent four years at IIT Madras studying how ships interact with ocean waves. I now build systems that process tens of millions of identity records for Fortune 500 companies. If that sounds like a weird pivot — yeah, it was.
 
-## The short version
+---
 
-I'm a systems engineer at [Saviynt](https://saviynt.com). I design and build the infrastructure behind identity governance at enterprise scale — the systems that answer "who has access to what, and should they?"
+Here's the thing that got me hooked on systems: a customer's compliance job ran **21 hours** on a 64 GB machine. The architecture was fundamentally broken — it re-resolved the same organizational hierarchy for every single rule, thousands of times. I ripped it out and replaced it with one BFS pass that resolves the hierarchy once, then BitSet intersection for the actual violation detection. One CPU instruction checks 64 users simultaneously.
 
-The thing I'm most proud of: a segregation-of-duties evaluation engine that took **21 hours** on a 64 GB pod. I replaced its O(n²) per-rule hierarchy traversal with a single BFS resolution pass and BitSet-based set intersection — one CPU instruction evaluates 64 users simultaneously — and brought it to **2 seconds on 256 MB.** Byte-identical output. Zero false positives. Processes 50K violations across 750K entitlements every 12 hours in production.
+Two seconds. 256 MB. Same output, bit for bit.
 
-Nobody taught me how to do this. I don't have a CS degree. I have competitive programming rankings, production pressure, and the kind of stubbornness that turns a 21-hour job into a 2-second one.
+That moment — when you see the right data structure collapse a problem from O(n²) to O(n) and the runtime goes from hours to seconds — I haven't found anything else that feels like that. I've been chasing it since.
 
-## What I build
+---
 
-**Streaming infrastructure that scales to infinity by design:**
+## What I'm building now
 
-I built the export pipeline that generates compliance reports for Saviynt's clients. It streams **15 million+ records** in production today — but the architecture is size-agnostic by construction. Whether you export 1,000 rows or 100 million, memory stays flat at 7 MB. The system doesn't know how much data is coming, and it doesn't need to.
+I'm at [Saviynt](https://saviynt.com), working on identity governance infrastructure. Three hundred-something enterprise tenants, AWS and Azure and GovCloud, the whole circus.
 
-The trick: every stage is bounded independently. Paginated DB reads → 50-row sliding window Excel generation → chunked S3 multipart upload → streaming ZIP assembly where source files are pulled from S3 and piped directly into the output ZIP, byte by byte, with a 2 MB read buffer and a 5 MB write buffer. Nothing accumulates. The app is a pipe, not a bucket. ([Technical deep-dive here.](/posts/streaming-excel-to-s3/))
+**The export system** is probably the gnarliest thing I own. It generates compliance reports — sometimes 15 million records in a single export — and streams them to S3 as formatted Excel files inside a ZIP. The entire pipeline runs in 7 MB of memory regardless of how much data you throw at it. I'm not exaggerating — whether it's 1,000 rows or 15 million, memory is flat. The architecture is a pipe: data flows through, never accumulates. ([I wrote a detailed breakdown here.](/posts/streaming-excel-to-s3/))
 
-**The numbers:**
-- **215× compute speedup** on the SoD engine (21 h → 2 s)
-- **15M+ records** exported at production scale, memory-bounded at 64 MB
-- **50K+ records/s** exactly-once audit ingestion for SOC2/GDPR
-- **840K records/s** CSV throughput at 64 MB heap
-- **4 concurrent large exports** on a single 4 GB pod — zero OOM since deployment
-- **300+ tenants** across AWS, Azure, and GovCloud on one codebase (95%+ reuse)
+I also built the exactly-once audit ingestion layer (50K+ records/s, 300+ tenants, Kafka + Redis idempotency), cloud-agnostic deployment across three cloud providers with 95% shared code, and the real-time progress system that tells you exactly where your 5-million-row export is at any given second.
 
-**AI agent governance — a problem I defined from scratch:**
+**On the AI side** — I've been exploring a question nobody seems to have answered yet: what happens when autonomous AI agents accumulate too much access?
 
-What happens when a Microsoft Copilot Studio agent can read sensitive data AND take external actions without human approval? That's a toxic combination — the same risk that segregation-of-duties policies enforce for humans, applied to autonomous agents. I couldn't find prior art, so I built it.
+If a Copilot Studio agent can read your sensitive customer data AND send emails externally AND invoke other agents — that's the exact same toxic-combination problem that SoD policies solve for humans. Except nobody's built the detection engine for agents. So I did. Five risk types, works across individual agents, parent-child chains, and cross-agent groups sharing credentials. I genuinely couldn't find prior art.
 
-The engine evaluates risk across individual agents, parent→child invocation chains, and cross-agent groups that share credentials. Five risk types, 15 condition types, configurable action taxonomy, automatic autonomy-tier classification. Event-driven: only dirty agents get re-evaluated. Design-time evaluation in ~22 ms.
+I also built a fraud detection system using LLM agents that analyze privileged-access audit logs. The hard constraint: every single piece of evidence the agent cites has to actually exist in the source data. If the model hallucinates an event ID? Dropped. Below 70% confidence? Goes to a human. I don't trust language models with compliance decisions, but I trust them to generate hypotheses that I can verify mechanistically.
 
-**Bounded LLM agents with zero hallucination tolerance:**
+**Security** — twice I've been pulled into company-wide "Tiger Teams" — over people with 5–10 years on me. SQL injection, remote code execution, mTLS rollouts across the data layer. Took coverage from 30% to 80%+. I like breaking things almost as much as I like building them.
 
-I built an AI system that detects fraud and insider threats in privileged-access audit logs (SAP Firefighter). Stateful ReAct agents run under hard caps — ≤7 iterations, ≤4 calls per tool, 120 seconds wall-clock — and autonomously query Elasticsearch to build and verify hypotheses.
+---
 
-The key constraint: every piece of evidence the agent cites is verified against the source data. If the agent hallucinates an event ID that doesn't exist in the logs, it gets dropped before reaching the output. Below 0.70 confidence → routed to a human. The system is auditable end to end. Zero tolerance for ungrounded claims in a compliance context.
+## The backstory
 
-**Security:**
+I got into IIT Madras through JEE — top 0.2% out of 1.1 million candidates. Ended up in Ocean Engineering because rankings and choices at 17 don't always align with who you become at 21.
 
-Two company-wide Tiger Teams — selected over senior engineers with 5–10× my tenure. SQL injection, IDOR, RCE, XSS remediation across the legacy platform. mTLS/TLS rollouts across Elasticsearch, Redis, MySQL, RabbitMQ. Test coverage: 30% → 80%+.
+The CS happened at night. Literally. After naval architecture coursework, I'd grind competitive programming until I couldn't keep my eyes open. Four years of that:
 
-## How I got here
+- [**LeetCode Guardian**](https://leetcode.com/u/arin371/) — 2100+ rating, contest ranks 248 / 617 / 630 / 880
+- [**Codeforces Expert**](https://codeforces.com/profile/Arin371) — 1602, top 0.3% globally
+- **Meta Hacker Cup 2024** — Round 2, National 424, Global 1903
 
-IIT Madras through JEE (top 0.2% of 1.1 million candidates). Four years of fluid mechanics, wave theory, and naval architecture. Rigorous, mathematical, wrong field.
+I don't have a CS transcript. I have this instead. It's verifiable, ranked against 45,000 people per contest, and proves the algorithms are there whether or not a syllabus says so.
 
-The CS education happened in parallel — every night after coursework, for four years. Not auditing MOOCs. Competing:
+---
 
-- [**LeetCode Guardian**](https://leetcode.com/u/arin371/) — 2100+ rating. Contest ranks: 248, 617, 630, 880.
-- [**Codeforces Expert**](https://codeforces.com/profile/Arin371) — 1602. Top ~0.3% globally.
-- **Meta Hacker Cup 2024** — Round 2. National 424, Global 1903.
+## The other stuff
 
-This is what I have instead of a CS transcript. Verifiable, ranked, and harder to game than grades.
+**Team Abhiyaan** — IIT Madras's autonomous vehicle research team. I wasn't building the car; I was selling the vision. Led external relations, pitched directly to India's Commerce Minister for funding, ran the sponsorship pipeline, grew the team's reach 125% through PR campaigns. Learned something important: if you can't explain why your system matters to someone who doesn't write code, you haven't understood it well enough yourself.
 
-## Beyond code
+**Sports** — Football: IIT Madras city-level runner-up, trained at Villarreal CF Academy (yes, the Spanish club), district champion with JHFC. Chess: district runner-up. Cricket: district all-rounder. I'm competitive by default. Not something I switch on and off.
 
-**Team Abhiyaan** (CFI, IIT Madras) — India's autonomous vehicle research team. I led sponsorship and external relations: pitched directly to the Commerce Minister of India, ran meetings with industry partners, executed PR campaigns that grew the team's online reach by 125%. Turns out the ability to sell a technical vision to non-technical people is a skill you use forever.
-
-**Athletics** — Football (IIT Madras city-level runner-up; trained at Villarreal CF Academy; district champion with JHFC), Chess (district runner-up), Cricket (district all-rounder). I compete at everything I do. It's a personality trait, not a hobby.
+---
 
 ## Writing
 
-I write about the real systems problems I solve at work — sanitized architectures with real numbers, not tutorials.
+I write about real systems problems from production. No tutorials, no toy examples — architectures with actual numbers.
 
-- [**Streaming 25 Million Excel Cells Through 5 MB of Memory**](/posts/streaming-excel-to-s3/) — how I designed a 5-stage pipeline that holds O(1) memory across 15M+ record exports, multi-GB ZIPs, and concurrent S3 uploads on shared pods.
-- **From 21 Hours to 2 Seconds** *(coming soon)* — the full story of the 215× SoD engine rewrite: BFS hierarchy resolution, BitSet intersection, and why the old system was algorithmically broken.
-- **SoD for AI Agents** *(coming soon)* — what happens when autonomous agents accumulate too much access, and how to detect it.
+- [**Streaming 25 Million Excel Cells Through 5 MB of Memory**](/posts/streaming-excel-to-s3/) — the full 5-stage pipeline that holds O(1) memory across 15M+ records, multi-GB ZIPs, and concurrent S3 uploads on shared pods.
+- **From 21 Hours to 2 Seconds** *(coming soon)* — the complete story of the 215× engine: what was broken, how I saw it, what I replaced it with.
+- **SoD for AI Agents** *(coming soon)* — the novel problem and how to think about toxic combinations in autonomous agent systems.
+
+---
 
 ## Open source
 
-- [**s3-outputstream**](https://github.com/Arin016/s3-outputstream) — a `java.io.OutputStream` backed by S3 multipart upload. Bounded 5 MB memory, any upload size. Fills a [4-year-old gap](https://github.com/aws/aws-sdk-java-v2/issues/3128) in the AWS SDK that the Spring Cloud AWS maintainer opened in 2022 and nobody has solved in the SDK since.
-- [**Y**](https://github.com/Arin016/Y) — local-first RAG over chat history. Go, Ollama, Qdrant, SQLite FTS5. Zero API keys.
-- [**xx-cli**](https://github.com/Arin016/xx-cli) — natural language → shell commands, fully offline.
+- [**s3-outputstream**](https://github.com/Arin016/s3-outputstream) — a `java.io.OutputStream` that writes directly to S3. 5 MB peak memory, any size upload. Fills a [gap the Spring Cloud AWS maintainer opened in 2022](https://github.com/aws/aws-sdk-java-v2/issues/3128) that still hasn't been addressed in the SDK.
+- [**Y**](https://github.com/Arin016/Y) — local RAG over chat history. Go + Ollama + Qdrant + SQLite FTS5. No cloud, no API keys, runs on your laptop.
+- [**xx-cli**](https://github.com/Arin016/xx-cli) — tell it what you want in plain English, get a shell command back. Fully offline.
+
+---
 
 ## What's next
 
-I'm pursuing an MS in Computer Science (Fall 2027) to build the formal foundations underneath everything I've learned through production. I've never implemented a consensus protocol. I've never formally verified a pipeline's exactly-once semantics against the literature. I've never built a storage engine from scratch. I want to — and I want to do it with the rigor that a research university provides, not just the pressure that a production deadline provides.
+I'm going for an MS in Computer Science starting Fall 2027.
 
-The intuition is there. The theory that makes it transferable — and that lets me build the next layer of infrastructure rather than consume it — that's what I'm after.
+Here's what I know about myself: I can build systems that work under extreme constraints. I've done it repeatedly, in production, at scale. But I've done it through reverse-engineering principles from production incidents and Stack Overflow deep-dives at 2 AM. I know *that* my exactly-once pipeline works. I can't formally prove *why* it works in the general case.
 
-## Get in touch
+I've never implemented a consensus protocol. I've never built a storage engine. I've never sat in a room with a professor who's spent 20 years thinking about distributed consistency and asked "what am I getting wrong?"
+
+The production intuition is there. I want the rigor that makes it transferable — and that lets me build the next layer of infrastructure (consensus, storage, query planning) rather than only consume it.
+
+---
 
 arin16tumbagi@gmail.com · [GitHub](https://github.com/Arin016) · [LinkedIn](https://linkedin.com/in/arin-mallanna)
