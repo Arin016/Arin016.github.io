@@ -37,13 +37,15 @@ I'm 14 months into [Saviynt](https://saviynt.com) (identity governance, 300+ ent
 
 ## How I got here without a CS degree
 
-The CS happened at night. Four years of competitive programming alongside a full naval architecture courseload:
+I couldn't formally take Data Structures, Operating Systems, or Databases at IIT Madras — my department's schedule wouldn't allow it. So I did what made sense to me at the time: I started entering programming contests against people who *had* taken those courses, and I kept entering them until I could beat most of them.
 
-- [**LeetCode Guardian**](https://leetcode.com/u/arin371/) — 2100+, contest ranks 248 / 617 / 630 / 880
-- [**Codeforces Expert**](https://codeforces.com/profile/Arin371) — 1602, top 0.3% globally
-- **Meta Hacker Cup 2024** — Round 2, National 424, Global 1903
+This went on for four years. Nights after naval architecture labs, weekends, breaks. I lost a lot. I dropped rating. I stared at problems for hours and got nothing. But contest after contest, something shifted — I stopped memorizing approaches and started seeing structure.
 
-This is my substitute transcript. Verifiable, ranked against 45,000 people per contest.
+- [**LeetCode Guardian**](https://leetcode.com/u/arin371/) — 2100+. Contest ranks: 248, 617, 630, 880 out of ~45,000.
+- [**Codeforces Expert**](https://codeforces.com/profile/Arin371) — 1602. Top 0.3% globally.
+- **Meta Hacker Cup 2024** — cleared to Round 2. National 424, Global 1903.
+
+There's no course grade that says I know algorithms. There's this — public, ranked, and earned the hard way.
 
 ---
 
