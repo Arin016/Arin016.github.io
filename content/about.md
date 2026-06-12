@@ -69,18 +69,4 @@ There's no course grade that says I know algorithms. There's this — public, ra
 - [**Y**](https://github.com/Arin016/Y) — local-first RAG. Go + Ollama + Qdrant + SQLite FTS5. No API keys.
 - [**xx-cli**](https://github.com/Arin016/xx-cli) — natural language → shell commands. Fully offline.
 
----
-
-## What's next
-
-I'm looking to go deeper — formally.
-
-I can build systems that work under extreme constraints. I've done it repeatedly, at scale. But I've done it by reverse-engineering principles from production incidents at 2 AM. I know *that* my exactly-once pipeline is correct. I can't prove *why* in the general case.
-
-I've never implemented a consensus protocol. Never built a storage engine. Never formally verified a distributed system's guarantees against the literature. I want to — with the rigor a research university provides, not just the pressure a production deadline provides.
-
-The intuition is there. I'm after the theory that makes it transferable, and that lets me build the *next* layer of infrastructure rather than only consume it.
-
----
-
 arin16tumbagi@gmail.com · [GitHub](https://github.com/Arin016) · [LinkedIn](https://linkedin.com/in/arin-mallanna)
