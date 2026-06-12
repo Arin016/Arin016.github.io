@@ -1,0 +1,63 @@
+baseURL: "https://arin016.github.io/"
+languageCode: "en-us"
+title: "Arin Mallanna Tumbagi"
+theme: "PaperMod"
+paginate: 10
+
+params:
+  env: production
+  description: "Systems engineer. Building distributed infrastructure at scale."
+  author: "Arin Mallanna Tumbagi"
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: false
+  defaultTheme: auto
+
+  homeInfoParams:
+    Title: "Arin Mallanna Tumbagi"
+    Content: >
+      Systems engineer at [Saviynt](https://saviynt.com). I build distributed infrastructure — streaming pipelines, evaluation engines, multi-tenant SaaS across AWS/Azure/GovCloud.
+
+
+      Previously: IIT Madras (Ocean Engineering). Self-taught CS to [LeetCode Guardian](https://leetcode.com/u/arin371/) / [Codeforces Expert](https://codeforces.com/profile/Arin371).
+
+
+      I write about the systems problems I solve in production.
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/Arin016"
+    - name: linkedin
+      url: "https://linkedin.com/in/arin-mallanna"
+    - name: email
+      url: "mailto:arin16tumbagi@gmail.com"
+
+  profileMode:
+    enabled: false
+
+menu:
+  main:
+    - identifier: blog
+      name: Blog
+      url: /posts/
+      weight: 1
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 2
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    style: monokai
