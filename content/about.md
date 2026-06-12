@@ -5,7 +5,7 @@ url: "/about/"
 summary: "About me"
 ---
 
-I'm Arin. I build distributed systems that process tens of millions of records for Fortune 500 identity governance. Before that, I spent four years at IIT Madras — one of the hardest engineering schools on earth to get into (JEE: top 0.2% of 1.1 million candidates) — studying computational fluid dynamics, stochastic modeling, and structural mechanics. It taught me to reason about systems under extreme constraints. The systems just ended up being software.
+I'm Arin. I build distributed systems that process tens of millions of records for Fortune 500 identity governance. Before that, I spent four years at IIT Madras — one of the hardest engineering schools on earth to get into (JEE: top 0.2% of 1.1 million candidates) — in a program built on heavy mathematics, computational modeling, and physics. It trained me to reason about complex systems under extreme constraints. The systems just ended up being software rather than ships.
 
 ---
 
@@ -71,9 +71,9 @@ This is my substitute transcript. Verifiable, ranked against 45,000 people per c
 
 ## What's next
 
-MS in Computer Science, Fall 2027.
+I'm looking to go deeper — formally.
 
-I can build systems that work under extreme constraints — I've done it repeatedly, at scale. But I've done it by reverse-engineering principles from production incidents at 2 AM. I know *that* my exactly-once pipeline is correct. I can't prove *why* in the general case.
+I can build systems that work under extreme constraints. I've done it repeatedly, at scale. But I've done it by reverse-engineering principles from production incidents at 2 AM. I know *that* my exactly-once pipeline is correct. I can't prove *why* in the general case.
 
 I've never implemented a consensus protocol. Never built a storage engine. Never formally verified a distributed system's guarantees against the literature. I want to — with the rigor a research university provides, not just the pressure a production deadline provides.
 
