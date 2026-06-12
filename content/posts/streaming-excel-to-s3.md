@@ -1,5 +1,5 @@
 ---
-title: "Streaming 25 Million Excel Cells Through 5 MB of Memory"
+title: "Streaming 25 Million Excel Cells Through 7 MB of Memory"
 date: 2026-06-12
 draft: false
 tags: ["java", "aws", "s3", "apache-poi", "streaming", "memory"]
@@ -8,7 +8,28 @@ ShowToc: true
 TocOpen: false
 ---
 
-# Streaming 25 Million Excel Cells Through 5 MB of Memory
+# Streaming 25 Million Excel Cells Through 7 MB of Memory
+
+> **TL;DR:** I built an export pipeline that streams 15M+ records as formatted Excel files inside ZIPs directly to S3. Memory is flat at 7 MB regardless of data size. The architecture is five bounded stages — each one independently capped — so the system doesn't know or care how much data is coming.
+
+```
+┌──────────┐    ┌──────────┐    ┌────────────┐    ┌─────────────┐    ┌──────────┐
+│    DB    │───►│ SXSSFWork│───►│  S3 Upload │───►│  ZIP Stream │───►│ S3 Final │
+│ (paged)  │    │ book     │    │ (per file) │    │ (S3→ZIP→S3) │    │  (.zip)  │
+└──────────┘    └──────────┘    └────────────┘    └─────────────┘    └──────────┘
+  ~batch size    50-row window    ~10-20 MB         2 MB + 5 MB        complete
+  (configurable) (flushed to disk) (unavoidable)    = 7 MB constant    object
+```
+
+| What | Before | After |
+|------|--------|-------|
+| Peak memory (single export) | 2+ GB (OOM crashes) | **~30 MB** |
+| Concurrent exports on 4 GB pod | 1 (barely) | **4** (zero OOM) |
+| Architecture limit | Data size | **None — O(1) memory** |
+| CSV throughput | — | **840K records/s at 64 MB** |
+| Production scale | — | **15M+ records, 300+ tenants** |
+
+---
 
 I work on an identity governance platform that serves 300+ enterprise clients. One of the things we do is let security teams export massive compliance reports — segregation-of-duties violations, access certifications, audit trails. Some of these reports hit 500K+ rows across multiple sheets.
 
