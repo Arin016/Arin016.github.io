@@ -59,6 +59,20 @@ The CS education happened in parallel — every night after coursework, for four
 
 This is what I have instead of a CS transcript. Verifiable, ranked, and harder to game than grades.
 
+## Beyond code
+
+**Team Abhiyaan** (CFI, IIT Madras) — India's autonomous vehicle research team. I led sponsorship and external relations: pitched directly to the Commerce Minister of India, ran meetings with industry partners, executed PR campaigns that grew the team's online reach by 125%. Turns out the ability to sell a technical vision to non-technical people is a skill you use forever.
+
+**Athletics** — Football (IIT Madras city-level runner-up; trained at Villarreal CF Academy; district champion with JHFC), Chess (district runner-up), Cricket (district all-rounder). I compete at everything I do. It's a personality trait, not a hobby.
+
+## Writing
+
+I write about the real systems problems I solve at work — sanitized architectures with real numbers, not tutorials.
+
+- [**Streaming 25 Million Excel Cells Through 5 MB of Memory**](/posts/streaming-excel-to-s3/) — how I designed a 5-stage pipeline that holds O(1) memory across 15M+ record exports, multi-GB ZIPs, and concurrent S3 uploads on shared pods.
+- **From 21 Hours to 2 Seconds** *(coming soon)* — the full story of the 215× SoD engine rewrite: BFS hierarchy resolution, BitSet intersection, and why the old system was algorithmically broken.
+- **SoD for AI Agents** *(coming soon)* — what happens when autonomous agents accumulate too much access, and how to detect it.
+
 ## Open source
 
 - [**s3-outputstream**](https://github.com/Arin016/s3-outputstream) — a `java.io.OutputStream` backed by S3 multipart upload. Bounded 5 MB memory, any upload size. Fills a [4-year-old gap](https://github.com/aws/aws-sdk-java-v2/issues/3128) in the AWS SDK that the Spring Cloud AWS maintainer opened in 2022 and nobody has solved in the SDK since.
