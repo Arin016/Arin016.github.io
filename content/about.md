@@ -5,7 +5,9 @@ url: "/about/"
 summary: "About me"
 ---
 
-I'm Arin. I spent four years at IIT Madras studying how ships interact with ocean waves. I now build systems that process tens of millions of identity records for Fortune 500 companies. If that sounds like a weird pivot — yeah, it was.
+I'm Arin. I went through one of the hardest engineering selection processes in the world (JEE — top 0.2% of 1.1 million candidates) to study at IIT Madras, where I spent four years in Ocean Engineering: partial differential equations, computational fluid dynamics, stochastic wave modeling, structural mechanics under extreme loads. It trained me to think about systems under constraints — just not software systems. Yet.
+
+I now build distributed infrastructure that processes tens of millions of identity records for Fortune 500 companies. The bridge from naval architecture to systems engineering is shorter than it sounds: both are about modeling complex systems, finding where they break under load, and designing so they don't.
 
 ---
 
