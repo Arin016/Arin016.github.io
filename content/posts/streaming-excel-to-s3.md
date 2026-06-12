@@ -3,7 +3,7 @@ title: "Streaming 25 Million Excel Cells Through 7 MB of Memory"
 date: 2026-06-12
 draft: false
 tags: ["java", "aws", "s3", "apache-poi", "streaming", "memory"]
-description: "How I designed a 5-stage export pipeline that maintains O(1) memory across 500K+ row Excel reports, multi-GB ZIPs, and concurrent S3 uploads on shared 4GB pods."
+description: "How I designed a 5-stage export pipeline that maintains O(1) memory across 15M+ record exports, multi-GB ZIPs, and concurrent S3 uploads on shared 4GB pods."
 ShowToc: true
 TocOpen: false
 ---
