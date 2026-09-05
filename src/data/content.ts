@@ -148,6 +148,13 @@ export type UpstreamPR = {
 
 export const UPSTREAM: UpstreamPR[] = [
   {
+    repo: "EleutherAI/lm-evaluation-harness",
+    num: "#4104",
+    title: "Evaluate every CoQA turn; keep legacy last-turn variant",
+    state: "open",
+    url: "https://github.com/EleutherAI/lm-evaluation-harness/pull/4104",
+  },
+  {
     repo: "sgl-project/sglang",
     num: "#38045",
     title: "Accounting-contract tests for classic RadixCache",
