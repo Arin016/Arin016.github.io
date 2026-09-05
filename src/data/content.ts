@@ -201,6 +201,13 @@ export const OSS_LIST: OSS[] = [
     highlight: "Fills a 4-year gap in the AWS toolkit",
   },
   {
+    name: "mica",
+    desc: "A glass desktop markdown app. Your vault is a folder of .md files: two panes, slash commands, wikilinks, command palette, offline. Tauri 2, dark by default, with a live landing page and a Mac release.",
+    lang: "TypeScript",
+    url: "https://github.com/Arin016/mica",
+    highlight: "live landing + signed DMG",
+  },
+  {
     name: "gpt2-cpp",
     desc: "GPT-2 in dependency-free C++17: tensor core to greedy decode in seven commits, verified by five correctness tests. No frameworks, no BLAS.",
     lang: "C++",
