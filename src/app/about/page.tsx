@@ -126,6 +126,14 @@ export default function AboutPage() {
             <a className="text-green-300 underline" href="/blog/sod-for-agents">
               Full model
             </a>
+            {" · "}
+            <a
+              className="text-green-300 underline"
+              href="/agent-sod-report.pdf"
+              target="_blank"
+            >
+              Technical report (PDF)
+            </a>
             .
           </p>
         </div>
