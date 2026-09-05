@@ -101,7 +101,7 @@ export const AI_WORK: Work[] = [
     tag: "LEARNING IN PUBLIC",
     title: "A language model built by hand",
     metric: "no model libraries",
-    body: "To understand language models from the inside, I implemented a small one in PyTorch while deliberately refusing the framework's ready-made model components. Embeddings, attention, and decoder blocks all written out explicitly, each stage tested before the next. The model is tiny on purpose, so that internal quantities like the attention matrix stay small enough to read directly. Since ported to dependency-free C++17 as gpt2-cpp, with a five-test correctness harness.",
+    body: "To understand language models from the inside, I implemented a small one in PyTorch while deliberately refusing the framework's ready-made model components. Embeddings, attention, and decoder blocks all written out explicitly, each stage tested before the next. The model is tiny on purpose, so that internal quantities like the attention matrix stay small enough to read directly. Since ported to dependency-free C++17 as gpt2-cpp, with a five-test correctness harness. And since trained for real as lm-train: 0.818M params on Shakespeare, val loss 1.75.",
     stack: ["Python", "PyTorch", "Transformers", "pytest"],
   },
   {
@@ -192,6 +192,13 @@ export const OSS_LIST: OSS[] = [
     lang: "C++",
     url: "https://github.com/Arin016/gpt2-cpp",
     highlight: "causality proven, not assumed",
+  },
+  {
+    name: "lm-train",
+    desc: "The missing run: 0.818M-param char GPT trained end to end on Shakespeare. Loss curves, checkpoint samples, reproduce command.",
+    lang: "Python",
+    url: "https://github.com/Arin016/lm-train",
+    highlight: "val loss 1.75, committed",
   },
   {
     name: "context-lattice",

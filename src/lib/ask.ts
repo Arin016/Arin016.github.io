@@ -76,7 +76,7 @@ const KB: Entry[] = [
   {
     label: "Open source",
     keys: ["oss", "open source", "github", "contribution", "upstream", "opensearch", "s3-outputstream"],
-    text: "8 tools plus upstream pull requests (OpenSearch merged, SGLang open). Code lives at github.com/Arin016.",
+    text: "9 tools plus upstream pull requests (OpenSearch merged, SGLang open). Code lives at github.com/Arin016.",
     src: "/projects",
   },
   {

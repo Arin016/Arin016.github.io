@@ -40,6 +40,6 @@ It also changed how I read my production work. My export pipeline's "the app is 
 
 ## What's still missing, honestly
 
-Three gaps, in order of embarrassment. No training yet: all three models run on random or trivial weights, so none has ever lowered a loss curve. No real tokenizer: bytes and toy vocabularies stand in for BPE. No KV-cache: decoding recomputes everything, which this very site's router post would flag as wasteful. The roadmap names all three. A finished project would close them.
+Three gaps, one now closed. Training is done: [lm-train](https://github.com/Arin016/lm-train) took the same architecture to a real run — 0.818M parameters on Shakespeare, validation loss 1.75, thirty-five seconds on Apple silicon, loss curve and samples committed. Remaining: no real tokenizer (bytes and toy vocabs stand in for BPE) and no KV-cache (decoding recomputes everything, which this site's router post would flag as wasteful). The roadmap names both.
 
 *Code: [github.com/Arin016/aLM](https://github.com/Arin016/aLM) · the CUDA build lives in my local workspace; write-ups land here as the roadmap phases close.*
