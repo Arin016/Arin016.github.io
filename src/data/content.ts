@@ -148,6 +148,13 @@ export type UpstreamPR = {
 
 export const UPSTREAM: UpstreamPR[] = [
   {
+    repo: "kirodotdev/KiroCrew",
+    num: "#8773",
+    title: "Skip heavy CLI imports for bare --version",
+    state: "open",
+    url: "https://github.com/kirodotdev/KiroCrew/pull/8773",
+  },
+  {
     repo: "EleutherAI/lm-evaluation-harness",
     num: "#4104",
     title: "Evaluate every CoQA turn; keep legacy last-turn variant",
