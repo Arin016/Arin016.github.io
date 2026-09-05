@@ -23,7 +23,7 @@ const DIRS: Record<string, string> = {
 };
 
 const QUESTIONS: Line[] = [
-  { text: "01 — consistency I haven't had to prove", tone: "out" },
+  { text: "01 — consistency, now with running code", tone: "out" },
   { text: "02 — storage engines I've only consumed", tone: "out" },
   { text: "03 — verification instead of vigilance", tone: "out" },
   { text: "04 — serving intelligence cheaply", tone: "out" },

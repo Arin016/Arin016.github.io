@@ -208,6 +208,13 @@ export const OSS_LIST: OSS[] = [
     highlight: "val loss 1.75, committed",
   },
   {
+    name: "raft-cpp",
+    desc: "Raft consensus in dependency-free C++17: election, replication, KV machine, chaos-tested across seeds. Simulated transport, documented honestly.",
+    lang: "C++",
+    url: "https://github.com/Arin016/raft-cpp",
+    highlight: "single-leader safety, proven",
+  },
+  {
     name: "context-lattice",
     desc: "Gives AI coding assistants a searchable memory of past work where every recalled fact links back to its source file and a cryptographic fingerprint.",
     lang: "Python",

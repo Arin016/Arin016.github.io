@@ -176,8 +176,8 @@ export function AIWork() {
 export function OpenQuestions() {
   const qs = [
     {
-      q: "01 — consistency I haven't had to prove",
-      body: "My ingestion pipeline behaves exactly once in practice. Idempotent storage, ordered partitions, careful retries. But I've never implemented a consensus protocol, and I can't derive my pipeline's guarantees from first principles. I want to close that gap from the literature and implementation, not from the next production incident.",
+      q: "01 — consistency, now with running code",
+      body: "My ingestion pipeline behaves exactly once in practice. Idempotent storage, ordered partitions, careful retries. Since writing this I implemented Raft in C++ — election, replication, a KV machine, chaos-tested across seeds. Remaining: membership changes, snapshots, and deriving my own pipeline's guarantees from first principles rather than the next incident.",
     },
     {
       q: "02 — storage engines I've only consumed",
