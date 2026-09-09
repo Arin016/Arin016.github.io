@@ -73,8 +73,8 @@ export const WORK: Work[] = [
     id: "fraud-agents",
     tag: "AI MONITORING",
     title: "AI investigators with mandatory evidence",
-    metric: "verified citations only",
-    body: "The most sensitive accounts in a company are emergency 'break-glass' administrator accounts, and their activity logs are where insider fraud appears. I built software agents that investigate these logs on their own. Each pursues one fraud hypothesis with a strict budget of steps and time, and any log entry it cites as evidence is automatically re-checked against the source data. Unverifiable claims are discarded, and uncertain findings go to a human reviewer. New fraud patterns are added through a configuration file, without changing code.",
+    metric: "110 tests · 46/46 synthetic",
+    body: "The most sensitive accounts in a company are emergency 'break-glass' administrator accounts, and their activity logs are where insider fraud appears. I built bounded investigator agents that pursue one fraud hypothesis with strict budgets, with every cited event re-checked against source data and uncertain findings routed to humans. The public research harness holds 110 tests and matched all 46 held-out synthetic variants with no unsupported claims — control-flow evidence, not real-world accuracy. No customer or deployment language by policy.",
     stack: ["Python", "ReAct", "Elasticsearch", "YAML policies"],
   },
   {
@@ -195,10 +195,10 @@ export type OSS = {
 export const OSS_LIST: OSS[] = [
   {
     name: "s3-outputstream",
-    desc: "Lets Java programs write data of any size to cloud storage using a fixed 5 MB of memory, instead of buffering everything first.",
+    desc: "A Java OutputStream over S3 multipart with one reusable 5 MiB buffer and explicit commit/abort semantics. v2.0.0 on Maven Central.",
     lang: "Java",
     url: "https://github.com/Arin016/s3-outputstream",
-    highlight: "Fills a 4-year gap in the AWS toolkit",
+    highlight: "Commit-safe streaming + real-S3 receipt",
   },
   {
     name: "mica",

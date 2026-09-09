@@ -57,4 +57,4 @@ The rules that keep it honest: reads never write (the cooldown unlock is evaluat
 
 Fifty-one automated checks against live APIs, all passing. Counts, dollar figures, review hierarchies, pagination, error cases. Forty of forty again after the action workflow landed. Then two rounds of senior review, which earned their keep: one reviewer restructured the code around the domain's own vocabulary, and another caught a blocking flaw in how indirectly-assigned permissions were targeted — a catch that changed the event contract before production rather than after.
 
-The test tenant showed seven findings worth about $11,000 a year. One dataset's answer from an engine that computes over whatever it is given, with no upper bound on what it can find. Small numbers, real pipeline. That is the correct order to build in.
+The test tenant showed seven findings worth about $11,000 a year. One dataset's answer from an engine that computes over whatever it is given, bounded by what the data supports. Small numbers, real pipeline. That is the correct order to build in.

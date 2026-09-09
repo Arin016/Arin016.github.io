@@ -146,8 +146,17 @@ export default function AboutPage() {
             Software agents that investigate emergency-administrator logs on
             their own, within strict budgets on steps and time. Every log
             entry cited as evidence is re-checked against the source data;
-            uncertain findings go to a human reviewer. New fraud patterns ship
-            as configuration, not code changes.
+            uncertain findings go to a human reviewer. The public research
+            harness is open source with 110 tests and a frozen synthetic
+            evaluation.{" "}
+            <a
+              className="text-green-300 underline"
+              href="https://github.com/Arin016/Log-Insights-generator"
+              target="_blank"
+            >
+              Log-Insights-generator
+            </a>
+            .
           </p>
         </div>
         <div>

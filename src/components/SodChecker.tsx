@@ -230,7 +230,7 @@ export default function SodChecker() {
               )}
             </div>
             <div className="mt-3 border-t border-white/10 pt-2 font-mono text-[10.5px] text-zinc-700">
-              production: 100,000+ accounts · ~2 s · output identical to legacy
+              illustrative demo on synthetic accounts · not measured production performance
             </div>
           </div>
         </div>

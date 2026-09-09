@@ -379,17 +379,17 @@ export function Path() {
   const items = [
     {
       t: "SWE @ Saviynt",
-      d: "Jun 2025 → now · identity governance · 300+ tenants",
+      d: "Jun 2025 → now · identity governance",
       c: "Own export pipeline, SoD engines, audit ingestion, agent safety. 2× Tiger Team.",
     },
     {
       t: "B.Tech Ocean Eng, IIT Madras",
       d: "2021 → 2025 · JEE top 0.2% of 1.1M",
-      c: "Math, modeling, physics. Plus Team Abhiyaan (pitched to India's Commerce Minister) and football, chess, cricket at district level and above.",
+      c: "Math, modeling, physics. Plus Team Abhiyaan (2023 pitches to India's Finance and Commerce Ministers) and IITM football.",
     },
     {
       t: "Competitive programming",
-      d: "4 years · Guardian 2100+ · Expert 1602 · HackerCup R2",
+      d: "4 years · Guardian (peak 2077) · Expert 1602 · Meta Hacker Cup R2",
       c: "My department offered no CS courses, so I trained against students who had them, and stayed until my rankings matched theirs.",
     },
     {
