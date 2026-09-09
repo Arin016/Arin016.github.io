@@ -5,9 +5,9 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 const STATS: [string, string][] = [
-  ["~400x", "audit check"],
-  ["7 MB", "flat at any scale"],
-  ["50K+/s", "exactly-once ingest"],
+  ["~20h→min", "audit check"],
+  ["5 MiB", "bounded S3 buffer"],
+  ["cited", "evidence-checked agents"],
 ];
 
 export default function Image() {

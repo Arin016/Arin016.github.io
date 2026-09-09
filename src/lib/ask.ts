@@ -28,19 +28,19 @@ const KB: Entry[] = [
   {
     label: "Saviynt role",
     keys: ["saviynt", "job", "work", "experience", "role", "company"],
-    text: "Software Engineer at Saviynt (identity governance, 300+ tenants) since Jun 2025: compliance engines, streaming exports, audit ingestion, agent safety.",
+    text: "Software Engineer at Saviynt (identity governance) since Jun 2025: compliance engines, streaming exports, audit ingestion, agent safety.",
     src: "/projects",
   },
   {
     label: "SoD engine",
     keys: ["sod", "segregation", "fraud check", "audit check", "compliance check", "21 hours", "21h"],
-    text: "Segregation-of-duties = proving no employee holds conflicting permissions (e.g. create AND approve a payment). Rebuilt from 21h to ~3min.",
+    text: "Segregation-of-duties = proving no employee holds conflicting permissions (e.g. create AND approve a payment). Worst-case production run rebuilt from ~20h to minutes.",
     src: "/blog/21-hours-to-2-seconds",
   },
   {
     label: "Export pipeline",
     keys: ["export", "excel", "pipeline", "7mb", "7 mb", "streaming", "memory"],
-    text: "Compliance exports of any size at flat 7 MB memory. 15M+ rows proven. Watch it run on the homepage under ./export --watch.",
+    text: "s3-outputstream (v2.0.0, Maven Central): a Java OutputStream over S3 multipart with one reusable 5 MiB buffer and explicit commit/abort semantics. Watch the stage illustration on the homepage.",
     src: "/blog/streaming-excel-to-s3",
   },
   {
@@ -52,13 +52,13 @@ const KB: Entry[] = [
   {
     label: "Agent safety",
     keys: ["agent safety", "agent sod", "copilot", "toxic"],
-    text: "A safety engine for AI agents: 5 risk patterns across agents, owners, chains and credential groups, ~22ms checks.",
+    text: "A safety engine for AI agents: 5 risk patterns across agents, owners, chains and credential groups, deterministic checks with cited evidence.",
     src: "/blog/sod-for-agents",
   },
   {
     label: "Fraud agents",
     keys: ["fraud", "firefighter", "emergency", "investigator", "react agent"],
-    text: "Bounded ReAct agents investigating emergency-admin logs: verified evidence only, 0.70 confidence gate to humans.",
+    text: "Bounded ReAct agents investigating emergency-admin logs: cited events re-checked against source data, uncertain findings go to humans.",
     src: "/projects",
   },
   {
@@ -82,13 +82,13 @@ const KB: Entry[] = [
   {
     label: "Competitive programming",
     keys: ["leetcode", "codeforces", "competitive", "dsa", "rating", "cp", "contest"],
-    text: "Guardian 2100+ / Expert 1602 / HackerCup R2. The 400-file training archive is searchable.",
+    text: "LeetCode Guardian (peak 2077) / Codeforces Expert 1602 / Hacker Cup Round 2.",
     src: "/dsa",
   },
   {
     label: "Education",
     keys: ["education", "iit", "degree", "jee", "college", "ocean", "madras", "study"],
-    text: "B.Tech Ocean Engineering, IIT Madras (2021-2025). JEE top 0.2% of 1.1M.",
+    text: "B.Tech Ocean Engineering, IIT Madras (2021-2025).",
     src: "/about",
   },
   {
@@ -118,7 +118,7 @@ const KB: Entry[] = [
   {
     label: "Security",
     keys: ["security", "tiger", "mtls", "vulnerability", "secops"],
-    text: "2x company-wide security teams: injection/access-control fixes, mTLS rollout, coverage 30% to 80%.",
+    text: "Company-wide security teams: injection/access-control fixes, mTLS rollout, test coverage uplift on critical components.",
     src: "/projects",
   },
   {

@@ -31,7 +31,7 @@ const STAGES = [
     id: "deliver",
     name: "05 · deliver",
     bound: "one key",
-    desc: "A single object lands in storage. Total memory held across all five stages: 7 MB, flat.",
+    desc: "A single object lands in storage. The S3 stage holds one 5 MiB part buffer; producer, SDK and per-part overhead are separate budgets.",
   },
 ];
 
@@ -57,12 +57,12 @@ export default function Pipeline() {
               <span className="text-zinc-600">$</span> ./export --watch
             </div>
             <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
-              The 7 MB pipeline, running
+              A bounded export pipeline, running
             </h2>
           </div>
           <div className="font-mono text-[12px] text-zinc-500 tabular-nums">
             rows <span className="text-green-200">{rows.toLocaleString("en-US")}</span>
-            {" · "}mem <span className="text-zinc-200">7.0 MB</span>
+            {" · "}mem <span className="text-zinc-200">5 MiB part buffer</span>
           </div>
         </div>
       </Reveal>
@@ -117,12 +117,11 @@ export default function Pipeline() {
             </p>
           </div>
           <p className="mt-3 font-mono text-[11px] text-zinc-600">
-            looped demonstration. The architecture is the production one.{" "}
+            looped illustration of the stage bounds, not a live benchmark.{" "}
             <a href="/blog/streaming-excel-to-s3" className="text-green-300 underline">
               full write-up
             </a>{" "}
-            · the 5 MB primitive didn&apos;t exist in the AWS toolkit, so I
-            built it:{" "}
+            · the upload stage is{" "}
             <a
               href="https://github.com/Arin016/s3-outputstream"
               target="_blank"
@@ -130,6 +129,7 @@ export default function Pipeline() {
             >
               s3-outputstream
             </a>
+            : one reusable 5 MiB buffer with explicit commit semantics.
           </p>
         </div>
       </Reveal>

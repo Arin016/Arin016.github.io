@@ -4,9 +4,9 @@ import { SectionHead } from "./Sections";
 import { LINKS } from "@/data/content";
 
 const CHIPS = [
-  { icon: Cpu, t: "21h → ~3 min", s: "2 s of it compute" },
-  { icon: Database, t: "No upper bound", s: "7MB flat · 15M+ proven" },
-  { icon: ShieldCheck, t: "5 risk patterns", s: "~22ms a check" },
+  { icon: Cpu, t: "~20h → mins", s: "worst-case prod check" },
+  { icon: Database, t: "5 MiB buffer", s: "bounded S3 uploads" },
+  { icon: ShieldCheck, t: "5 risk patterns", s: "deterministic checks" },
 ];
 
 export default function Intro() {
@@ -27,7 +27,7 @@ export default function Intro() {
             href={LINKS.leetcode}
             target="_blank"
           >
-            LeetCode Guardian 2100+
+            LeetCode Guardian (peak 2077)
           </a>{" "}
           /{" "}
           <a

@@ -6,7 +6,7 @@ minutes: 13
 excerpt: "Five risk types across agents, owners, chains and credential groups. AGENT_ONLY to INVOKER_COMPOSITE, in a deterministic three-pass engine."
 ---
 
-Checking human permissions for dangerous combinations is a decades-old practice. But assistants that invoke other assistants and share credentials create the same hazard with no person in the loop, and I could find no existing work defining the problem for that setting. So I defined the model and built the engine.
+Checking human permissions for dangerous combinations is a decades-old practice. But assistants that invoke other assistants and share credentials create the same hazard with no person in the loop, and the existing user-role formulation didn't cover that setting. So I formulated the agent version of the model and built the engine.
 
 ## Why agents need SoD
 
@@ -30,7 +30,7 @@ The engine evaluates each invocation in three passes. Per-agent, chain and group
 
 Each rule compiles to condition matching plus set intersection over the capability lattice. Eval runs in three passes per invocation, and every violation is tracked through its full lifecycle. Detected, acknowledged, remediated. Not just flagged once.
 
-Click through all five. Each one is a story that actually shipped in review:
+Click through all five. Each one is a pattern from the shipped review work (release scope pending a company-approved description):
 
 ```widget-risktabs
 interactive: five risk patterns explorer (requires JavaScript)
@@ -38,17 +38,17 @@ interactive: five risk patterns explorer (requires JavaScript)
 
 ## One afternoon, concretely
 
-A finance team ships a helper agent. It can read the shared drive and send email through a connector nobody configured confirmation on. Separately, its owner holds an approver role from their day job. The engine flags two patterns at once. The agent alone can exfiltrate. Together with its owner it can initiate and approve payments. Both findings cite the exact connector, the exact role, the exact edge. A human removes the email connector. Both findings close. Engine time for the snapshot: about 22 milliseconds.
+A finance team ships a helper agent. It can read the shared drive and send email through a connector nobody configured confirmation on. Separately, its owner holds an approver role from their day job. The engine flags two patterns at once. The agent alone can exfiltrate. Together with its owner it can initiate and approve payments. Both findings cite the exact connector, the exact role, the exact edge. A human removes the email connector. Both findings close. Engine latency and deployment scope stay out of this write-up until measured on a defined workload and cleared for disclosure.
 
 ## Why the model doesn't decide
 
 A language model could read the same agent configs and opine about risk. It would also occasionally invent a connector that isn't there. Policy evaluation has to be exact and repeatable. Same graph, same verdict, every time, with every finding pointing at its evidence. The model writes the explanation paragraph afterward, from verified IDs. Judgment stays in code. Prose stays in the model.
 
-Eval: **~22ms** per agent graph snapshot, incremental on grant/chain changes. Every finding cites the exact grants and edges. A deterministic engine, with the language model used only for explanation text whose cited IDs are verified before emission.
+Eval: deterministic three-pass evaluation per agent graph snapshot, incremental on grant/chain changes. Every finding cites the exact grants and edges. A deterministic engine, with the language model used only for explanation text whose cited IDs are verified before emission.
 
 ## Bounded fraud agents alongside it
 
-Separately I shipped ReAct fraud-detection agents over privileged-access audit logs: ≤7 iterations, 120s hard cap, every cited event verified against source rows, <0.70 confidence → human review. Zero hallucination tolerance isn't a slogan; it's an assertion in the emit path.
+Separately I built bounded investigator agents over privileged-access audit logs: one hypothesis per agent, strict budgets on steps and time, every cited event re-checked against source rows, uncertain findings to a human reviewer. The public research harness for this direction is open source: immutable provenance, a typed case graph, scoped read-only tools, atomic claims with independent verification, and selective human review. On 46 held-out synthetic variants across two generated families, the complete harness matched the expected outcome on all 46 with no unsupported surfaced claims — generator control-flow evidence, not model or real-world accuracy. No customer, deployment, or production language appears here by policy.
 
 ## What's next
 

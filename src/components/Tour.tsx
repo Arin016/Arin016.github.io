@@ -19,12 +19,12 @@ const STEPS: Step[] = [
   {
     id: "stats",
     title: "The numbers first.",
-    body: "Every claim on this page carries its measurement. Same output row-for-row, flat memory, cited evidence.",
+    body: "Every project links its evidence. Scoped measurements, linked receipts, stated limits.",
   },
   {
     id: "pipeline",
-    title: "Watch the 7 MB claim run.",
-    body: "Packets flow, the row counter climbs, memory never moves. Click any stage for its bound.",
+    title: "Explore a streaming pipeline illustration.",
+    body: "Packets flow, the row counter climbs, the part buffer never moves. Click any stage for its bound.",
   },
   {
     id: "work",

@@ -107,7 +107,7 @@ function reply(input: string): { lines: Line[]; clear?: boolean; go?: string } {
       return {
         lines: [
           {
-            text: "21h→3min audit (2s compute) · unbounded rows @ 7MB · live license inference · ~22ms agent check",
+            text: "SoD worst case ~20h→mins · S3 5MiB buffer · evidence-checked agents",
             tone: "out",
           },
         ],
@@ -402,13 +402,13 @@ export default function Terminal() {
         <div className="grid gap-2.5 sm:grid-cols-2">
           <div className="rounded-lg border border-green-400/20 bg-green-400/[0.06] p-3">
             <span className="text-green-200">sod_eval:</span>{" "}
-            <span className="text-zinc-400">2s compute · ~3 min w/ writes → </span>
-            <span className="font-bold text-white">was 21h</span>
+            <span className="text-zinc-400">worst case ~20h · now mins · </span>
+            <span className="font-bold text-white">under ~1GB</span>
           </div>
           <div className="rounded-lg border border-green-400/20 bg-green-400/[0.06] p-3">
             <span className="text-green-200">fraud_agent:</span>{" "}
-            <span className="text-zinc-400">0 unverified claims · </span>
-            <span className="font-bold text-white">below 0.70 → human</span>
+            <span className="text-zinc-400">cited events re-checked · </span>
+            <span className="font-bold text-white">uncertain → human</span>
           </div>
         </div>
       </div>

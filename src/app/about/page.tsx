@@ -20,9 +20,8 @@ export default function AboutPage() {
         >
           Saviynt
         </a>        {" "}
-        Identity governance across 300+ enterprise tenants on AWS, Azure and
-        GovCloud. Before that, four years of Ocean Engineering at IIT Madras
-        (JEE top 0.2% of 1.1M). Heavy mathematics, computational modeling,
+        Identity governance at Saviynt. Before that, four years of Ocean Engineering at IIT Madras.
+        Heavy mathematics, computational modeling,
         physics. It trained me to reason about complex systems under extreme
         constraints. The systems just ended up being software rather than
         ships.
@@ -42,14 +41,14 @@ export default function AboutPage() {
       </div>
 
       <h2 className="mt-10 text-2xl font-bold text-white">
-        The 21-hour job that hooked me
+        The ~20-hour job that hooked me
       </h2>
       <p className="mt-3 leading-relaxed text-zinc-400">
         Large companies must continuously prove that no employee holds
         conflicting permissions. Creating and approving the same payment, for
         example. Running this check is called segregation-of-duties
-        evaluation, and one customer&apos;s job ran{" "}
-        <span className="text-white">21 hours on a 64GB machine</span>. It
+        evaluation, and one large enterprise production workload ran{" "}
+        <span className="text-white">about 20 hours at 65 GB</span>. It
         re-examined the same organization hierarchy separately for every
         rule, thousands of times over. I replaced it with a single pass over
         the hierarchy plus bit-level permission comparison, where one
@@ -57,9 +56,9 @@ export default function AboutPage() {
       </p>
       <div className="mt-4 rounded-lg border border-green-400/25 bg-green-400/[0.06] p-5 font-mono text-sm">
         <span className="font-extrabold text-white">
-          2 s of compute. ~3 min end to end. 256 MB.
+          A few minutes end to end. Under about 1 GB.
         </span>{" "}
-        <span className="text-green-200">Byte-identical output.</span>
+        <span className="text-green-200">Matching violations across rollout comparisons.</span>
       </div>
       <p className="mt-4 leading-relaxed text-zinc-400">
         The remaining minutes are almost entirely database writes. Persisting
@@ -100,8 +99,10 @@ export default function AboutPage() {
             EXPORT PIPELINE
           </h3>
           <p className="mt-2">
-            Streams reports of any size. 15M+ rows proven. Formatted Excel
-            inside ZIPs directly to S3. Memory stays flat at 7MB. Paginated reads → 50-row sliding window → S3 multipart →
+            Streams reports of any size through a bounded buffer. Formatted Excel
+            inside ZIPs directly to S3 via s3-outputstream (Apache-2.0, v2.0.0 on
+            Maven Central): one reusable 5 MiB part buffer, explicit commit/abort
+            semantics, real-S3 conformance receipt. Paginated reads → 50-row sliding window → S3 multipart →
             streaming ZIP. Full breakdown in{" "}
             <a
               className="text-green-300 underline"
@@ -120,8 +121,8 @@ export default function AboutPage() {
             When AI assistants hold tools, data access, and credentials, and
             can call other assistants or share credentials with them,
             dangerous permission combinations reappear with no person in the
-            loop. I looked for existing work on this problem, found none, and
-            built the evaluation engine. Five risk patterns, deterministic
+            loop. Existing user-role checks didn&apos;t cover that setting, so I
+            formulated the agent version and built the evaluation engine. Five risk patterns, deterministic
             checks, findings tracked to resolution.{" "}
             <a className="text-green-300 underline" href="/blog/sod-for-agents">
               Full model
@@ -209,11 +210,8 @@ export default function AboutPage() {
             href={LINKS.leetcode}
             target="_blank"
           >
-            LeetCode Guardian 2100+
-          </a>{" "}
-          <span className="text-zinc-600">
-            — ranks 248, 617, 630, 880 / ~45K
-          </span>
+            LeetCode Guardian (peak 2077)
+          </a>
         </li>
         <li>
           <a
@@ -222,12 +220,10 @@ export default function AboutPage() {
             target="_blank"
           >
             Codeforces Expert 1602
-          </a>{" "}
-          <span className="text-zinc-600">— top 0.3% globally</span>
+          </a>
         </li>
         <li className="text-zinc-300">
-          Meta Hacker Cup 2024 — Round 2{" "}
-          <span className="text-zinc-600">(National 424, Global 1903)</span>
+          Meta Hacker Cup — Round 2
         </li>
       </ul>
       <p className="mt-4 leading-relaxed text-zinc-400">
@@ -240,10 +236,11 @@ export default function AboutPage() {
       <h2 className="mt-10 text-2xl font-bold text-white">Beyond engineering</h2>
       <p className="mt-3 leading-relaxed text-zinc-400">
         <span className="text-white">Team Abhiyaan</span> (IITM autonomous
-        vehicles). I led external relations, pitched directly to India&apos;s
-        Commerce Minister, grew reach 125%. Athletics: football city runner-up,
-        Villarreal CF Academy, district champion; chess district runner-up;
-        cricket district all-rounder.
+        vehicles). I led external relations and pitched to Finance Minister
+        Nirmala Sitharaman and Commerce Minister Piyush Goyal at an IIT Madras
+        Research Park event. Athletics: inter-department football runner-up,
+        Dean&apos;s Trophy third place, hostel captain, IIT Madras co-captain
+        in my final year.
       </p>
 
       <h2 className="mt-10 text-2xl font-bold text-white">
@@ -253,7 +250,7 @@ export default function AboutPage() {
         I can build systems that work under extreme constraints. I&apos;ve
         done it repeatedly at scale. But I&apos;ve done it by inferring
         principles from operating production systems under pressure. I know <em>that</em> my
-        exactly-once pipeline is correct. I want the theory that explains{" "}
+        ordered, replayable pipelines held up in review. I want the theory that explains{" "}
         <em>why</em> in the general case.
       </p>
       <p className="mt-4 leading-relaxed text-zinc-400">

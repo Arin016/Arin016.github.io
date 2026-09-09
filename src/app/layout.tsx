@@ -11,7 +11,7 @@ const mono = JetBrains_Mono({ variable: "--font-mono", subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Arin Mallanna Tumbagi — Systems Engineer",
   description:
-    "Arin Tumbagi builds distributed systems at Saviynt: a 21-hour audit check rebuilt to ~3 minutes, streaming exports with no upper bound at 7MB flat, exactly-once audit ingestion. IIT Madras. LeetCode Guardian / Codeforces Expert.",
+    "Arin Tumbagi builds identity systems at Saviynt: a ~20-hour audit check rebuilt to minutes, bounded S3 uploads with explicit commit semantics, evidence-checked agents. IIT Madras. LeetCode Guardian / Codeforces Expert.",
   metadataBase: new URL("https://arinmallannagithubio.vercel.app"),
   openGraph: {
     title: "Arin Mallanna Tumbagi — Systems Engineer",

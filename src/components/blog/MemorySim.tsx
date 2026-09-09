@@ -59,14 +59,18 @@ export default function MemorySim() {
         </div>
         <div>
           <div className="flex justify-between text-zinc-500">
-            <span>bounded pipeline</span>
-            <span className="text-green-300">7 MB</span>
+            <span>bounded pipeline (5 MiB part buffer*)</span>
+            <span className="text-green-300">5 MiB</span>
           </div>
           <div className="mt-1 h-2 overflow-hidden rounded-full bg-white/10">
             <div className="h-full w-[2%] rounded-full bg-green-400" />
           </div>
         </div>
       </div>
+      <p className="mt-3 font-mono text-[11px] text-zinc-600">
+        *illustrative model of buffer-vs-naive growth, not measured process memory.
+        Producer, SDK and per-part overhead are separate budgets.
+      </p>
       <div
         className={`mt-4 rounded-md border p-3 font-mono text-[12.5px] ${
           oom
