@@ -230,7 +230,7 @@ export default function SodChecker() {
               )}
             </div>
             <div className="mt-3 border-t border-white/10 pt-2 font-mono text-[10.5px] text-zinc-700">
-              huge Hitachi production run: compute ~2s on 100K+ accounts, same violations as legacy · end-to-end minutes with writes · published with director approval
+              huge enterprise production run: compute ~2s on 100K+ accounts, same violations as legacy · end-to-end minutes with writes · published with director approval
             </div>
           </div>
         </div>
