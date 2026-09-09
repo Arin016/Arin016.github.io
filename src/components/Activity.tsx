@@ -6,7 +6,7 @@ type Item = { text: string; href: string; when: string };
 
 const FALLBACK: Item[] = [
   {
-    text: "released s3-outputstream v2.0.0 on Maven Central. Explicit commit semantics, real-S3 conformance.",
+    text: "released s3-outputstream v2.0.0 on Maven Central. Success-declared publishing, real-S3 conformance.",
     href: "https://github.com/Arin016/s3-outputstream",
     when: "pinned",
   },

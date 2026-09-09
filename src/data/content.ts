@@ -12,7 +12,7 @@ export type Stat = { k: string; v: string; sub: string };
 
 export const STATS: Stat[] = [
   { k: "~20h → mins", v: "compliance check", sub: "large-enterprise worst case · <1GB" },
-  { k: "5 MiB", v: "S3 part buffer", sub: "explicit commit semantics · v2.0.0 on Central" },
+  { k: "5 MiB", v: "S3 part buffer", sub: "publishes only on declared success · v2.0.0" },
   { k: "cited", v: "agent evidence", sub: "verified IDs only · humans decide the rest" },
   { k: "live", v: "license inference", sub: "computed findings · tasks that survive refresh" },
   { k: "2077", v: "LeetCode peak", sub: "Codeforces Expert 1602 · Meta Hacker Cup R2" },
@@ -34,7 +34,7 @@ export const WORK: Work[] = [
     tag: "LICENSE INTELLIGENCE",
     title: "License waste, found and priced",
     metric: "recommendation engine",
-    body: "Companies pay SAP per user, priced by access level. Most quietly overpay for dormant accounts and over-privileged users. I built the recommendation engine that finds this waste: findings computed live from the search index at request time, priced in dollars, acted on through one action call that fans out into removal tasks with de-duplication. Action records live on the identity document and survive the nightly data replacement through merge/strip/prune. Validated 51/51 against live APIs in test, through two rounds of senior review; a test tenant showed seven findings worth about $11,000 a year. Test result, not a production savings claim.",
+    body: "Companies pay SAP per user, priced by access level. Most quietly overpay for dormant accounts and over-privileged users. I built the recommendation engine that finds this waste: findings computed live from the search index at request time, priced in dollars, acted on through one action call that fans out into removal tasks with de-duplication. Action records live on the identity document and survive the nightly data replacement through merge/strip/prune. Validated 51/51 against live APIs in test, through two rounds of senior review; a test tenant showed seven findings worth about $11,000 a year. Test result, not a production savings claim — the dollar math scales with estate size.",
     stack: ["Java", "Spring Boot", "Kafka Avro", "OpenSearch"],
   },
   {
@@ -50,7 +50,7 @@ export const WORK: Work[] = [
     tag: "DATA EXPORT",
     title: "Excel exports that stream to S3",
     metric: "5 MiB buffer · v2.0.0",
-    body: "Audit and compliance teams periodically need complete data exports as formatted Excel workbooks in S3. The previous exporter assembled entire workbooks in memory and crashed on large reports. I built s3-outputstream, an Apache-2.0 Java OutputStream over S3 multipart with one reusable 5 MiB part buffer and explicit commit/abort semantics: commit publishes, close aborts. v2.0.0 is on Maven Central with a real-S3 conformance receipt. Bounded application buffering, not bounded total process memory — producer, SDK and per-part overhead are separate budgets.",
+    body: "Audit and compliance teams periodically need complete data exports as formatted Excel workbooks in S3. The previous exporter assembled entire workbooks in memory and crashed on large reports. I built s3-outputstream, an Apache-2.0 Java OutputStream over S3 multipart with one reusable 5 MiB part buffer: an upload publishes only when the producer declares success, otherwise it is discarded. v2.0.0 is on Maven Central with a real-S3 conformance receipt. Bounded application buffering, not bounded total process memory — producer, SDK and per-part overhead are separate budgets.",
     stack: ["Java", "POI SXSSF", "S3 multipart", "ZIP streaming"],
   },
   {
@@ -195,7 +195,7 @@ export type OSS = {
 export const OSS_LIST: OSS[] = [
   {
     name: "s3-outputstream",
-    desc: "A Java OutputStream over S3 multipart with one reusable 5 MiB buffer and explicit commit/abort semantics. v2.0.0 on Maven Central.",
+    desc: "A Java OutputStream over S3 multipart with one reusable 5 MiB buffer; uploads publish only on declared success. v2.0.0 on Maven Central.",
     lang: "Java",
     url: "https://github.com/Arin016/s3-outputstream",
     highlight: "Commit-safe streaming + real-S3 receipt",
