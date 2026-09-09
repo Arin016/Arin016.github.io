@@ -15,7 +15,7 @@ export const STATS: Stat[] = [
   { k: "5 MiB", v: "S3 part buffer", sub: "explicit commit semantics · v2.0.0 on Central" },
   { k: "cited", v: "agent evidence", sub: "verified IDs only · humans decide the rest" },
   { k: "live", v: "license inference", sub: "computed findings · tasks that survive refresh" },
-  { k: "2077", v: "LeetCode peak", sub: "Codeforces Expert 1602 · Hacker Cup R2" },
+  { k: "2077", v: "LeetCode peak", sub: "Codeforces Expert 1602 · Meta Hacker Cup R2" },
   { k: "s3-outputstream", v: "open source", sub: "Apache-2.0 · real-S3 conformance receipt" },
 ];
 

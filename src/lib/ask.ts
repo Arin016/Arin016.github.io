@@ -82,7 +82,7 @@ const KB: Entry[] = [
   {
     label: "Competitive programming",
     keys: ["leetcode", "codeforces", "competitive", "dsa", "rating", "cp", "contest"],
-    text: "LeetCode Guardian (peak 2077) / Codeforces Expert 1602 / Hacker Cup Round 2.",
+    text: "LeetCode Guardian (peak 2077) / Codeforces Expert 1602 / Meta Hacker Cup Round 2.",
     src: "/dsa",
   },
   {
