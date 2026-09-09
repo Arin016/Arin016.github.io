@@ -57,7 +57,7 @@ export default function Footer() {
         </div>
         <div className="mt-6 flex flex-col gap-1 border-t border-white/5 pt-4 font-mono text-[11px] text-zinc-700 sm:flex-row sm:justify-between">
           <span>session {session} · guest · readonly</span>
-          <span>next.js · vercel · 2026</span>
+          <span>© 2026 Arin Mallanna Tumbagi</span>
         </div>
       </div>
     </footer>
