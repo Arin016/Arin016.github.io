@@ -20,8 +20,8 @@ export default function AboutPage() {
         >
           Saviynt
         </a>        {" "}
-        Identity governance at Saviynt. Before that, four years of Ocean Engineering at IIT Madras.
-        Heavy mathematics, computational modeling,
+        Identity governance at Saviynt. Before that, four years of Ocean Engineering at IIT Madras
+        (JEE top 0.2% of 1.1M). Heavy mathematics, computational modeling,
         physics. It trained me to reason about complex systems under extreme
         constraints. The systems just ended up being software rather than
         ships.
@@ -236,7 +236,7 @@ export default function AboutPage() {
       <h2 className="mt-10 text-2xl font-bold text-white">Beyond engineering</h2>
       <p className="mt-3 leading-relaxed text-zinc-400">
         <span className="text-white">Team Abhiyaan</span> (IITM autonomous
-        vehicles). I led external relations and pitched to Finance Minister
+        vehicles). I led external relations and in 2023 pitched to Finance Minister
         Nirmala Sitharaman and Commerce Minister Piyush Goyal at an IIT Madras
         Research Park event. Athletics: inter-department football runner-up,
         Dean&apos;s Trophy third place, hostel captain, IIT Madras co-captain

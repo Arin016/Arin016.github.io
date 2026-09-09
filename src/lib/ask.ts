@@ -88,7 +88,7 @@ const KB: Entry[] = [
   {
     label: "Education",
     keys: ["education", "iit", "degree", "jee", "college", "ocean", "madras", "study"],
-    text: "B.Tech Ocean Engineering, IIT Madras (2021-2025).",
+    text: "B.Tech Ocean Engineering, IIT Madras (2021-2025). JEE top 0.2% of 1.1M.",
     src: "/about",
   },
   {
