@@ -40,9 +40,9 @@ export function Stats() {
         {STATS.map((s) => (
           <div
             key={s.v}
-            className="group rounded-lg border border-white/10 bg-white/[0.02] p-4 transition hover:border-green-400/30 hover:bg-green-400/[0.05]"
+            className="group min-w-0 rounded-lg border border-white/10 bg-white/[0.02] p-4 transition hover:border-green-400/30 hover:bg-green-400/[0.05]"
           >
-            <div className="font-mono text-2xl font-extrabold text-green-300">
+            <div className="break-all font-mono text-2xl font-extrabold text-green-300">
               <CountUp value={s.k} />
             </div>
             <div className="mt-1 text-[13px] font-bold text-white">{s.v}</div>
