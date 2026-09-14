@@ -151,7 +151,7 @@ export const UPSTREAM: UpstreamPR[] = [
     repo: "kirodotdev/KiroCrew",
     num: "#8773",
     title: "Skip heavy CLI imports for bare --version",
-    state: "open",
+    state: "merged",
     url: "https://github.com/kirodotdev/KiroCrew/pull/8773",
   },
   {
