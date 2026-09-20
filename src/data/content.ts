@@ -24,6 +24,7 @@ export type Work = {
   tag: string;
   title: string;
   metric: string;
+  blurb: string;
   body: string;
   stack: string[];
 };
@@ -34,6 +35,7 @@ export const WORK: Work[] = [
     tag: "LICENSE INTELLIGENCE",
     title: "License waste, found and priced",
     metric: "recommendation engine",
+    blurb: "Finds SAP accounts you're overpaying for, with the dollar amount attached.",
     body: "Companies pay SAP per user, priced by access level. Most quietly overpay for dormant accounts and over-privileged users. I built the recommendation engine that finds this waste: findings computed live from the search index at request time, priced in dollars, acted on through one action call that fans out into removal tasks with de-duplication. Action records live on the identity document and survive the nightly data replacement through merge/strip/prune. Validated 51/51 against live APIs in test, through two rounds of senior review; a test tenant showed seven findings worth about $11,000 a year. Test result, not a production savings claim — the dollar math scales with estate size.",
     stack: ["Java", "Spring Boot", "Kafka Avro", "OpenSearch"],
   },
@@ -42,6 +44,7 @@ export const WORK: Work[] = [
     tag: "COMPLIANCE ENGINE",
     title: "A day-long audit check, rebuilt to minutes",
     metric: "~20h → mins",
+    blurb: "A compliance check that ran overnight now finishes before lunch.",
     body: "Large companies must continuously prove that no employee holds conflicting permissions. For example, the ability to both create and approve the same payment. For one large enterprise production workload, this check took about 20 hours at 65 GB because the old system re-examined the organization hierarchy separately for every rule. I rebuilt the engine to resolve the hierarchy once and compare permissions with bit-level operations. The redesigned path runs in a few minutes under about 1 GB, with matching violations across the rollout comparisons. Worst-case production scope, not a lab benchmark.",
     stack: ["Java", "Raw JDBC", "BitSet", "OpenSearch"],
   },
@@ -50,6 +53,7 @@ export const WORK: Work[] = [
     tag: "DATA EXPORT",
     title: "Excel exports that stream to S3",
     metric: "5 MiB buffer · v2.0.0",
+    blurb: "Reports of any size, without ever running out of memory.",
     body: "Audit and compliance teams periodically need complete data exports as formatted Excel workbooks in S3. The previous exporter assembled entire workbooks in memory and crashed on large reports. I built s3-outputstream, an Apache-2.0 Java OutputStream over S3 multipart with one reusable 5 MiB part buffer: an upload publishes only when the producer declares success, otherwise it is discarded. v2.0.0 is on Maven Central with a real-S3 conformance receipt. Bounded application buffering, not bounded total process memory — producer, SDK and per-part overhead are separate budgets.",
     stack: ["Java", "POI SXSSF", "S3 multipart", "ZIP streaming"],
   },
@@ -58,6 +62,7 @@ export const WORK: Work[] = [
     tag: "DATA INGESTION",
     title: "Audit records you can count on",
     metric: "ordered · replayable",
+    blurb: "Every privileged action recorded so fraud review and audits hold up.",
     body: "Every privileged action on the platform becomes an audit record. Who accessed what, and when. These records feed fraud review and regulatory audits, so the ingestion path uses ordered, replayable streams with duplicate-proof storage: publish first, mark after, merge rather than replace on refresh. Throughput and tenant counts stay out of this description until measured on a defined workload and cleared for disclosure.",
     stack: ["Kafka", "Avro", "MySQL", "Redis"],
   },
@@ -66,6 +71,7 @@ export const WORK: Work[] = [
     tag: "AI SAFETY",
     title: "The same fraud check, for AI agents",
     metric: "5 patterns · deterministic",
+    blurb: "Dangerous permission combos, now policed in AI assistants too.",
     body: "Companies now build AI assistants that hold tools, data access, and login credentials. These assistants can call other assistants or share credentials with them. The dangerous permission combinations we police in humans quietly reappear, with no person in the loop. I formulated effective access for agents across five patterns — a single over-privileged agent, conflicts spanning agent and owner, delegation chains, credential-sharing groups, actions on a user's behalf — and built a deterministic evaluation engine where every finding cites its evidence and is tracked to resolution. Latency and deployment scope stay out until measured and cleared.",
     stack: ["Java", "Spring Boot", "Graph analysis", "Raw JDBC"],
   },
@@ -74,6 +80,7 @@ export const WORK: Work[] = [
     tag: "AI MONITORING",
     title: "AI investigators with mandatory evidence",
     metric: "110 tests · 46/46 synthetic",
+    blurb: "Fraud-hunting agents that cite proof or hand the case to a human.",
     body: "The most sensitive accounts in a company are emergency 'break-glass' administrator accounts, and their activity logs are where insider fraud appears. I built bounded investigator agents that pursue one fraud hypothesis with strict budgets, with every cited event re-checked against source data and uncertain findings routed to humans. The public research harness holds 110 tests and matched all 46 held-out synthetic variants with no unsupported claims — control-flow evidence, not real-world accuracy. No customer or deployment language by policy.",
     stack: ["Python", "ReAct", "Elasticsearch", "YAML policies"],
   },
@@ -82,6 +89,7 @@ export const WORK: Work[] = [
     tag: "SECURITY",
     title: "Company-wide security initiatives",
     metric: "coverage 30% → 80%",
+    blurb: "Two tours on temporary teams fixing systemic flaws across services.",
     body: "Twice in my first year I was asked to join temporary, company-wide security teams addressing systemic issues. Categories of injection and access-control flaws found across services, encrypted internal communication between data systems, and test coverage on critical components, which rose from 30% to 80%. The work was unglamorous and cross-team by design. It prevents incidents rather than responding to them.",
     stack: ["AppSec", "mTLS", "SAST/DAST", "Testing"],
   },
@@ -93,6 +101,7 @@ export const AI_WORK: Work[] = [
     tag: "AI INFRASTRUCTURE",
     title: "Send each request where its past already lives",
     metric: "less recomputation",
+    blurb: "A load balancer that remembers which server already knows you.",
     body: "When you continue a conversation with a large language model, the serving computers keep a cache of what came before, so follow-up questions avoid redoing work. But in a fleet of machines, a standard load balancer sends your follow-up to a random server, which recomputes everything. Nostos, a router I built, instead sends each request to the server whose cache already holds that conversation. It weighs cache overlap against queue length and memory load. It remembers fingerprints of past text, never the text itself, and passes responses through without buffering. A public demo lets you race routing strategies against each other.",
     stack: ["Go", "Radix trees", "vLLM / TGI", "React"],
   },
@@ -101,6 +110,7 @@ export const AI_WORK: Work[] = [
     tag: "LEARNING IN PUBLIC",
     title: "A language model built by hand",
     metric: "no model libraries",
+    blurb: "Learn transformers by rebuilding one — then twice more, deeper.",
     body: "To understand language models from the inside, I implemented a small one in PyTorch while deliberately refusing the framework's ready-made model components. Embeddings, attention, and decoder blocks all written out explicitly, each stage tested before the next. The model is tiny on purpose, so that internal quantities like the attention matrix stay small enough to read directly. Since ported to dependency-free C++17 as gpt2-cpp, with a five-test correctness harness. And since trained for real as lm-train: 0.818M params on Shakespeare, val loss 1.75.",
     stack: ["Python", "PyTorch", "Transformers", "pytest"],
   },
@@ -109,6 +119,7 @@ export const AI_WORK: Work[] = [
     tag: "LEARNING IN PUBLIC",
     title: "The same model, one level deeper",
     metric: "in progress",
+    blurb: "The same transformer, now in raw GPU code.",
     body: "Now the same transformer implemented directly in the graphics processor's own programming language, with every computation kernel written by hand. It starts from matrix multiplication checked against an ordinary CPU reference, moves through attention and normalization, and heads toward a full training run and an optimized attention variant benchmarked against PyTorch. The goal is a working understanding of how GPUs actually execute programs. Memory movement, parallel scheduling, occupancy. Not familiarity with an API, but with the machine. In progress; each phase must pass its tests before the next begins.",
     stack: ["CUDA", "C++", "CPU reference", "Colab T4"],
   },

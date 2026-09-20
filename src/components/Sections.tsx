@@ -98,19 +98,27 @@ export function Work() {
               </span>
             </div>
             <h3 className="mt-4 text-lg font-bold text-white">{w.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-              {w.body}
+            <p className="mt-1 text-sm leading-relaxed text-zinc-300">
+              {w.blurb}
             </p>
-            <div className="mt-4 flex flex-wrap gap-1.5">
-              {w.stack.map((s) => (
-                <span
-                  key={s}
-                  className="rounded bg-white/5 px-2 py-1 font-mono text-[11px] text-zinc-400"
-                >
-                  {s}
-                </span>
-              ))}
-            </div>
+            <details className="group mt-3">
+              <summary className="cursor-pointer list-none font-mono text-[11px] text-zinc-600 transition hover:text-green-300 [&::-webkit-details-marker]:hidden">
+                + how it works
+              </summary>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                {w.body}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {w.stack.map((s) => (
+                  <span
+                    key={s}
+                    className="rounded bg-white/5 px-2 py-1 font-mono text-[11px] text-zinc-400"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </details>
           </article>
         ))}
       </SpotGrid>
@@ -153,22 +161,64 @@ export function AIWork() {
             <div className="mt-1 font-mono text-xs text-green-300">
               {w.metric}
             </div>
-            <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-              {w.body}
+            <p className="mt-1 text-sm leading-relaxed text-zinc-300">
+              {w.blurb}
             </p>
-            <div className="mt-4 flex flex-wrap gap-1.5">
-              {w.stack.map((s) => (
-                <span
-                  key={s}
-                  className="rounded bg-white/5 px-2 py-1 font-mono text-[11px] text-zinc-400"
-                >
-                  {s}
-                </span>
-              ))}
-            </div>
+            <details className="group mt-3">
+              <summary className="cursor-pointer list-none font-mono text-[11px] text-zinc-600 transition hover:text-green-300 [&::-webkit-details-marker]:hidden">
+                + how it works
+              </summary>
+              <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+                {w.body}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {w.stack.map((s) => (
+                  <span
+                    key={s}
+                    className="rounded bg-white/5 px-2 py-1 font-mono text-[11px] text-zinc-400"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </details>
           </article>
         ))}
       </SpotGrid>
+    </section>
+  );
+}
+
+export function AskEmbed({ children }: { children: React.ReactNode }) {
+  return (
+    <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+      <SectionHead
+        cmd="ask anything"
+        title="Ask the site"
+        right={
+          <Link
+            href="/ask"
+            className="font-mono text-xs text-zinc-500 hover:text-green-300"
+          >
+            full terminal →
+          </Link>
+        }
+      />
+      <p className="-mt-3 mb-5 max-w-2xl text-sm text-zinc-400">
+        Semantic search over everything here, judged by calibrated AI. It
+        cites its page — or tells you it doesn&apos;t know.
+      </p>
+      <div className="overflow-hidden rounded-xl border border-white/10 bg-[#070907]/95">
+        <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
+          <span className="size-2.5 rounded-full bg-zinc-700" />
+          <span className="size-2.5 rounded-full bg-zinc-700" />
+          <span className="size-2.5 rounded-full bg-zinc-700" />
+          <span className="ml-3 font-mono text-xs text-zinc-500">
+            guest@arin: ~/ask
+          </span>
+        </div>
+        {children}
+      </div>
     </section>
   );
 }
