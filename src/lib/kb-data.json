@@ -2,245 +2,555 @@
   {
     "id": "profile-who",
     "label": "Profile",
-    "keys": ["whoami", "who are you", "about you", "bio"],
+    "keys": [
+      "whoami",
+      "who are you",
+      "about you",
+      "bio"
+    ],
     "text": "Arin Mallanna Tumbagi — Software Engineer at Saviynt, B.Tech Ocean Engineering at IIT Madras.",
     "src": "/about"
   },
   {
     "id": "profile-what",
     "label": "Profile",
-    "keys": ["what do you do", "does arin", "who is arin", "introduce", "profile", "overview", "summary", "tldr", "arin", "day job", "work as", "occupation"],
+    "keys": [
+      "what do you do",
+      "does arin",
+      "who is arin",
+      "introduce",
+      "profile",
+      "overview",
+      "summary",
+      "tldr",
+      "arin",
+      "day job",
+      "work as",
+      "occupation"
+    ],
     "text": "Arin builds identity infrastructure at Saviynt. Backends moving records at any scale, plus AI agents held to verified evidence. IIT Madras engineer, competitive programmer, ML-from-scratch habit.",
     "src": "/about"
   },
   {
     "id": "saviynt-role",
     "label": "Saviynt role",
-    "keys": ["saviynt", "job", "work", "experience", "role", "company", "employer", "full-time"],
+    "keys": [
+      "saviynt",
+      "job",
+      "work",
+      "experience",
+      "role",
+      "company",
+      "employer",
+      "full-time"
+    ],
     "text": "Software Engineer at Saviynt (identity governance) since Jun 2025: compliance engines, streaming exports, audit ingestion, agent safety.",
     "src": "/projects"
   },
   {
     "id": "sod-engine",
     "label": "SoD engine",
-    "keys": ["sod", "segregation", "fraud check", "audit check", "compliance check", "21 hours", "21h", "20 hours", "20h", "2 seconds", "bitset", "permission", "conflicting"],
+    "keys": [
+      "sod",
+      "segregation",
+      "fraud check",
+      "audit check",
+      "compliance check",
+      "21 hours",
+      "21h",
+      "20 hours",
+      "20h",
+      "2 seconds",
+      "bitset",
+      "permission",
+      "conflicting"
+    ],
     "text": "Segregation-of-duties = proving no employee holds conflicting permissions (e.g. create AND approve a payment). Worst-case production run rebuilt from ~20h at 65 GB to minutes under 1 GB: one hierarchy pass plus bit-level permission comparison.",
     "src": "/blog/21-hours-to-2-seconds"
   },
   {
     "id": "export-pipe",
     "label": "Export pipeline",
-    "keys": ["export", "excel", "pipeline", "7mb", "7 mb", "streaming", "memory", "s3-outputstream", "multipart", "workbook", "zip"],
+    "keys": [
+      "export",
+      "excel",
+      "pipeline",
+      "7mb",
+      "7 mb",
+      "streaming",
+      "memory",
+      "s3-outputstream",
+      "multipart",
+      "workbook",
+      "zip"
+    ],
     "text": "s3-outputstream (v2.0.0, Maven Central, Apache-2.0): a Java OutputStream over S3 multipart with one reusable 5 MiB buffer and explicit commit/abort semantics — an upload publishes only on declared success. Streams formatted Excel inside ZIPs of any size.",
     "src": "/blog/streaming-excel-to-s3"
   },
   {
     "id": "license-intel",
     "label": "License Intel",
-    "keys": ["license", "sap", "waste", "savings", "fue", "tier", "dormant", "over-privileged", "dollar", "recommendation"],
+    "keys": [
+      "license",
+      "sap",
+      "waste",
+      "savings",
+      "fue",
+      "tier",
+      "dormant",
+      "over-privileged",
+      "dollar",
+      "recommendation"
+    ],
     "text": "License Intelligence: an inference engine finding SAP license waste (dormant/over-privileged accounts), priced in dollars and removed via tasks. Validated 51/51 against live APIs; a test tenant showed seven findings worth about $11,000 a year (test result, not a production savings claim).",
     "src": "/blog/unused-permissions-priced-in-dollars"
   },
   {
     "id": "agent-safety",
     "label": "Agent safety",
-    "keys": ["agent safety", "agent sod", "copilot", "toxic", "effective access", "delegation", "risk pattern"],
+    "keys": [
+      "agent safety",
+      "agent sod",
+      "copilot",
+      "toxic",
+      "effective access",
+      "delegation",
+      "risk pattern"
+    ],
     "text": "A safety engine for AI agents: effective-access analysis across 5 risk patterns (single over-privileged agent, agent-owner conflicts, delegation chains, credential-sharing groups, actions on a user's behalf), deterministic checks with cited evidence tracked to resolution.",
     "src": "/blog/sod-for-agents"
   },
   {
     "id": "fraud-agents",
     "label": "Fraud agents",
-    "keys": ["fraud", "firefighter", "emergency", "investigator", "react agent", "break-glass", "break glass", "insider"],
+    "keys": [
+      "fraud",
+      "firefighter",
+      "emergency",
+      "investigator",
+      "react agent",
+      "break-glass",
+      "break glass",
+      "insider"
+    ],
     "text": "Bounded ReAct agents investigating emergency break-glass admin logs: one fraud hypothesis per run within strict step/time budgets, every cited event re-checked against source data, uncertain findings routed to humans. Public harness: 110 tests, 46/46 held-out synthetic variants.",
     "src": "/projects"
   },
   {
     "id": "audit-ingest",
     "label": "Audit ingestion",
-    "keys": ["ingest", "audit record", "audit log", "kafka", "replayable", "ordered", "duplicate", "avro"],
+    "keys": [
+      "ingest",
+      "audit record",
+      "audit log",
+      "kafka",
+      "replayable",
+      "ordered",
+      "duplicate",
+      "avro"
+    ],
     "text": "Ordered, replayable audit ingestion for every privileged action: Kafka/Avro streams with duplicate-proof storage — publish first, mark after, merge rather than replace on refresh.",
     "src": "/projects"
   },
   {
     "id": "nostos",
     "label": "Nostos router",
-    "keys": ["router", "kv cache", "nostos", "inference", "vllm", "prefix", "sglang", "serving", "load balancer", "cache-aware"],
+    "keys": [
+      "router",
+      "kv cache",
+      "nostos",
+      "inference",
+      "vllm",
+      "prefix",
+      "sglang",
+      "serving",
+      "load balancer",
+      "cache-aware"
+    ],
     "text": "Nostos routes each LLM request to the server whose KV-cache already holds its conversation (radix-tree prefix affinity, weighed against queue and memory load). Passes responses through without buffering; stores fingerprints, never text. Live demo racing routing strategies.",
     "src": "/blog/route-to-the-prefix"
   },
   {
     "id": "transformers",
     "label": "Transformers x3",
-    "keys": ["gpt", "gpt2", "cpp", "machine learning", "ml", "transformer", "cuda", "arinlm", "attention", "llm", "model", "neural"],
+    "keys": [
+      "gpt",
+      "gpt2",
+      "cpp",
+      "machine learning",
+      "ml",
+      "transformer",
+      "cuda",
+      "arinlm",
+      "attention",
+      "llm",
+      "model",
+      "neural"
+    ],
     "text": "Same transformer 3x: PyTorch by hand with no model shortcuts, dependency-free C++17 (gpt2-cpp, five correctness tests), raw CUDA in progress from matmul against CPU reference toward FlashAttention-style benchmarks.",
     "src": "/blog/gpt-from-scratch-thrice"
   },
   {
     "id": "lm-train",
     "label": "lm-train",
-    "keys": ["trained", "training", "shakespeare", "loss curve", "char-gpt", "0.818", "val loss", "checkpoint"],
+    "keys": [
+      "trained",
+      "training",
+      "shakespeare",
+      "loss curve",
+      "char-gpt",
+      "0.818",
+      "val loss",
+      "checkpoint"
+    ],
     "text": "lm-train: a 0.818M-param char-level GPT trained end to end on Shakespeare (val loss 1.75) with loss curves, checkpoint samples and a reproduce command.",
     "src": "https://github.com/Arin016/lm-train"
   },
   {
     "id": "raft",
     "label": "Raft",
-    "keys": ["raft", "consensus", "distributed", "leader election", "replication", "chaos", "kv store"],
+    "keys": [
+      "raft",
+      "consensus",
+      "distributed",
+      "leader election",
+      "replication",
+      "chaos",
+      "kv store"
+    ],
     "text": "raft-cpp: Raft consensus in dependency-free C++17 — leader election, log replication and a KV machine, chaos-tested across seeds over a simulated transport (no real networking; documented honestly).",
     "src": "https://github.com/Arin016/raft-cpp"
   },
   {
     "id": "oss",
     "label": "Open source",
-    "keys": ["oss", "open source", "github", "contribution", "upstream", "opensearch", "s3-outputstream", "repositories", "repos"],
+    "keys": [
+      "oss",
+      "open source",
+      "github",
+      "contribution",
+      "upstream",
+      "opensearch",
+      "s3-outputstream",
+      "repositories",
+      "repos"
+    ],
     "text": "11 tools plus upstream pull requests across KiroCrew, OpenSearch, SGLang and lm-eval. Code at github.com/Arin016.",
     "src": "/projects"
   },
   {
     "id": "s3oss",
     "label": "s3-outputstream",
-    "keys": ["maven", "central", "outputstream", "java library", "apache"],
+    "keys": [
+      "maven",
+      "central",
+      "outputstream",
+      "java library",
+      "apache"
+    ],
     "text": "s3-outputstream: Java OutputStream over S3 multipart, one reusable 5 MiB buffer, commit-safe publishing, real-S3 conformance receipt. Apache-2.0, v2.0.0 on Maven Central.",
     "src": "https://github.com/Arin016/s3-outputstream"
   },
   {
     "id": "gpt2cpp",
     "label": "gpt2-cpp",
-    "keys": ["gpt-2 weights", "greedy decode", "tensor", "blas", "seven commits"],
+    "keys": [
+      "gpt-2 weights",
+      "greedy decode",
+      "tensor",
+      "blas",
+      "seven commits"
+    ],
     "text": "gpt2-cpp: GPT-2 in dependency-free C++17, tensor core to greedy decode in seven commits, five correctness tests. No frameworks, no BLAS.",
     "src": "https://github.com/Arin016/gpt2-cpp"
   },
   {
     "id": "context-lattice",
     "label": "context-lattice",
-    "keys": ["memory", "mcp", "conversation memory", "hierarchical memory", "recall", "fingerprint"],
+    "keys": [
+      "memory",
+      "mcp",
+      "conversation memory",
+      "hierarchical memory",
+      "recall",
+      "fingerprint"
+    ],
     "text": "context-lattice: source-verifiable hierarchical conversation memory for LLMs over MCP — every recalled fact links to its source file and a cryptographic fingerprint.",
     "src": "https://github.com/Arin016/context-lattice"
   },
   {
     "id": "kyn",
     "label": "kyn",
-    "keys": ["control panel", "scheduled task", "approval gate", "persistent memory", "long-running agent"],
+    "keys": [
+      "control panel",
+      "scheduled task",
+      "approval gate",
+      "persistent memory",
+      "long-running agent"
+    ],
     "text": "kyn: a control panel for long-running AI coding agents — named agents with persistent memory, scheduled tasks and human approval gates before consequential actions. Live demo online.",
     "src": "https://kyn-blush.vercel.app"
   },
   {
     "id": "why-search",
     "label": "Y search",
-    "keys": ["chat history", "private search", "offline", "timing question", "last month"],
+    "keys": [
+      "chat history",
+      "private search",
+      "offline",
+      "timing question",
+      "last month"
+    ],
     "text": "Y: private search over exported chat history, including timing questions ('what did we discuss last month?'). Fully offline, no data leaves the machine.",
     "src": "https://github.com/Arin016/Y"
   },
   {
     "id": "xx-cli",
     "label": "xx-cli",
-    "keys": ["terminal command", "plain english", "shell", "command generator"],
+    "keys": [
+      "terminal command",
+      "plain english",
+      "shell",
+      "command generator"
+    ],
     "text": "xx-cli: type a request in plain English, get the terminal command, shown for review before anything runs. Fully offline.",
     "src": "https://github.com/Arin016/xx-cli"
   },
   {
     "id": "friday",
     "label": "friday",
-    "keys": ["session", "claude code", "codex", "dashboard", "index"],
+    "keys": [
+      "session",
+      "claude code",
+      "codex",
+      "dashboard",
+      "index"
+    ],
     "text": "friday: one searchable index of AI coding sessions across Claude Code, Kiro CLI and Codex. Read-only, one keystroke back to the original session.",
     "src": "https://github.com/Arin016/friday"
   },
   {
     "id": "bug-butcher",
     "label": "bug-butcher",
-    "keys": ["bug fix", "delegating", "fenced", "failing test", "repair plan", "prove"],
+    "keys": [
+      "bug fix",
+      "delegating",
+      "fenced",
+      "failing test",
+      "repair plan",
+      "prove"
+    ],
     "text": "bug-butcher: a safety harness for delegating bug fixes to agents — plan agreed first, edits fenced to approved files, a failing-then-passing test required before a human merges.",
     "src": "https://github.com/Arin016/bug-butcher"
   },
   {
     "id": "kv-demo",
     "label": "Nostos demo",
-    "keys": ["demo", "race", "arena", "vercel", "try", "live demo", "playground"],
+    "keys": [
+      "demo",
+      "race",
+      "arena",
+      "vercel",
+      "try",
+      "live demo",
+      "playground"
+    ],
     "text": "Try the Nostos routing arena live: race cache-aware routing against baselines in the browser.",
     "src": "https://kv-router.vercel.app"
   },
   {
     "id": "upstream",
     "label": "Upstream PRs",
-    "keys": ["pull request", "merged", "opensearch-go", "lm-eval", "sglang", "kirocrew", "coqa", "radixcache", "agentpolicy"],
+    "keys": [
+      "pull request",
+      "merged",
+      "opensearch-go",
+      "lm-eval",
+      "sglang",
+      "kirocrew",
+      "coqa",
+      "radixcache",
+      "agentpolicy"
+    ],
     "text": "Upstream: OpenSearch #22136 merged, opensearch-go #881 open, lm-eval CoQA-turns open, SGLang RadixCache accounting tests open, KiroCrew startup-trim merged.",
     "src": "/projects"
   },
   {
     "id": "cp",
     "label": "Competitive programming",
-    "keys": ["leetcode", "codeforces", "competitive", "dsa", "rating", "cp", "contest", "guardian", "expert", "hacker cup"],
+    "keys": [
+      "leetcode",
+      "codeforces",
+      "competitive",
+      "dsa",
+      "rating",
+      "cp",
+      "contest",
+      "guardian",
+      "expert",
+      "hacker cup"
+    ],
     "text": "LeetCode Guardian (peak 2077) / Codeforces Expert 1602 / Meta Hacker Cup Round 2. 400+ file training archive is searchable on-site.",
     "src": "/dsa"
   },
   {
     "id": "education",
     "label": "Education",
-    "keys": ["education", "iit", "degree", "jee", "college", "ocean", "madras", "study", "university", "major", "cs degree"],
+    "keys": [
+      "education",
+      "iit",
+      "degree",
+      "jee",
+      "college",
+      "ocean",
+      "madras",
+      "study",
+      "university",
+      "major",
+      "cs degree"
+    ],
     "text": "B.Tech Ocean Engineering, IIT Madras (2021-2025). JEE top 0.2% of 1.1M. No formal CS degree — data structures, OS and databases learned through four years of competitive programming evenings.",
     "src": "/about"
   },
   {
     "id": "contact",
     "label": "Contact",
-    "keys": ["contact", "email", "reach", "hire", "resume", "cv", "talk", "collaborat", "get in touch", "phone"],
+    "keys": [
+      "contact",
+      "email",
+      "reach",
+      "hire",
+      "resume",
+      "cv",
+      "talk",
+      "collaborat",
+      "get in touch",
+      "phone"
+    ],
     "text": "arin16tumbagi@gmail.com. Resume PDF in the homepage contact section.",
     "src": "/resume.pdf"
   },
   {
     "id": "blog",
     "label": "Blog",
-    "keys": ["blog", "writing", "posts", "articles", "writeup", "write-up", "essay"],
+    "keys": [
+      "blog",
+      "writing",
+      "posts",
+      "articles",
+      "writeup",
+      "write-up",
+      "essay"
+    ],
     "text": "6 posts: inference routing, 3x transformers, streaming, SoD engine, agent safety, license intel.",
     "src": "/blog"
   },
   {
     "id": "skills",
     "label": "Skills",
-    "keys": ["skills", "stack", "languages", "java", "go", "python", "typescript", "kafka", "cplusplus", "c++", "tech"],
+    "keys": [
+      "skills",
+      "stack",
+      "languages",
+      "java",
+      "go",
+      "python",
+      "typescript",
+      "kafka",
+      "cplusplus",
+      "c++",
+      "tech"
+    ],
     "text": "Java, Go, Python, TypeScript, C++/CUDA. Kafka/Avro, OpenSearch, MySQL, Redis, S3, PyTorch, MCP.",
     "src": "/about"
   },
   {
     "id": "interests",
     "label": "Interests",
-    "keys": ["interests", "learn", "consensus", "storage", "verification", "research", "future", "working toward", "next"],
+    "keys": [
+      "interests",
+      "learn",
+      "consensus",
+      "storage",
+      "verification",
+      "research",
+      "future",
+      "working toward",
+      "next"
+    ],
     "text": "Consensus, storage engines, verification, serving intelligence cheaply — each paired with the production experience behind it.",
     "src": "/#questions"
   },
   {
     "id": "security",
     "label": "Security",
-    "keys": ["security", "tiger", "mtls", "vulnerability", "secops", "injection", "access-control", "coverage"],
+    "keys": [
+      "security",
+      "tiger",
+      "mtls",
+      "vulnerability",
+      "secops",
+      "injection",
+      "access-control",
+      "coverage"
+    ],
     "text": "Twice asked onto company-wide security Tiger Teams: injection/access-control flaw categories across services, mTLS rollout between data systems, critical-component test coverage from 30% to 80%.",
     "src": "/projects"
   },
   {
     "id": "abhiyaan",
     "label": "Beyond engineering",
-    "keys": ["abhiyaan", "autonomous vehicles", "football", "athletics", "sitharaman", "leadership", "hobby", "sport"],
+    "keys": [
+      "abhiyaan",
+      "autonomous vehicles",
+      "football",
+      "athletics",
+      "sitharaman",
+      "leadership",
+      "hobby",
+      "sport"
+    ],
     "text": "Team Abhiyaan (IITM autonomous vehicles): led external relations, pitched to Finance Minister Sitharaman and Minister Goyal in 2023. Football: inter-department runner-up, hostel captain, IITM co-captain final year.",
     "src": "/about"
   },
   {
     "id": "mica",
     "label": "mica",
-    "keys": ["mica", "markdown app", "tauri", "glass", "vault", "desktop app"],
+    "keys": [
+      "mica",
+      "markdown app",
+      "tauri",
+      "glass",
+      "vault",
+      "desktop app"
+    ],
     "text": "mica: a glass desktop markdown app — your vault is a folder of .md files with two panes, slash commands, wikilinks and command palette, offline. Tauri 2, dark by default, live landing page and signed Mac release.",
     "src": "https://github.com/Arin016/mica"
   },
   {
     "id": "hive",
     "label": "hive",
-    "keys": ["hive", "org activity", "mirror", "mcp tools"],
+    "keys": [
+      "hive",
+      "org activity",
+      "mirror",
+      "mcp tools"
+    ],
     "text": "hive: a deterministic org-activity mirror with 3 MCP tools. Zero LLM in the backend.",
     "src": "https://github.com/Arin016/hive"
   },
   {
     "id": "greeting",
     "label": "Greeting",
-    "keys": ["hello", "hi", "hey", "yo", "greetings", "namaste", "hii"],
+    "keys": [
+      "hello",
+      "hi",
+      "hey",
+      "yo",
+      "greetings",
+      "namaste",
+      "hii"
+    ],
     "text": "Hello. Ask me anything about Arin's work, projects, or background. Try a suggestion below.",
     "src": "/about",
     "smalltalk": true
@@ -248,7 +558,14 @@
   {
     "id": "thanks",
     "label": "Thanks",
-    "keys": ["thank you", "thanks", "dhanyavad", "bye", "goodbye", "see you"],
+    "keys": [
+      "thank you",
+      "thanks",
+      "dhanyavad",
+      "bye",
+      "goodbye",
+      "see you"
+    ],
     "text": "Anytime. For anything longer, arin16tumbagi@gmail.com.",
     "src": "/about",
     "smalltalk": true
@@ -256,9 +573,738 @@
   {
     "id": "help",
     "label": "Help",
-    "keys": ["help", "commands", "how to use", "what can you"],
+    "keys": [
+      "help",
+      "commands",
+      "how to use",
+      "what can you"
+    ],
     "text": "Ask anything about Arin. Work, projects, skills, background, contact. Plain English works.",
     "src": "/about",
     "smalltalk": true
+  },
+  {
+    "id": "21-hours-to-2-seconds#0",
+    "label": "From ~20 hours to minutes: a compliance check, re-examined once — overview",
+    "keys": [
+      "hours",
+      "minutes",
+      "compliance",
+      "check",
+      "examined",
+      "once",
+      "seconds",
+      "overview"
+    ],
+    "text": "overview: Large companies must regularly prove that no employee holds conflicting permissions. Creating and approving the same payment, for instance. Running this check across a whole organization is called segregation-of-duties evaluation. For one large enterprise production workload, this check ran **about 20 hours at 65 GB of memory**. The replacement runs in **a few minutes under about 1 GB**, with matching violations across the rollout comparisons. Here's what was wrong and what replaced it. Scope note: this is the worst-case production workload, not a lab benchmark and not a claim about every dataset. A separate controlled computation slice measured separately must not be merged into these numbers.",
+    "src": "/blog/21-hours-to-2-seconds"
+  },
+  {
+    "id": "21-hours-to-2-seconds#1",
+    "label": "From ~20 hours to minutes: a compliance check, re-examined once — The shape of t",
+    "keys": [
+      "hours",
+      "minutes",
+      "compliance",
+      "check",
+      "examined",
+      "once",
+      "seconds",
+      "shape",
+      "problem"
+    ],
+    "text": "The shape of the problem: Each compliance rule names a pair of conflicting permissions, and the check finds every employee holding both. Directly, or inherited through role hierarchies and nested groups. The old program handled rules one at a time, and for each rule it re-examined the entire organization hierarchy from scratch: 1. Load the relevant part of the hierarchy 2. Work out every member below it, transitively 3. Compare against the rule's permission holders 4. Repeat for the next rule: re-examining the same hierarchy Thousands of rules over a deep hierarchy meant the same subtrees were walked thousands of times. Memory churned, the machine sat at full capacity, and the job still took most of a day.",
+    "src": "/blog/21-hours-to-2-seconds"
+  },
+  {
+    "id": "21-hours-to-2-seconds#2",
+    "label": "From ~20 hours to minutes: a compliance check, re-examined once — The fix: exami",
+    "keys": [
+      "hours",
+      "minutes",
+      "compliance",
+      "check",
+      "examined",
+      "once",
+      "seconds",
+      "examine",
+      "compare",
+      "bits"
+    ],
+    "text": "The fix: examine once, compare with bits: **Pass 1 — one walk of the hierarchy.** Traverse the organization structure a single time. Give every employee a dense numeric id, and record each group's full membership as a bitset. A compact string of bits, one per person. **Pass 2 — rules as bit operations.** Each rule's permission holders become bitsets too, so checking a rule is a bitwise AND across machine words: 64 people compared per processor instruction. ``` before: for each rule, re-examine the hierarchy → O(R · H²) after: examine once; each rule is a bit operation → O(H + R · U/64) ``` Size it yourself, then watch one instruction do 64 users at once: ```widget-bitsetlab interactive: bitset sizing lab with live AND demo (requires JavaScript) ```",
+    "src": "/blog/21-hours-to-2-seconds"
+  },
+  {
+    "id": "21-hours-to-2-seconds#3",
+    "label": "From ~20 hours to minutes: a compliance check, re-examined once — The hardware r",
+    "keys": [
+      "hours",
+      "minutes",
+      "compliance",
+      "check",
+      "examined",
+      "once",
+      "seconds",
+      "hardware",
+      "reason",
+      "holds"
+    ],
+    "text": "The hardware reason it holds: Memory: membership for 100K employees fits in about 12.5 KB per set. The whole check runs in compact arrays instead of sprawling object graphs. A 64-bit AND executes in one cycle, touches one cache line per operand, and never branches. The old code chased pointers through object graphs and asked the garbage collector to clean up. Representing 100K users as roughly 12 KB of bits turns the same question into a streaming pass the prefetcher loves. Data structure choice is hardware choice.",
+    "src": "/blog/21-hours-to-2-seconds"
+  },
+  {
+    "id": "21-hours-to-2-seconds#4",
+    "label": "From ~20 hours to minutes: a compliance check, re-examined once — Where this sto",
+    "keys": [
+      "hours",
+      "minutes",
+      "compliance",
+      "check",
+      "examined",
+      "once",
+      "seconds",
+      "where",
+      "stops",
+      "working"
+    ],
+    "text": "Where this stops working: Two limits. The single hierarchy pass is still proportional to hierarchy size. An org ten times deeper costs ten times more traversal, and no bit trick removes that. And once compute shrank, writes dominated: persisting violation records to the database became the cost. Every optimization ends this way. You don't eliminate the bottleneck; you migrate it somewhere cheaper. The skill is knowing which migrations are worth it.",
+    "src": "/blog/21-hours-to-2-seconds"
+  },
+  {
+    "id": "21-hours-to-2-seconds#5",
+    "label": "From ~20 hours to minutes: a compliance check, re-examined once — Verification",
+    "keys": [
+      "hours",
+      "minutes",
+      "compliance",
+      "check",
+      "examined",
+      "once",
+      "seconds",
+      "verification"
+    ],
+    "text": "Verification: Compared against the old program's output on the customer's dataset before switching over, then run alongside the old system before the old code was removed. Matching detected violations across the rollout comparisons — a rollout procedure, not a byte-equality proof.",
+    "src": "/blog/21-hours-to-2-seconds"
+  },
+  {
+    "id": "21-hours-to-2-seconds#6",
+    "label": "From ~20 hours to minutes: a compliance check, re-examined once — What stayed wi",
+    "keys": [
+      "hours",
+      "minutes",
+      "compliance",
+      "check",
+      "examined",
+      "once",
+      "seconds",
+      "stayed"
+    ],
+    "text": "What stayed with me: The data wasn't big. The work was repeated. Many problems that present as scale turn out to be repetition: the same question answered thousands of times instead of once. Examine once, represent compactly, and let the hardware do what it does best.",
+    "src": "/blog/21-hours-to-2-seconds"
+  },
+  {
+    "id": "gpt-from-scratch-thrice#0",
+    "label": "A language model from scratch, three times — overview",
+    "keys": [
+      "language",
+      "model",
+      "scratch",
+      "three",
+      "times",
+      "thrice",
+      "overview"
+    ],
+    "text": "overview: I spent my engineering degree modeling ships and my nights competing in programming contests. Somewhere in there I realized I used transformer-based models daily without knowing what one computes. So I built one. Then twice more, one level down each time.",
+    "src": "/blog/gpt-from-scratch-thrice"
+  },
+  {
+    "id": "gpt-from-scratch-thrice#1",
+    "label": "A language model from scratch, three times — Round one: ArinLM (PyTorch, no shor",
+    "keys": [
+      "language",
+      "model",
+      "scratch",
+      "three",
+      "times",
+      "thrice",
+      "round",
+      "arinlm",
+      "pytorch",
+      "shortcuts"
+    ],
+    "text": "Round one: ArinLM (PyTorch, no shortcuts): ArinLM is a small GPT-style language model, the architecture family behind ChatGPT-style assistants, written in Python and PyTorch under a deliberate constraint: none of the framework's ready-made model components, no downloaded model code. Small on purpose. Vocab 100, context 32, width 64, 4 heads, 2 decoder blocks. Every tensor stays inspectable. Built incrementally: token embeddings first, then learned positionals, then attention, then blocks. Each step explained and tested before the next. The constraint is the whole point. At 64 dimensions you can print the attention matrix and *read* it. Positional embeddings stop being a formula and become a table you watch get learned. Nothing about this model is useful. Everything about building it was. Size one yourself. The formula is roughly 12 × layers × width², plus embeddings: ```widget-paramcalc interactive: transformer sizing calculator (requires JavaScript) ```",
+    "src": "/blog/gpt-from-scratch-thrice"
+  },
+  {
+    "id": "gpt-from-scratch-thrice#2",
+    "label": "A language model from scratch, three times — Round two: raw CUDA (no framework a",
+    "keys": [
+      "language",
+      "model",
+      "scratch",
+      "three",
+      "times",
+      "thrice",
+      "round",
+      "cuda",
+      "framework"
+    ],
+    "text": "Round two: raw CUDA (no framework at all): Same transformer, one level down: every kernel written by hand. The roadmap is strict. Naive matmul against a CPU reference first, then QK^T/softmax/·V as kernels, then the full forward pass, then a hand-rolled backward pass, then a tiny char-level training run, ending at tiled matmul and FlashAttention-style tiling benchmarked against PyTorch. This one is explicitly a curriculum, not a result: learner-written code in `src/`, reference solutions quarantined in `solutions/` for post-attempt comparison only. The syllabus is GPU architecture the hard way. Memory hierarchy, coalescing, shared-memory tiling, occupancy, tensor cores. I'm early in it, and I'm not pretending otherwise.",
+    "src": "/blog/gpt-from-scratch-thrice"
+  },
+  {
+    "id": "gpt-from-scratch-thrice#3",
+    "label": "A language model from scratch, three times — Round three: C++ on CPU (no depende",
+    "keys": [
+      "language",
+      "model",
+      "scratch",
+      "three",
+      "times",
+      "thrice",
+      "round",
+      "dependencies"
+    ],
+    "text": "Round three: C++ on CPU (no dependencies at all): The third implementation is the most complete: [gpt2-cpp](https://github.com/Arin016/gpt2-cpp), a GPT-2-style model in dependency-free C++17. No PyTorch, no BLAS, nothing beyond the standard library. Seven commits, each building on the last: tensor core with matmul, softmax/GELU/layer-norm, causal attention, multi-head attention, the transformer block, the full model with greedy decoding. Then a five-test harness. The tests are the point. Softmax rows sum to one. Norms standardize. Future tokens provably don't move past logits. Identical seeds give identical logits. Shapes survive every layer. Weights are random, so output bytes are degenerate by construction. What is verified is the machinery, and the README says so upfront.",
+    "src": "/blog/gpt-from-scratch-thrice"
+  },
+  {
+    "id": "gpt-from-scratch-thrice#4",
+    "label": "A language model from scratch, three times — What three implementations teach yo",
+    "keys": [
+      "language",
+      "model",
+      "scratch",
+      "three",
+      "times",
+      "thrice",
+      "implementations",
+      "teach"
+    ],
+    "text": "What three implementations teach you: Building the same object three times, at adjacent levels of abstraction, is the fastest way I've found to locate the holes in your understanding. The framework teaches you the mathematics. C++ teaches you the cost in its barest form. Every allocation visible, every loop yours. The hardware teaches you that attention is a data-movement problem first and a math problem second. It also changed how I read my production work. My export pipeline's \"the app is a pipe, not a bucket\" is a memory-hierarchy argument I was making before I had the vocabulary for it. Now I do.",
+    "src": "/blog/gpt-from-scratch-thrice"
+  },
+  {
+    "id": "gpt-from-scratch-thrice#5",
+    "label": "A language model from scratch, three times — What's still missing, honestly",
+    "keys": [
+      "language",
+      "model",
+      "scratch",
+      "three",
+      "times",
+      "thrice",
+      "still",
+      "missing",
+      "honestly"
+    ],
+    "text": "What's still missing, honestly: Three gaps, one now closed. Training is done: [lm-train](https://github.com/Arin016/lm-train) took the same architecture to a real run — 0.818M parameters on Shakespeare, validation loss 1.75, thirty-five seconds on Apple silicon, loss curve and samples committed. Remaining: no real tokenizer (bytes and toy vocabs stand in for BPE) and no KV-cache (decoding recomputes everything, which this site's router post would flag as wasteful). The roadmap names both. *Code: [github.com/Arin016/aLM](https://github.com/Arin016/aLM) · the CUDA build lives in my local workspace; write-ups land here as the roadmap phases close.*",
+    "src": "/blog/gpt-from-scratch-thrice"
+  },
+  {
+    "id": "kirocrew-version-fast-path#0",
+    "label": "255ms to 68ms: a --version fast-path for KiroCrew — overview",
+    "keys": [
+      "255ms",
+      "68ms",
+      "version",
+      "fast",
+      "path",
+      "kirocrew",
+      "overview"
+    ],
+    "text": "overview: It started with a post about Claude Code's boot time. Someone had dissected how `claude --version` answers in 12 milliseconds: handle the trivial flags before importing anything heavy, fire slow I/O during module evaluation, lazily load the megabyte-scale modules. I use Kiro CLI every day, I had heard its repo was open source, and I thought: same trick, same win, quick MR. Almost every part of that sentence turned out to be wrong, and the correction is the interesting part.",
+    "src": "/blog/kirocrew-version-fast-path"
+  },
+  {
+    "id": "kirocrew-version-fast-path#1",
+    "label": "255ms to 68ms: a --version fast-path for KiroCrew — The target that wasn't",
+    "keys": [
+      "255ms",
+      "68ms",
+      "version",
+      "fast",
+      "path",
+      "kirocrew",
+      "target",
+      "wasn"
+    ],
+    "text": "The target that wasn't: Two facts killed the original plan in about ten minutes. First, Kiro CLI is not open source — the IDE and CLI ship under a proprietary license, and the public repo is an issue tracker that says so plainly. The genuinely open predecessor was archived. Second, it didn't need the optimization anyway: `kiro-cli --version` on my machine answers in 11 milliseconds. It's a compiled Rust binary. There is no import tree to skip. But the machine next to it told a different story. KiroCrew — the open-source agent workspace that runs on top of `kiro-cli` — answered its own `--version` in 426 milliseconds installed, 255 milliseconds from a source checkout. Same flag, forty times slower. That became the port.",
+    "src": "/blog/kirocrew-version-fast-path"
+  },
+  {
+    "id": "kirocrew-version-fast-path#2",
+    "label": "255ms to 68ms: a --version fast-path for KiroCrew — What the milliseconds were",
+    "keys": [
+      "255ms",
+      "68ms",
+      "version",
+      "fast",
+      "path",
+      "kirocrew",
+      "milliseconds"
+    ],
+    "text": "What the milliseconds were: `import kiro_crew.cli` costs roughly a quarter second of module scope that `--version` never uses: the built-in apps registry, the doctor command pulling in `aiohttp`, the history-to-sandbox chain. A prior cleanup had already deferred the three heaviest modules and cut the import from 1.3 seconds to half a second. The remaining cost was death by twenty small imports, each individually justifiable, jointly absurd for a flag that prints fourteen characters. The fix is eleven lines in two files. Both entry paths — the `kirocrew` console script and `python -m kiro_crew` — check for the exact bare form, print `kirocrew <version>`, and exit before the heavy imports execute. Only the bare form: `artifact show --version N` reuses the flag name for an artifact version integer, so anything else falls through to argparse untouched. Result: 255 down to 68 milliseconds, output byte-identical.",
+    "src": "/blog/kirocrew-version-fast-path"
+  },
+  {
+    "id": "kirocrew-version-fast-path#3",
+    "label": "255ms to 68ms: a --version fast-path for KiroCrew — The gauntlet",
+    "keys": [
+      "255ms",
+      "68ms",
+      "version",
+      "fast",
+      "path",
+      "kirocrew",
+      "gauntlet"
+    ],
+    "text": "The gauntlet: The code was the easy third of the work. The PR went through six review rounds, and nearly every one taught something: **An early version had three guards instead of two**, including one at `cli.py` module scope. Two separate reviewers flagged it, and the second one brought receipts: every desktop launcher routes through `python -m`, so the third guard protected zero real invocations while adding an import-time exit to the most-imported module. I had defended it with a \"frozen binary\" argument that was factually wrong. Conceded in full, deleted the guard. Concede fast when the reviewer cites file and line. **The fast-path silently disabled release gates.** Several build scripts use `--version` as an install-integrity probe — \"the full import chain must resolve\" — and my change made those gates prove nothing. That was a correct BLOCK, and the fix belonged in the same PR: companion `import kiro_crew.cli` probes next to both desktop self-containment gates, plus honest documentation of the lanes a fork physically cannot patch. **The environment fought back.** Git pushes died with timeouts on a half-gigabyte shallow clone, so branches were built through the GitHub API. A stale fork base silently swept 110 lines of someone else's merged code into my diff — two reviewers caught it from opposite angles, one as hygiene, one as a security finding on code I never wrote. Fixe",
+    "src": "/blog/kirocrew-version-fast-path"
+  },
+  {
+    "id": "kirocrew-version-fast-path#4",
+    "label": "255ms to 68ms: a --version fast-path for KiroCrew — The ending I didn't expect",
+    "keys": [
+      "255ms",
+      "68ms",
+      "version",
+      "fast",
+      "path",
+      "kirocrew",
+      "ending",
+      "didn",
+      "expect"
+    ],
+    "text": "The ending I didn't expect: After six idle days, a maintainer's bot took over the PR: rebased it onto current main, extended the gate coverage to the Dockerfile itself, documented the remaining workflow gap, and pushed as co-author. A human maintainer then approved, and it merged. My eleven lines ship alongside their additions, which is exactly the right shape for an outside contribution to land in. The numbers for the record: 255ms to 68ms on the flag, six files, one new test file with three tests, zero behavior change anywhere else.",
+    "src": "/blog/kirocrew-version-fast-path"
+  },
+  {
+    "id": "kirocrew-version-fast-path#5",
+    "label": "255ms to 68ms: a --version fast-path for KiroCrew — What I'd repeat",
+    "keys": [
+      "255ms",
+      "68ms",
+      "version",
+      "fast",
+      "path",
+      "kirocrew",
+      "repeat"
+    ],
+    "text": "What I'd repeat: Measure before theorizing — every decision in this story came from a timing number, an import trace, or a grep. Keep the diff purely additive where possible; reviewers forgive slowness, not scope. Write the failure modes into the description before reviewers find them. And when a reviewer proves you wrong with a file path, say so plainly and delete the code the same day. Nothing in this PR survived contact with review unchanged except the idea, and the idea was never mine — it was a post about someone else's twelve milliseconds.",
+    "src": "/blog/kirocrew-version-fast-path"
+  },
+  {
+    "id": "route-to-the-prefix#0",
+    "label": "Route to the machine that already knows the conversation — overview",
+    "keys": [
+      "route",
+      "machine",
+      "already",
+      "knows",
+      "conversation",
+      "prefix",
+      "overview"
+    ],
+    "text": "overview: I named it Nostos — νόστος, homecoming. The observation: every follow-up message in a chat repeats almost the entire conversation, and the computers serving these models keep a cache of processed conversation (called a KV cache) precisely to avoid redoing that work. But in a fleet of machines, an ordinary load balancer sends your follow-up to a random server, which recomputes everything. Nostos asks a different question: **which healthy server already holds this conversation?**",
+    "src": "/blog/route-to-the-prefix"
+  },
+  {
+    "id": "route-to-the-prefix#1",
+    "label": "Route to the machine that already knows the conversation — The mechanism",
+    "keys": [
+      "route",
+      "machine",
+      "already",
+      "knows",
+      "conversation",
+      "prefix",
+      "mechanism"
+    ],
+    "text": "The mechanism: Nostos sits in front of standard model-serving software as a small, fast program written in Go: ``` client ──new message──▶ Nostos ──▶ serving machines │ fingerprint earlier │ messages look up which machines have seen them weigh cache overlap against queue length and memory load reserve capacity │ forward message, │ stream the reply back ``` For each machine, Nostos keeps a compact lookup structure (a radix tree) recording fingerprints of conversation it has plausibly seen. Fingerprints, never the text. An incoming message's fingerprints are checked against every machine's tree, and the score balances expected saved recomputation against current queue length and memory pressure. The winner's capacity is reserved atomically before anything is forwarded, so concurrent requests can't double-book a machine. Two properties I treated as non-negotiable: 1. **It remembers where, not what.** The router records *that* a machine saw a conversation fingerprint, never the conversation. No user text touches disk. These structures are navigation aids, not logs. 2. **It never slows the reply.** Responses stream through Nostos as they are generated, not buffered. A router that adds delay to every word of every answer defeats its own purpose.",
+    "src": "/blog/route-to-the-prefix"
+  },
+  {
+    "id": "route-to-the-prefix#2",
+    "label": "Route to the machine that already knows the conversation — The score, concretely",
+    "keys": [
+      "route",
+      "machine",
+      "already",
+      "knows",
+      "conversation",
+      "prefix",
+      "score",
+      "concretely"
+    ],
+    "text": "The score, concretely: ``` score = expected_hit × prefix_len − queue_penalty − pressure ``` Expected hit comes from the radix lookup: how many leading blocks this machine has plausibly seen. Queue penalty is current depth. Pressure is memory load. The three terms have different units, so the weights are tuned empirically in the arena, not derived. Then the winner's slot is reserved atomically before proxying, because two concurrent requests must never both claim the last slot. Try the tradeoff yourself: ```widget-routersim interactive: routing policy comparison toy (requires JavaScript) ```",
+    "src": "/blog/route-to-the-prefix"
+  },
+  {
+    "id": "route-to-the-prefix#3",
+    "label": "Route to the machine that already knows the conversation — Why this, and not jus",
+    "keys": [
+      "route",
+      "machine",
+      "already",
+      "knows",
+      "conversation",
+      "prefix",
+      "sticky",
+      "sessions"
+    ],
+    "text": "Why this, and not just sticky sessions: Sending each user back to the same machine (a \"sticky session\") covers the common case, but breaks down the moment sessions move between machines, many users share the same opening instructions, or the fleet grows and mappings go stale. Routing by *content already resident* generalizes stickiness: it helps one long conversation and a thousand users sharing a system prompt with the same machinery.",
+    "src": "/blog/route-to-the-prefix"
+  },
+  {
+    "id": "route-to-the-prefix#4",
+    "label": "Route to the machine that already knows the conversation — What can go wrong",
+    "keys": [
+      "route",
+      "machine",
+      "already",
+      "knows",
+      "conversation",
+      "prefix",
+      "wrong"
+    ],
+    "text": "What can go wrong: Affinity goes stale. Machines restart, fleets rescale, and yesterday's evidence misleads. So evidence is bounded and decays. A backend earns its score continuously or loses it. Cold machines still need traffic to warm up, so every backend keeps a floor score. Pure exploitation would starve newcomers forever. And the router never stores prompts, only hashes, which bounds the damage if the router itself is ever compromised.",
+    "src": "/blog/route-to-the-prefix"
+  },
+  {
+    "id": "route-to-the-prefix#5",
+    "label": "Route to the machine that already knows the conversation — The arena",
+    "keys": [
+      "route",
+      "machine",
+      "already",
+      "knows",
+      "conversation",
+      "prefix",
+      "arena"
+    ],
+    "text": "The arena: The most instructive part was the demo site: an interactive routing arena where you can compare policies. Round-robin, least-queue, prefix-affinity, against the same synthetic workload, watching where recomputation cost actually goes. Building the visualization forced me to make the scoring honest. When your policy loses to round-robin on some workload in public, you learn exactly which term in the score is wrong. This is inference systems work, not model work. That's deliberate. The scarcest resource in serving isn't parameters, it's the memory holding yesterday's context. Routing is a small lever on a very large cost. *Code: [github.com/Arin016/kv-router](https://github.com/Arin016/kv-router) · Demo: [kv-router.vercel.app](https://kv-router.vercel.app)*",
+    "src": "/blog/route-to-the-prefix"
+  },
+  {
+    "id": "sod-for-agents#0",
+    "label": "SoD for AI agents: toxic combinations in autonomous systems — overview",
+    "keys": [
+      "agents",
+      "toxic",
+      "combinations",
+      "autonomous",
+      "systems",
+      "overview"
+    ],
+    "text": "overview: Checking human permissions for dangerous combinations is a decades-old practice. But assistants that invoke other assistants and share credentials create the same hazard with no person in the loop, and the existing user-role formulation didn't cover that setting. So I formulated the agent version of the model and built the engine.",
+    "src": "/blog/sod-for-agents"
+  },
+  {
+    "id": "sod-for-agents#1",
+    "label": "SoD for AI agents: toxic combinations in autonomous systems — Why agents need So",
+    "keys": [
+      "agents",
+      "toxic",
+      "combinations",
+      "autonomous",
+      "systems",
+      "need"
+    ],
+    "text": "Why agents need SoD: A user with \"create purchase order\" + \"approve purchase order\" is a classic toxic combination. Now give an agent: read-ERP + execute-payment + external-email. Individually harmless. Combined, and delegated to a child agent with inherited credentials, it's the same fraud shape, except no human ever clicked approve. Three scopes matter: 1. **Single agent** — capabilities granted directly to one agent. 2. **Invocation chains** — parent → child delegation accumulates effective permissions transitively. 3. **Credential-sharing groups** — agents sharing a service principal pool their reach.",
+    "src": "/blog/sod-for-agents"
+  },
+  {
+    "id": "sod-for-agents#2",
+    "label": "SoD for AI agents: toxic combinations in autonomous systems — The model: 5 risk ",
+    "keys": [
+      "agents",
+      "toxic",
+      "combinations",
+      "autonomous",
+      "systems",
+      "model",
+      "risk",
+      "types"
+    ],
+    "text": "The model: 5 risk types: The engine evaluates each invocation in three passes. Per-agent, chain and group, then lifecycle. It checks against five risk types: 1. **AGENT_ONLY** — one agent holds both sides. An agent with a SharePoint knowledge source (reads data) plus an HTTP connector with no human confirmation (sends data out) is a conflict all by itself. 2. **OWNER_COMPOSITE** — the conflict spans agent tools and the owner's IGA entitlements. The bot owner holds an SAP approver role and the agent can initiate payments. Neither is a problem alone; together they break separation. 3. **CHAIN** — a parent agent invokes a child, and the union of their tool inventories completes the pair. The engine merges parent plus sub-agent into a virtual agent and evaluates the union. 4. **CROSS_AGENT** — multiple agents share a credential, owner, or invoker group, and their pooled capabilities form a conflict. The engine groups them, unions tools, knowledge and credentials, and evaluates the group. 5. **INVOKER_COMPOSITE** — the conflict between what the chatting user can do via entitlements and what the agent can do on their behalf. Modeled; gated on Graph API integration. Each rule compiles to condition matching plus set intersection over the capability lattice. Eval runs in three passes per invocation, and every violation is tracked through its full lifecycle. Detected, acknowledged, remed",
+    "src": "/blog/sod-for-agents"
+  },
+  {
+    "id": "sod-for-agents#3",
+    "label": "SoD for AI agents: toxic combinations in autonomous systems — One afternoon, con",
+    "keys": [
+      "agents",
+      "toxic",
+      "combinations",
+      "autonomous",
+      "systems",
+      "afternoon",
+      "concretely"
+    ],
+    "text": "One afternoon, concretely: A finance team ships a helper agent. It can read the shared drive and send email through a connector nobody configured confirmation on. Separately, its owner holds an approver role from their day job. The engine flags two patterns at once. The agent alone can exfiltrate. Together with its owner it can initiate and approve payments. Both findings cite the exact connector, the exact role, the exact edge. A human removes the email connector. Both findings close. Engine latency and deployment scope stay out of this write-up until measured on a defined workload and cleared for disclosure.",
+    "src": "/blog/sod-for-agents"
+  },
+  {
+    "id": "sod-for-agents#4",
+    "label": "SoD for AI agents: toxic combinations in autonomous systems — Why the model does",
+    "keys": [
+      "agents",
+      "toxic",
+      "combinations",
+      "autonomous",
+      "systems",
+      "model",
+      "doesn",
+      "decide"
+    ],
+    "text": "Why the model doesn't decide: A language model could read the same agent configs and opine about risk. It would also occasionally invent a connector that isn't there. Policy evaluation has to be exact and repeatable. Same graph, same verdict, every time, with every finding pointing at its evidence. The model writes the explanation paragraph afterward, from verified IDs. Judgment stays in code. Prose stays in the model. Eval: deterministic three-pass evaluation per agent graph snapshot, incremental on grant/chain changes. Every finding cites the exact grants and edges. A deterministic engine, with the language model used only for explanation text whose cited IDs are verified before emission.",
+    "src": "/blog/sod-for-agents"
+  },
+  {
+    "id": "sod-for-agents#5",
+    "label": "SoD for AI agents: toxic combinations in autonomous systems — Bounded fraud agen",
+    "keys": [
+      "agents",
+      "toxic",
+      "combinations",
+      "autonomous",
+      "systems",
+      "bounded",
+      "fraud",
+      "alongside"
+    ],
+    "text": "Bounded fraud agents alongside it: Separately I built bounded investigator agents over privileged-access audit logs: one hypothesis per agent, strict budgets on steps and time, every cited event re-checked against source rows, uncertain findings to a human reviewer. The public research harness for this direction is open source: immutable provenance, a typed case graph, scoped read-only tools, atomic claims with independent verification, and selective human review. On 46 held-out synthetic variants across two generated families, the complete harness matched the expected outcome on all 46 with no unsupported surfaced claims — generator control-flow evidence, not model or real-world accuracy. No customer, deployment, or production language appears here by policy.",
+    "src": "/blog/sod-for-agents"
+  },
+  {
+    "id": "sod-for-agents#6",
+    "label": "SoD for AI agents: toxic combinations in autonomous systems — What's next",
+    "keys": [
+      "agents",
+      "toxic",
+      "combinations",
+      "autonomous",
+      "systems",
+      "next"
+    ],
+    "text": "What's next: Formalize the risk lattice, prove completeness of the 5 types against a capability algebra, and publish the eval harness. If you've worked on agent policy or delegation semantics, I'd like to talk: arin16tumbagi@gmail.com.",
+    "src": "/blog/sod-for-agents"
+  },
+  {
+    "id": "streaming-excel-to-s3#0",
+    "label": "An S3 OutputStream needs a success signal — overview",
+    "keys": [
+      "outputstream",
+      "needs",
+      "success",
+      "signal",
+      "streaming",
+      "excel",
+      "overview"
+    ],
+    "text": "overview: *Engineering article. Author-reviewed; v2.0.0 is released on Maven Central as `io.github.arin016:s3-outputstream:2.0.0`. Links below point at the public repository.* A failed export can leave a successful S3 object. The original version of `s3-outputstream`, at commit `939f2bd`, made this possible by completing uploads inside `close()`: ```java try (S3OutputStream out = configuredBuilder.build()) { generateReport(out); // throws after writing some bytes } // historical close() could publish those bytes ``` Java calls `close()` on both normal and exceptional exits from this block. The stream cannot tell which exit occurred. If report generation throws after writing a prefix, completing the upload during cleanup declares that prefix to be the finished object. Storage has succeeded while the application has failed. Two failing regression tests reproduced this behavior before the implementation changed. The new default separates the two decisions: `commit()` publishes; `close()` aborts an uncommitted upload. With that contract, the direct form is: ```java try (S3OutputStream out = configuredBuilder.build()) { generateReport(out); out.commit(); } ``` The [lifecycle decision record](https://github.com/Arin016/s3-outputstream/blob/main/docs/decisions/0001-explicit-completion.md) explains the compatibility choice. The rest of this article follows its consequences through prod",
+    "src": "/blog/streaming-excel-to-s3"
+  },
+  {
+    "id": "streaming-excel-to-s3#1",
+    "label": "An S3 OutputStream needs a success signal — Let the producer finish before commi",
+    "keys": [
+      "outputstream",
+      "needs",
+      "success",
+      "signal",
+      "streaming",
+      "excel",
+      "producer",
+      "finish",
+      "committing"
+    ],
+    "text": "Let the producer finish before committing: Compression adds another ownership issue. A ZIP needs its final directory before it is a complete artifact; closing the ZIP usually closes its destination. The callback helper supplies a close-shielded view, allowing the producer to finish its wrappers before the helper commits: ```java S3OutputStream.upload(S3OutputStream.builder() .s3Client(s3) .bucket(destinationBucket) .key(destinationKey) .contentType(\"application/zip\"), out -> { try (ZipOutputStream zip = new ZipOutputStream(out)) { zip.putNextEntry(new ZipEntry(\"data.csv\")); writeCsv(zip); zip.closeEntry(); } }); ``` Here `writeCsv` is the application's producer. The caller supplies and owns the S3 client. A [complete ZIP example](https://github.com/Arin016/s3-outputstream/blob/main/examples/UploadZip.java) includes imports and an implementation that copies local files into the archive. A normal callback return declares success. The producer must propagate errors, finish its wrappers, and finish all writes before returning. Swallowing an error or writing asynchronously after return violates that contract. The helper prevents producer-side wrapper close from committing, but it cannot infer whether arbitrary application output is semantically complete. For migration, `autoCommitOnClose(true)` deliberately restores the historical behavior and its producer-failure risk. The recommen",
+    "src": "/blog/streaming-excel-to-s3"
+  },
+  {
+    "id": "streaming-excel-to-s3#2",
+    "label": "An S3 OutputStream needs a success signal — The state machine and the boundary b",
+    "keys": [
+      "outputstream",
+      "needs",
+      "success",
+      "signal",
+      "streaming",
+      "excel",
+      "state",
+      "machine",
+      "boundary",
+      "byte"
+    ],
+    "text": "The state machine and the boundary byte: S3 multipart upload has its own completion operation: uploading parts does not by itself publish their assembled final object. That gives the stream a place to express success after production ends. Incomplete parts still require cleanup if production fails. [AWS multipart lifecycle](https://docs.aws.amazon.com/AmazonS3/latest/userguide/mpuoverview.html) The stream begins in `BUFFERING`. For a configured part size `P`, it retains the first full buffer until another nonempty write arrives. An object whose final size is at most `P`, including an empty object, therefore uses one `PutObject` at commit. An additional byte starts multipart upload and sends the first full part. Subsequent uploads are serial. The writing thread waits for a part to finish before reusing its buffer, providing backpressure without an executor or queue. `flush()` checks that the stream remains open; it does not publish the object or send a partial part that might later become an invalid non-final part. Terminal transitions release the stream's payload buffer, upload ID and receipt list. Scalar counters remain available. A retained receipt snapshot belongs to its caller. Releasing references allows reclamation; it does not promise an immediate collection or zero GC activity. A successful commit is idempotent. An aborted or failed stream cannot commit. Repeated close ",
+    "src": "/blog/streaming-excel-to-s3"
+  },
+  {
+    "id": "streaming-excel-to-s3#3",
+    "label": "An S3 OutputStream needs a success signal — A fixed buffer has a fixed capacity",
+    "keys": [
+      "outputstream",
+      "needs",
+      "success",
+      "signal",
+      "streaming",
+      "excel",
+      "fixed",
+      "buffer",
+      "capacity"
+    ],
+    "text": "A fixed buffer has a fixed capacity: S3 permits 10,000 multipart parts, with a minimum non-final part size of 5 MiB. With a fixed 5 MiB policy, the stream's capacity is exactly 52,428,800,000 bytes, or 48.828125 GiB. It is not unlimited. [AWS multipart limits](https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html) For a known exact serialized length, `expectedLength(...)` selects a sufficient part size before allocating the buffer: at least `ceil(length / 10000)` bytes, subject to the 5 MiB minimum. An explicitly chosen insufficient size is rejected. Overrun during writing and underrun at commit are fatal. A row count, estimate or uncompressed ZIP input size is not the exact serialized output length. This implementation uses one Java array, so its maximum part-size setting is `Integer.MAX_VALUE - 8` bytes. Even a valid setting must fit the available heap. Larger supported objects require a larger buffer chosen before writing begins. Unknown-length streams enforce their configured capacity before accepting an overflowing write call. Tests exercise 10,000 successful tiny test parts and reject the next part, while separate arithmetic tests cover large lengths without huge allocations. This is boundary testing, not a claim to have uploaded a 49 GiB object. The library owns one reusable `P`-byte payload buffer, plus bounded part receipts and small state. Its synchronous ",
+    "src": "/blog/streaming-excel-to-s3"
+  },
+  {
+    "id": "streaming-excel-to-s3#4",
+    "label": "An S3 OutputStream needs a success signal — Measuring credible alternatives",
+    "keys": [
+      "outputstream",
+      "needs",
+      "success",
+      "signal",
+      "streaming",
+      "excel",
+      "measuring",
+      "credible",
+      "alternatives"
+    ],
+    "text": "Measuring credible alternatives: Whole-object buffering remains a reasonable baseline for small, bounded output. The comparison uses a replayable view of its buffer, avoiding extra full-object copies. Temporary-file staging pays disk and I/O costs but gives upload a replayable source after production has succeeded. Both separate generation from publication without keeping a multipart session open during generation. The comparison runs six adapters: efficient whole-object buffering, temporary-file staging, AWS's blocking-output async request body, CI-CMG 1.2.2, unchanged original source at `939f2bd`, and the improved serial stream. All use AWS SDK 2.47.3. Original source is loaded separately against the same SDK, so this comparison is not a replay of its historical dependency environment. The AWS adapter uses its existing [`BlockingOutputStreamAsyncRequestBody`](https://docs.aws.amazon.com/java/api/latest/software/amazon/awssdk/core/async/BlockingOutputStreamAsyncRequestBody.html) with multipart explicitly enabled, four HTTP connections and a four-part API buffer. CI-CMG uses a queue of one and its explicit success option. Original and improved serial implementations use 5 MiB parts in the comparison below; the producer writes 64 KiB chunks. Full settings and variants are in the [measurement protocol](https://github.com/Arin016/s3-outputstream/blob/main/docs/benchmark-protocol.m",
+    "src": "/blog/streaming-excel-to-s3"
+  },
+  {
+    "id": "streaming-excel-to-s3#5",
+    "label": "An S3 OutputStream needs a success signal — Retry and cleanup change the compari",
+    "keys": [
+      "outputstream",
+      "needs",
+      "success",
+      "signal",
+      "streaming",
+      "excel",
+      "retry",
+      "cleanup",
+      "change",
+      "comparison"
+    ],
+    "text": "Retry and cleanup change the comparison: An output stream consumes bytes as the producer supplies them. Retrying a request requires access to those bytes again. The synchronous implementation keeps its part buffer unchanged until the SDK call returns, allowing a fresh read of the same valid prefix on retry. The raw AWS blocking body did not successfully resubscribe after the injected transient part error in this experiment. AWS SDK 2.47.3 also provides `BufferedSplittableAsyncRequestBody`. In a separate supplement, the [benchmark adapter](https://github.com/Arin016/s3-outputstream/blob/main/src/benchmark/java/io/github/arinmallanna/s3outputstream/BenchmarkMain.java) wrapped the blocking body with `bufferBeforeSend(true)`, retaining the same four-part API buffer. In three fresh JVM forks with a transient part HTTP 503 and two permitted retries, both the improved serial stream and this buffered AWS option produced correct objects in all three forks. The raw AWS body failed all three. The relevant API distinction is replayability; AWS already supplies a retry-capable option. [Raw-body fault results](https://github.com/Arin016/s3-outputstream/blob/main/docs/evidence/failure-summary.csv), [buffered-body fault results](https://github.com/Arin016/s3-outputstream/blob/main/docs/evidence/aws-retry-failure-summary.csv) That option needs its own performance observation. In the historical ",
+    "src": "/blog/streaming-excel-to-s3"
+  },
+  {
+    "id": "streaming-excel-to-s3#6",
+    "label": "An S3 OutputStream needs a success signal — Using the candidate",
+    "keys": [
+      "outputstream",
+      "needs",
+      "success",
+      "signal",
+      "streaming",
+      "excel",
+      "candidate"
+    ],
+    "text": "Using the candidate: After measurement, advisory review prompted transport updates to Netty 4.1.137.Final, HttpClient 5.6.3 and HttpCore 5.4.3, retaining AWS SDK 2.47.3. Clean local builds passed 75 unit and 16 Moto integration invocations on each of Java 11, 17 and 21, including strict Javadocs and package inspection. The September 7 OSV lookup returned no advisory matches for the 60 checked Maven packages; that is a dated lookup result, not a security guarantee. S3 remains a provided dependency, so consuming applications manage their own SDK and HTTP versions. [Release and dependency evidence](https://github.com/Arin016/s3-outputstream/blob/main/docs/release.md) The updated transports received separate validation. In that later 128 MiB unknown-length case, with the same workload/host/JVM/fixture settings and five measurements per adapter, the original and improved serial median times were 0.61 s [0.60, 0.61] and 0.60 s [0.59, 0.61], respectively. All six adapters passed their success blocks; the buffered AWS option also passed known/unknown-length checks and the repeated fault scenarios produced the documented retry and cleanup outcomes. The closer serial timings reinforce the need to measure a workload instead of promising a general speedup. [Post-update results](https://github.com/Arin016/s3-outputstream/blob/main/docs/benchmark-results.md#post-update-transport-checks) Use ",
+    "src": "/blog/streaming-excel-to-s3"
+  },
+  {
+    "id": "unused-permissions-priced-in-dollars#0",
+    "label": "Unused permissions, priced in dollars — overview",
+    "keys": [
+      "unused",
+      "permissions",
+      "priced",
+      "dollars",
+      "overview"
+    ],
+    "text": "overview: Every year, large companies pay their software vendors per user. The price of each user depends on how powerful that user's access is. Over time, people accumulate permissions they no longer need, accounts go dormant, and nobody connects the access data to the invoice. Finance keeps paying. This is the story of the feature I built, as part of a program called License Intelligence, to close that gap: find the waste, price it, and remove it.",
+    "src": "/blog/unused-permissions-priced-in-dollars"
+  },
+  {
+    "id": "unused-permissions-priced-in-dollars#1",
+    "label": "Unused permissions, priced in dollars — The two questions",
+    "keys": [
+      "unused",
+      "permissions",
+      "priced",
+      "dollars",
+      "questions"
+    ],
+    "text": "The two questions: Enterprise SAP licenses are priced in tiers: a user whose permissions *could* do a lot costs more than one who does little, regardless of what they actually do each day. Against that sits reality. Who logged in recently, which transactions they ran in the last 90 days. The feature answers two questions: 1. **Who can go entirely?** Accounts with no login and no usage for 90+ days at the top tier. The action removes all their roles. 2. **Who can step down?** Users billed at the top tier whose actual usage fits a cheaper one. The action removes only the roles responsible for the excess. Nothing else. The savings math is simple multiplication: people affected, times the license-weight difference between tiers, times the dollar price per unit. Simple. But only trustworthy if every input is live. Price your own tenant: ```widget-savingscalc interactive: license savings calculator (requires JavaScript) ```",
+    "src": "/blog/unused-permissions-priced-in-dollars"
+  },
+  {
+    "id": "unused-permissions-priced-in-dollars#2",
+    "label": "Unused permissions, priced in dollars — Computed, never stored",
+    "keys": [
+      "unused",
+      "permissions",
+      "priced",
+      "dollars",
+      "computed",
+      "stored"
+    ],
+    "text": "Computed, never stored: The findings are derived at request time, every time, from the search index. Not precomputed by the nightly job and served stale. This was a deliberate architectural choice: counts and dollar figures are always current, the feature team can iterate without touching the data pipeline, and there is no persisted \"finding\" entity that can drift out of agreement with reality. The API surface is small: list the findings sorted by savings with an aggregate annual figure, open one for its detail and review list, act on a selection. Deterministic IDs, paginated review lists, display ordering computed server-side so the client renders arrays as received.",
+    "src": "/blog/unused-permissions-priced-in-dollars"
+  },
+  {
+    "id": "unused-permissions-priced-in-dollars#3",
+    "label": "Unused permissions, priced in dollars — Closing the loop",
+    "keys": [
+      "unused",
+      "permissions",
+      "priced",
+      "dollars",
+      "closing",
+      "loop"
+    ],
+    "text": "Closing the loop: Finding waste is half the feature; the other half removes it. One action call carries the selected accounts or users. The service validates them against the finding, resolves every affected permission, and publishes an event to the message bus. After that, the originating system creates one removal task per permission, with de-duplication so redelivered events never double-create. Ordering here is a correctness decision, not a performance one: the event is published *first*, and local records are marked only after the publish succeeds. If publishing fails, the API returns an error and nothing is marked. The screen never shows a state the rest of the system doesn't share.",
+    "src": "/blog/unused-permissions-priced-in-dollars"
+  },
+  {
+    "id": "unused-permissions-priced-in-dollars#4",
+    "label": "Unused permissions, priced in dollars — The interesting problem: state that outl",
+    "keys": [
+      "unused",
+      "permissions",
+      "priced",
+      "dollars",
+      "interesting",
+      "problem",
+      "state",
+      "outlives",
+      "pipeline"
+    ],
+    "text": "The interesting problem: state that outlives its pipeline: Every night, an analysis job re-evaluates all accounts and replaces the underlying data wholesale. But an admin's action, \"remove these permissions,\" with a task now in flight, must survive that replacement. Otherwise the UI forgets what it asked for, the admin acts twice, and duplicate tasks pile up. The solution has three parts. First, action records live on the identity document itself, separate from the refreshed data, and ingestion *merges* rather than replaces them. Second, incoming data is stripped of any action fields before merging, so the pipeline can never accidentally wipe them. Third, stale entries are pruned. If a permission is no longer assigned, its action record goes with it. And the cooldown that prevents re-acting is evaluated at read time, so the system unlocks items without any write at all. In other words: the pipeline owns the data, the feature owns the marks on the data, and the contract between them is merge, strip, and prune.",
+    "src": "/blog/unused-permissions-priced-in-dollars"
+  },
+  {
+    "id": "unused-permissions-priced-in-dollars#5",
+    "label": "Unused permissions, priced in dollars — The lifecycle, as a state machine",
+    "keys": [
+      "unused",
+      "permissions",
+      "priced",
+      "dollars",
+      "lifecycle",
+      "state",
+      "machine"
+    ],
+    "text": "The lifecycle, as a state machine: Every finding an admin touches moves through the same four states. The admin, the nightly job, and the clock each own different transitions, and no state lives only in the browser: ```widget-statemachine interactive: finding lifecycle state machine (requires JavaScript) ``` The rules that keep it honest: reads never write (the cooldown unlock is evaluated at read time, so unlocking costs nothing), marks survive the refresh by merge instead of replace, and anything no longer true gets pruned. One endpoint carries the whole action: the UI sends a single call with lists, and the server validates, resolves, publishes, and marks. No browser fan-out, one failure domain, fail fast on publish errors.",
+    "src": "/blog/unused-permissions-priced-in-dollars"
+  },
+  {
+    "id": "unused-permissions-priced-in-dollars#6",
+    "label": "Unused permissions, priced in dollars — Validation",
+    "keys": [
+      "unused",
+      "permissions",
+      "priced",
+      "dollars",
+      "validation"
+    ],
+    "text": "Validation: Fifty-one automated checks against live APIs, all passing. Counts, dollar figures, review hierarchies, pagination, error cases. Forty of forty again after the action workflow landed. Then two rounds of senior review, which earned their keep: one reviewer restructured the code around the domain's own vocabulary, and another caught a blocking flaw in how indirectly-assigned permissions were targeted — a catch that changed the event contract before production rather than after. The test tenant showed seven findings worth about $11,000 a year. One dataset's answer from an engine that computes over whatever it is given, bounded by what the data supports. Small numbers, real pipeline. That is the correct order to build in. The dollar math scales with estate size — price your own tenant:",
+    "src": "/blog/unused-permissions-priced-in-dollars"
   }
 ]

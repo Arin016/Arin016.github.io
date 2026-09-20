@@ -115,9 +115,10 @@ export async function POST(req: Request) {
     CONTENT_TOPICS
   );
   const conf = typeof tAns.confidence === "number" ? tAns.confidence : 0;
+  const off = typeof oAns?.noul === "number" ? oAns.noul : 0;
   const traceBase = [
     `parse intent (${tokens} tokens)`,
-    `retrieve · jev choice + off-topic (conf ${conf.toFixed(2)})`,
+    `retrieve · jev choice + off-topic (conf ${conf.toFixed(2)} · off ${off.toFixed(2)})`,
   ];
   if (!gate.topic) {
     return respond({

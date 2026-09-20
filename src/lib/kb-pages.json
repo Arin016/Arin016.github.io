@@ -1,0 +1,264 @@
+[
+  {
+    "id": "profile-who",
+    "label": "Profile",
+    "keys": ["whoami", "who are you", "about you", "bio"],
+    "text": "Arin Mallanna Tumbagi — Software Engineer at Saviynt, B.Tech Ocean Engineering at IIT Madras.",
+    "src": "/about"
+  },
+  {
+    "id": "profile-what",
+    "label": "Profile",
+    "keys": ["what do you do", "does arin", "who is arin", "introduce", "profile", "overview", "summary", "tldr", "arin", "day job", "work as", "occupation"],
+    "text": "Arin builds identity infrastructure at Saviynt. Backends moving records at any scale, plus AI agents held to verified evidence. IIT Madras engineer, competitive programmer, ML-from-scratch habit.",
+    "src": "/about"
+  },
+  {
+    "id": "saviynt-role",
+    "label": "Saviynt role",
+    "keys": ["saviynt", "job", "work", "experience", "role", "company", "employer", "full-time"],
+    "text": "Software Engineer at Saviynt (identity governance) since Jun 2025: compliance engines, streaming exports, audit ingestion, agent safety.",
+    "src": "/projects"
+  },
+  {
+    "id": "sod-engine",
+    "label": "SoD engine",
+    "keys": ["sod", "segregation", "fraud check", "audit check", "compliance check", "21 hours", "21h", "20 hours", "20h", "2 seconds", "bitset", "permission", "conflicting"],
+    "text": "Segregation-of-duties = proving no employee holds conflicting permissions (e.g. create AND approve a payment). Worst-case production run rebuilt from ~20h at 65 GB to minutes under 1 GB: one hierarchy pass plus bit-level permission comparison.",
+    "src": "/blog/21-hours-to-2-seconds"
+  },
+  {
+    "id": "export-pipe",
+    "label": "Export pipeline",
+    "keys": ["export", "excel", "pipeline", "7mb", "7 mb", "streaming", "memory", "s3-outputstream", "multipart", "workbook", "zip"],
+    "text": "s3-outputstream (v2.0.0, Maven Central, Apache-2.0): a Java OutputStream over S3 multipart with one reusable 5 MiB buffer and explicit commit/abort semantics — an upload publishes only on declared success. Streams formatted Excel inside ZIPs of any size.",
+    "src": "/blog/streaming-excel-to-s3"
+  },
+  {
+    "id": "license-intel",
+    "label": "License Intel",
+    "keys": ["license", "sap", "waste", "savings", "fue", "tier", "dormant", "over-privileged", "dollar", "recommendation"],
+    "text": "License Intelligence: an inference engine finding SAP license waste (dormant/over-privileged accounts), priced in dollars and removed via tasks. Validated 51/51 against live APIs; a test tenant showed seven findings worth about $11,000 a year (test result, not a production savings claim).",
+    "src": "/blog/unused-permissions-priced-in-dollars"
+  },
+  {
+    "id": "agent-safety",
+    "label": "Agent safety",
+    "keys": ["agent safety", "agent sod", "copilot", "toxic", "effective access", "delegation", "risk pattern"],
+    "text": "A safety engine for AI agents: effective-access analysis across 5 risk patterns (single over-privileged agent, agent-owner conflicts, delegation chains, credential-sharing groups, actions on a user's behalf), deterministic checks with cited evidence tracked to resolution.",
+    "src": "/blog/sod-for-agents"
+  },
+  {
+    "id": "fraud-agents",
+    "label": "Fraud agents",
+    "keys": ["fraud", "firefighter", "emergency", "investigator", "react agent", "break-glass", "break glass", "insider"],
+    "text": "Bounded ReAct agents investigating emergency break-glass admin logs: one fraud hypothesis per run within strict step/time budgets, every cited event re-checked against source data, uncertain findings routed to humans. Public harness: 110 tests, 46/46 held-out synthetic variants.",
+    "src": "/projects"
+  },
+  {
+    "id": "audit-ingest",
+    "label": "Audit ingestion",
+    "keys": ["ingest", "audit record", "audit log", "kafka", "replayable", "ordered", "duplicate", "avro"],
+    "text": "Ordered, replayable audit ingestion for every privileged action: Kafka/Avro streams with duplicate-proof storage — publish first, mark after, merge rather than replace on refresh.",
+    "src": "/projects"
+  },
+  {
+    "id": "nostos",
+    "label": "Nostos router",
+    "keys": ["router", "kv cache", "nostos", "inference", "vllm", "prefix", "sglang", "serving", "load balancer", "cache-aware"],
+    "text": "Nostos routes each LLM request to the server whose KV-cache already holds its conversation (radix-tree prefix affinity, weighed against queue and memory load). Passes responses through without buffering; stores fingerprints, never text. Live demo racing routing strategies.",
+    "src": "/blog/route-to-the-prefix"
+  },
+  {
+    "id": "transformers",
+    "label": "Transformers x3",
+    "keys": ["gpt", "gpt2", "cpp", "machine learning", "ml", "transformer", "cuda", "arinlm", "attention", "llm", "model", "neural"],
+    "text": "Same transformer 3x: PyTorch by hand with no model shortcuts, dependency-free C++17 (gpt2-cpp, five correctness tests), raw CUDA in progress from matmul against CPU reference toward FlashAttention-style benchmarks.",
+    "src": "/blog/gpt-from-scratch-thrice"
+  },
+  {
+    "id": "lm-train",
+    "label": "lm-train",
+    "keys": ["trained", "training", "shakespeare", "loss curve", "char-gpt", "0.818", "val loss", "checkpoint"],
+    "text": "lm-train: a 0.818M-param char-level GPT trained end to end on Shakespeare (val loss 1.75) with loss curves, checkpoint samples and a reproduce command.",
+    "src": "https://github.com/Arin016/lm-train"
+  },
+  {
+    "id": "raft",
+    "label": "Raft",
+    "keys": ["raft", "consensus", "distributed", "leader election", "replication", "chaos", "kv store"],
+    "text": "raft-cpp: Raft consensus in dependency-free C++17 — leader election, log replication and a KV machine, chaos-tested across seeds over a simulated transport (no real networking; documented honestly).",
+    "src": "https://github.com/Arin016/raft-cpp"
+  },
+  {
+    "id": "oss",
+    "label": "Open source",
+    "keys": ["oss", "open source", "github", "contribution", "upstream", "opensearch", "s3-outputstream", "repositories", "repos"],
+    "text": "11 tools plus upstream pull requests across KiroCrew, OpenSearch, SGLang and lm-eval. Code at github.com/Arin016.",
+    "src": "/projects"
+  },
+  {
+    "id": "s3oss",
+    "label": "s3-outputstream",
+    "keys": ["maven", "central", "outputstream", "java library", "apache"],
+    "text": "s3-outputstream: Java OutputStream over S3 multipart, one reusable 5 MiB buffer, commit-safe publishing, real-S3 conformance receipt. Apache-2.0, v2.0.0 on Maven Central.",
+    "src": "https://github.com/Arin016/s3-outputstream"
+  },
+  {
+    "id": "gpt2cpp",
+    "label": "gpt2-cpp",
+    "keys": ["gpt-2 weights", "greedy decode", "tensor", "blas", "seven commits"],
+    "text": "gpt2-cpp: GPT-2 in dependency-free C++17, tensor core to greedy decode in seven commits, five correctness tests. No frameworks, no BLAS.",
+    "src": "https://github.com/Arin016/gpt2-cpp"
+  },
+  {
+    "id": "context-lattice",
+    "label": "context-lattice",
+    "keys": ["memory", "mcp", "conversation memory", "hierarchical memory", "recall", "fingerprint"],
+    "text": "context-lattice: source-verifiable hierarchical conversation memory for LLMs over MCP — every recalled fact links to its source file and a cryptographic fingerprint.",
+    "src": "https://github.com/Arin016/context-lattice"
+  },
+  {
+    "id": "kyn",
+    "label": "kyn",
+    "keys": ["control panel", "scheduled task", "approval gate", "persistent memory", "long-running agent"],
+    "text": "kyn: a control panel for long-running AI coding agents — named agents with persistent memory, scheduled tasks and human approval gates before consequential actions. Live demo online.",
+    "src": "https://kyn-blush.vercel.app"
+  },
+  {
+    "id": "why-search",
+    "label": "Y search",
+    "keys": ["chat history", "private search", "offline", "timing question", "last month"],
+    "text": "Y: private search over exported chat history, including timing questions ('what did we discuss last month?'). Fully offline, no data leaves the machine.",
+    "src": "https://github.com/Arin016/Y"
+  },
+  {
+    "id": "xx-cli",
+    "label": "xx-cli",
+    "keys": ["terminal command", "plain english", "shell", "command generator"],
+    "text": "xx-cli: type a request in plain English, get the terminal command, shown for review before anything runs. Fully offline.",
+    "src": "https://github.com/Arin016/xx-cli"
+  },
+  {
+    "id": "friday",
+    "label": "friday",
+    "keys": ["session", "claude code", "codex", "dashboard", "index"],
+    "text": "friday: one searchable index of AI coding sessions across Claude Code, Kiro CLI and Codex. Read-only, one keystroke back to the original session.",
+    "src": "https://github.com/Arin016/friday"
+  },
+  {
+    "id": "bug-butcher",
+    "label": "bug-butcher",
+    "keys": ["bug fix", "delegating", "fenced", "failing test", "repair plan", "prove"],
+    "text": "bug-butcher: a safety harness for delegating bug fixes to agents — plan agreed first, edits fenced to approved files, a failing-then-passing test required before a human merges.",
+    "src": "https://github.com/Arin016/bug-butcher"
+  },
+  {
+    "id": "kv-demo",
+    "label": "Nostos demo",
+    "keys": ["demo", "race", "arena", "vercel", "try", "live demo", "playground"],
+    "text": "Try the Nostos routing arena live: race cache-aware routing against baselines in the browser.",
+    "src": "https://kv-router.vercel.app"
+  },
+  {
+    "id": "upstream",
+    "label": "Upstream PRs",
+    "keys": ["pull request", "merged", "opensearch-go", "lm-eval", "sglang", "kirocrew", "coqa", "radixcache", "agentpolicy"],
+    "text": "Upstream: OpenSearch #22136 merged, opensearch-go #881 open, lm-eval CoQA-turns open, SGLang RadixCache accounting tests open, KiroCrew startup-trim merged.",
+    "src": "/projects"
+  },
+  {
+    "id": "cp",
+    "label": "Competitive programming",
+    "keys": ["leetcode", "codeforces", "competitive", "dsa", "rating", "cp", "contest", "guardian", "expert", "hacker cup"],
+    "text": "LeetCode Guardian (peak 2077) / Codeforces Expert 1602 / Meta Hacker Cup Round 2. 400+ file training archive is searchable on-site.",
+    "src": "/dsa"
+  },
+  {
+    "id": "education",
+    "label": "Education",
+    "keys": ["education", "iit", "degree", "jee", "college", "ocean", "madras", "study", "university", "major", "cs degree"],
+    "text": "B.Tech Ocean Engineering, IIT Madras (2021-2025). JEE top 0.2% of 1.1M. No formal CS degree — data structures, OS and databases learned through four years of competitive programming evenings.",
+    "src": "/about"
+  },
+  {
+    "id": "contact",
+    "label": "Contact",
+    "keys": ["contact", "email", "reach", "hire", "resume", "cv", "talk", "collaborat", "get in touch", "phone"],
+    "text": "arin16tumbagi@gmail.com. Resume PDF in the homepage contact section.",
+    "src": "/resume.pdf"
+  },
+  {
+    "id": "blog",
+    "label": "Blog",
+    "keys": ["blog", "writing", "posts", "articles", "writeup", "write-up", "essay"],
+    "text": "6 posts: inference routing, 3x transformers, streaming, SoD engine, agent safety, license intel.",
+    "src": "/blog"
+  },
+  {
+    "id": "skills",
+    "label": "Skills",
+    "keys": ["skills", "stack", "languages", "java", "go", "python", "typescript", "kafka", "cplusplus", "c++", "tech"],
+    "text": "Java, Go, Python, TypeScript, C++/CUDA. Kafka/Avro, OpenSearch, MySQL, Redis, S3, PyTorch, MCP.",
+    "src": "/about"
+  },
+  {
+    "id": "interests",
+    "label": "Interests",
+    "keys": ["interests", "learn", "consensus", "storage", "verification", "research", "future", "working toward", "next"],
+    "text": "Consensus, storage engines, verification, serving intelligence cheaply — each paired with the production experience behind it.",
+    "src": "/#questions"
+  },
+  {
+    "id": "security",
+    "label": "Security",
+    "keys": ["security", "tiger", "mtls", "vulnerability", "secops", "injection", "access-control", "coverage"],
+    "text": "Twice asked onto company-wide security Tiger Teams: injection/access-control flaw categories across services, mTLS rollout between data systems, critical-component test coverage from 30% to 80%.",
+    "src": "/projects"
+  },
+  {
+    "id": "abhiyaan",
+    "label": "Beyond engineering",
+    "keys": ["abhiyaan", "autonomous vehicles", "football", "athletics", "sitharaman", "leadership", "hobby", "sport"],
+    "text": "Team Abhiyaan (IITM autonomous vehicles): led external relations, pitched to Finance Minister Sitharaman and Minister Goyal in 2023. Football: inter-department runner-up, hostel captain, IITM co-captain final year.",
+    "src": "/about"
+  },
+  {
+    "id": "mica",
+    "label": "mica",
+    "keys": ["mica", "markdown app", "tauri", "glass", "vault", "desktop app"],
+    "text": "mica: a glass desktop markdown app — your vault is a folder of .md files with two panes, slash commands, wikilinks and command palette, offline. Tauri 2, dark by default, live landing page and signed Mac release.",
+    "src": "https://github.com/Arin016/mica"
+  },
+  {
+    "id": "hive",
+    "label": "hive",
+    "keys": ["hive", "org activity", "mirror", "mcp tools"],
+    "text": "hive: a deterministic org-activity mirror with 3 MCP tools. Zero LLM in the backend.",
+    "src": "https://github.com/Arin016/hive"
+  },
+  {
+    "id": "greeting",
+    "label": "Greeting",
+    "keys": ["hello", "hi", "hey", "yo", "greetings", "namaste", "hii"],
+    "text": "Hello. Ask me anything about Arin's work, projects, or background. Try a suggestion below.",
+    "src": "/about",
+    "smalltalk": true
+  },
+  {
+    "id": "thanks",
+    "label": "Thanks",
+    "keys": ["thank you", "thanks", "dhanyavad", "bye", "goodbye", "see you"],
+    "text": "Anytime. For anything longer, arin16tumbagi@gmail.com.",
+    "src": "/about",
+    "smalltalk": true
+  },
+  {
+    "id": "help",
+    "label": "Help",
+    "keys": ["help", "commands", "how to use", "what can you"],
+    "text": "Ask anything about Arin. Work, projects, skills, background, contact. Plain English works.",
+    "src": "/about",
+    "smalltalk": true
+  }
+]
