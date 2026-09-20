@@ -1,6 +1,6 @@
 export const LINKS = {
   github: "https://github.com/Arin016",
-  linkedin: "https://linkedin.com/in/arin-mallanna",
+  linkedin: "https://www.linkedin.com/in/arin-tumbagi-916407229/",
   email: "mailto:arin16tumbagi@gmail.com",
   leetcode: "https://leetcode.com/u/10Ari/",
   codeforces: "https://codeforces.com/profile/Arin371",

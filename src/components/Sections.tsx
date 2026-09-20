@@ -476,7 +476,7 @@ export function Contact() {
             github/Arin016
           </a>
           <a
-            href="https://linkedin.com/in/arin-mallanna"
+            href="https://www.linkedin.com/in/arin-tumbagi-916407229/"
             target="_blank"
             className="rounded-md border border-white/15 bg-white/5 px-5 py-3 text-white hover:border-green-400/40 hover:bg-white/10"
           >

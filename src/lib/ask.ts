@@ -1,8 +1,10 @@
 // ask.ts — the knowledge layer behind the hero terminal and /ask.
-// Keyword matching over a curated base. No network, no model.
+// Keyword matching over the curated base (src/lib/kb-data.json, shared with
+// the Jev retriever). Offline fallback when /api/ask is unreachable.
 // ask()/askRich() answer single-best (terminal contract); runAgent() runs
 // the fuller loop for /ask: retrieve top passages, merge ties, verify
 // citations exist, and suggest nearest topics instead of dead-ending.
+import KB_JSON from "./kb-data.json";
 
 type Entry = {
   label: string;
@@ -12,137 +14,7 @@ type Entry = {
   smalltalk?: boolean;
 };
 
-const KB: Entry[] = [
-  {
-    label: "Profile",
-    keys: ["whoami", "who are you", "about you", "bio"],
-    text: "Arin Mallanna Tumbagi — Software Engineer at Saviynt, B.Tech Ocean Engineering at IIT Madras.",
-    src: "/about",
-  },
-  {
-    label: "Profile",
-    keys: ["what do you do", "does arin", "who is arin", "introduce", "profile", "overview", "summary", "tldr", "arin"],
-    text: "Arin builds identity infrastructure at Saviynt. Backends moving records at any scale, plus AI agents held to verified evidence. IIT Madras engineer, competitive programmer, ML-from-scratch habit.",
-    src: "/about",
-  },
-  {
-    label: "Saviynt role",
-    keys: ["saviynt", "job", "work", "experience", "role", "company"],
-    text: "Software Engineer at Saviynt (identity governance) since Jun 2025: compliance engines, streaming exports, audit ingestion, agent safety.",
-    src: "/projects",
-  },
-  {
-    label: "SoD engine",
-    keys: ["sod", "segregation", "fraud check", "audit check", "compliance check", "21 hours", "21h"],
-    text: "Segregation-of-duties = proving no employee holds conflicting permissions (e.g. create AND approve a payment). Worst-case production run rebuilt from ~20h to minutes.",
-    src: "/blog/21-hours-to-2-seconds",
-  },
-  {
-    label: "Export pipeline",
-    keys: ["export", "excel", "pipeline", "7mb", "7 mb", "streaming", "memory"],
-    text: "s3-outputstream (v2.0.0, Maven Central): a Java OutputStream over S3 multipart with one reusable 5 MiB buffer and explicit commit/abort semantics. Watch the stage illustration on the homepage.",
-    src: "/blog/streaming-excel-to-s3",
-  },
-  {
-    label: "License Intel",
-    keys: ["license", "sap", "waste", "savings", "fue", "tier"],
-    text: "License Intelligence: an inference engine finding SAP license waste (dormant/over-privileged accounts), priced in dollars, removed via tasks.",
-    src: "/blog/unused-permissions-priced-in-dollars",
-  },
-  {
-    label: "Agent safety",
-    keys: ["agent safety", "agent sod", "copilot", "toxic"],
-    text: "A safety engine for AI agents: 5 risk patterns across agents, owners, chains and credential groups, deterministic checks with cited evidence.",
-    src: "/blog/sod-for-agents",
-  },
-  {
-    label: "Fraud agents",
-    keys: ["fraud", "firefighter", "emergency", "investigator", "react agent"],
-    text: "Bounded ReAct agents investigating emergency-admin logs: cited events re-checked against source data, uncertain findings go to humans.",
-    src: "/projects",
-  },
-  {
-    label: "Nostos router",
-    keys: ["router", "kv cache", "nostos", "inference", "vllm", "prefix", "sglang"],
-    text: "Nostos routes each LLM request to the server whose cache already holds it. Live demo at kv-router.vercel.app.",
-    src: "/blog/route-to-the-prefix",
-  },
-  {
-    label: "Transformers ×3",
-    keys: ["gpt", "gpt2", "cpp", "machine learning", "ml", "transformer", "cuda", "arinlm", "attention", "llm", "model"],
-    text: "Same transformer 3x: PyTorch by hand, dependency-free C++ (gpt2-cpp, tested), raw CUDA in progress.",
-    src: "/blog/gpt-from-scratch-thrice",
-  },
-  {
-    label: "Open source",
-    keys: ["oss", "open source", "github", "contribution", "upstream", "opensearch", "s3-outputstream"],
-    text: "11 tools plus upstream pull requests across KiroCrew, OpenSearch, SGLang, and lm-eval. Code lives at github.com/Arin016.",
-    src: "/projects",
-  },
-  {
-    label: "Competitive programming",
-    keys: ["leetcode", "codeforces", "competitive", "dsa", "rating", "cp", "contest"],
-    text: "LeetCode Guardian (peak 2077) / Codeforces Expert 1602 / Meta Hacker Cup Round 2.",
-    src: "/dsa",
-  },
-  {
-    label: "Education",
-    keys: ["education", "iit", "degree", "jee", "college", "ocean", "madras", "study"],
-    text: "B.Tech Ocean Engineering, IIT Madras (2021-2025). JEE top 0.2% of 1.1M.",
-    src: "/about",
-  },
-  {
-    label: "Contact",
-    keys: ["contact", "email", "reach", "hire", "resume", "cv", "talk", "collaborat"],
-    text: "arin16tumbagi@gmail.com. The resume PDF is in the homepage contact section.",
-    src: "/resume.pdf",
-  },
-  {
-    label: "Blog",
-    keys: ["blog", "writing", "posts", "articles", "writeup", "write-up"],
-    text: "6 posts: inference routing, 3x transformers, streaming, SoD engine, agent safety, license intel.",
-    src: "/blog",
-  },
-  {
-    label: "Skills",
-    keys: ["skills", "stack", "languages", "java", "go", "python", "typescript", "kafka"],
-    text: "Java, Go, Python, TypeScript, C++/CUDA. Kafka/Avro, OpenSearch, MySQL, Redis, S3, PyTorch, MCP.",
-    src: "/about",
-  },
-  {
-    label: "Interests",
-    keys: ["interests", "learn", "consensus", "storage", "verification", "research", "future"],
-    text: "Consensus, storage engines, verification, serving intelligence cheaply.",
-    src: "/#questions",
-  },
-  {
-    label: "Security",
-    keys: ["security", "tiger", "mtls", "vulnerability", "secops"],
-    text: "Company-wide security teams: injection/access-control fixes, mTLS rollout, test coverage uplift on critical components.",
-    src: "/projects",
-  },
-  {
-    label: "Greeting",
-    keys: ["hello", "hi", "hey", "yo", "greetings", "namaste", "hii"],
-    text: "Hello. Ask me anything about Arin's work, projects, or background. Try a suggestion below.",
-    src: "/about",
-    smalltalk: true,
-  },
-  {
-    label: "Thanks",
-    keys: ["thank you", "thanks", "dhanyavad", "bye", "goodbye", "see you"],
-    text: "Anytime. For anything longer, arin16tumbagi@gmail.com.",
-    src: "/about",
-    smalltalk: true,
-  },
-  {
-    label: "Help",
-    keys: ["help", "commands", "how to use", "what can you"],
-    text: "Ask anything about Arin. Work, projects, skills, background, contact. Plain English works.",
-    src: "/about",
-    smalltalk: true,
-  },
-];
+const KB: Entry[] = KB_JSON as Entry[];
 
 export const KB_COUNT = KB.length;
 

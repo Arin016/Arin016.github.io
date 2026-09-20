@@ -72,18 +72,73 @@ export default function AskClient() {
     setBusy(true);
     setValue("");
     push([{ kind: "cmd", text: `$ ${q}` }]);
-    const res = runAgent(q);
-    for (const s of res.trace) {
+    // Prefer the Jev-backed API; fall back to the offline keyword agent.
+    type RemoteOut = {
+      kind: string;
+      text?: string;
+      links?: string[];
+      suggestions?: { label: string; query: string }[];
+      trace?: string[];
+    };
+    let remote: RemoteOut | null = null;
+    try {
+      const ctl = new AbortController();
+      const t = setTimeout(() => ctl.abort(), 20000);
+      const r = await fetch("/api/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: q }),
+        signal: ctl.signal,
+      });
+      clearTimeout(t);
+      if (r.ok) remote = (await r.json()) as RemoteOut;
+    } catch {
+      remote = null;
+    }
+    if (!remote || remote.kind === "fallback") {
+      if (running.current !== id) return;
+      push([{ kind: "tool", text: "⏺ api unreachable · local fallback" }]);
+      const res = runAgent(q);
+      for (const s of res.trace) {
+        if (running.current !== id) return;
+        if (!reduce) await sleep(380);
+        if (running.current !== id) return;
+        push([{ kind: "tool", text: `⏺ ${s}` }]);
+      }
+      if (running.current !== id) return;
+      if (res.kind === "answer")
+        push([
+          { kind: "out", text: res.text },
+          { kind: "links", links: res.links },
+        ]);
+      else
+        push([
+          {
+            kind: "dim",
+            text: "No citation for that, so no answer. Closest matches:",
+          },
+          { kind: "suggest", items: res.suggestions },
+        ]);
+      setBusy(false);
+      return;
+    }
+    const trace = remote.trace ?? [];
+    for (const s of trace) {
       if (running.current !== id) return;
       if (!reduce) await sleep(380);
       if (running.current !== id) return;
       push([{ kind: "tool", text: `⏺ ${s}` }]);
     }
     if (running.current !== id) return;
-    if (res.kind === "answer")
+    if (remote.kind === "answer")
       push([
-        { kind: "out", text: res.text },
-        { kind: "links", links: res.links },
+        { kind: "out", text: remote.text ?? "" },
+        { kind: "links", links: remote.links ?? [] },
+      ]);
+    else if (remote.kind === "local")
+      push([
+        { kind: "out", text: remote.text ?? "" },
+        { kind: "links", links: remote.links ?? [] },
       ]);
     else
       push([
@@ -91,7 +146,7 @@ export default function AskClient() {
           kind: "dim",
           text: "No citation for that, so no answer. Closest matches:",
         },
-        { kind: "suggest", items: res.suggestions },
+        { kind: "suggest", items: remote.suggestions ?? [] },
       ]);
     setBusy(false);
   };
