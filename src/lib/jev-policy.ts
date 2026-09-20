@@ -124,8 +124,9 @@ export function decideRetrieve(
     if (suggestions.length >= 2) break;
     if (!suggestions.some((s) => s.label === d)) suggestions.push({ label: d, query: d });
   }
+  const defaults = DEFAULT_SUGGESTIONS.map((label) => ({ label, query: label }));
   if (a.choice === NONE_ID || !byId.has(a.choice))
-    return { topic: null, suggestions, reason: "no topic selected" };
+    return { topic: null, suggestions: defaults, reason: "no topic selected" };
   if ((a.confidence ?? 0) < THRESHOLDS.minConfidence)
     return { topic: null, suggestions, reason: "low confidence" };
   if ((a.offTopic ?? 0) > THRESHOLDS.maxOffTopic)
