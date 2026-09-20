@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { runAgent, KB_COUNT } from "@/lib/ask";
 import ArinBanner from "@/components/ArinBanner";
 
@@ -37,6 +38,8 @@ export default function AskClient() {
   const boxRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const running = useRef(0);
+  const autoAsked = useRef(false);
+  const search = useSearchParams();
   const reduce =
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -64,6 +67,16 @@ export default function AskClient() {
 
   const push = (ls: Line[]) =>
     setLines((prev) => [...prev, ...ls].slice(-120));
+
+  // Hero "try:" chips deep-link here with ?q= — ask once it's ready.
+  useEffect(() => {
+    if (autoAsked.current || !booted) return;
+    const q = search.get("q");
+    if (!q) return;
+    autoAsked.current = true;
+    submit(q);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [booted]);
 
   const submit = async (raw: string) => {
     const q = raw.trim();

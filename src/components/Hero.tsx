@@ -8,7 +8,7 @@ import { useTour } from "@/components/Tour";
 
 function useTyped() {
   const [text, setText] = useState("");
-  const full = "I build systems that stay flat in memory, and agents that show their evidence.";
+  const full = "I make slow systems fast — and agents that prove what they claim.";
   useEffect(() => {
     let i = 0;
     const id = setInterval(() => {
@@ -20,6 +20,12 @@ function useTyped() {
   }, []);
   return text;
 }
+
+const TRY = [
+  "What did the 20-hour job become?",
+  "Do your agents show evidence?",
+  "What is Nostos?",
+];
 
 export default function Hero() {
   const typed = useTyped();
@@ -41,13 +47,24 @@ export default function Hero() {
             transition={{ delay: 0.05 }}
             className="max-w-xl text-3xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-5xl"
           >
-            Systems that hold up under heavy load. Agents that stand behind
-            their claims.
+            Slow enterprise systems, made fast. AI agents that show receipts.
           </motion.h1>
 
           <p className="caret mt-6 min-h-7 font-mono text-sm text-green-200/90 sm:text-base">
             {typed}
           </p>
+
+          <div className="mt-4 flex flex-wrap gap-2">
+            {TRY.map((q) => (
+              <Link
+                key={q}
+                href={`/ask?q=${encodeURIComponent(q)}`}
+                className="rounded-md border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-[12px] text-zinc-400 transition hover:border-green-400/40 hover:text-green-200"
+              >
+                try: {q}
+              </Link>
+            ))}
+          </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <Link

@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import Intro from "@/components/Intro";
+import Wins from "@/components/Wins";
 import Pipeline from "@/components/Pipeline";
 import Activity from "@/components/Activity";
 import {
@@ -19,6 +20,9 @@ export default function Home() {
       <Hero />
       <div id="intro" className="scroll-mt-16">
         <Intro />
+      </div>
+      <div id="wins" data-tour="wins" className="scroll-mt-16">
+        <Wins />
       </div>
       <div id="stats" data-tour="stats" className="scroll-mt-16">
         <Stats />

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import AskClient from "@/components/AskClient";
 
 export const metadata = { title: "Ask — Arin Mallanna Tumbagi" };
@@ -13,7 +14,7 @@ export default function AskPage() {
       </h1>
       <p className="mt-3 max-w-2xl text-zinc-400">
         Ask about my work, background, or projects. Answers come from these
-        pages, with links to the source.
+        pages, with links to the source — or it tells you it doesn&apos;t know.
       </p>
       <div className="mt-8 overflow-hidden rounded-xl border border-white/10 bg-[#070907]/95 shadow-[0_0_90px_-30px_rgba(74,222,128,0.5)]">
         <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
@@ -27,7 +28,9 @@ export default function AskPage() {
             LOCAL
           </span>
         </div>
-        <AskClient />
+        <Suspense>
+          <AskClient />
+        </Suspense>
       </div>
     </div>
   );
