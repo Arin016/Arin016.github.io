@@ -51,6 +51,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${sans.variable} ${mono.variable} ${display.variable}`}
     >
       <body className="min-h-screen bg-void text-paper antialiased">

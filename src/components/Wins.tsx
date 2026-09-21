@@ -35,52 +35,52 @@ const WINS = [
 
 export default function Wins() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <SectionHead
-        cmd="start here · 60 seconds"
-        title="Three things to know"
-      />
-      <div className="overflow-hidden rounded-lg border border-white/10">
-        {WINS.map((w, i) => (
-          <Reveal key={w.n} delay={i * 0.06}>
-            <details
-              className={`group bg-panel/60 p-6 transition open:bg-green-400/[0.03] hover:bg-green-400/[0.02] ${
-                i > 0 ? "border-t border-white/10" : ""
-              }`}
-            >
-              <summary className="flex cursor-pointer list-none flex-wrap items-baseline gap-x-4 gap-y-1 [&::-webkit-details-marker]:hidden">
-                <span className="font-mono text-[12px] text-zinc-600 transition group-open:text-green-300">
-                  {w.n}
-                </span>
-                <span className="text-[17px] font-bold text-white">
-                  {w.title}
-                </span>
-                <span className="rounded bg-green-400/10 px-2 py-0.5 font-mono text-[11px] font-bold text-green-200">
-                  {w.metric}
-                </span>
-                <span className="ml-auto font-mono text-[11px] text-zinc-600 transition group-open:rotate-45 group-open:text-green-300">
-                  +
-                </span>
-              </summary>
-              <p className="mt-2 max-w-3xl text-[15px] leading-relaxed text-zinc-300">
-                {w.sowhat}
-              </p>
-              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-zinc-400">
-                {w.how}{" "}
-                <Link
-                  href={w.link.href}
-                  className="text-green-300 underline"
-                >
-                  {w.link.label} →
-                </Link>
-              </p>
-            </details>
-          </Reveal>
-        ))}
+    <section className="hairline-t">
+      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+        <SectionHead
+          cmd="start here · 60 seconds"
+          title="Three things to know"
+        />
+        <div>
+          {WINS.map((w, i) => (
+            <Reveal key={w.n} delay={i * 0.06}>
+              <details
+                className={`group border-t border-white/10 py-7 transition open:bg-transparent hover:bg-transparent`}
+              >
+                <summary className="flex cursor-pointer list-none flex-wrap items-baseline gap-x-4 gap-y-1 [&::-webkit-details-marker]:hidden">
+                  <span className="font-mono text-[12px] text-green-300">
+                    {w.n}
+                  </span>
+                  <span className="font-display text-xl font-bold text-white">
+                    {w.title}
+                  </span>
+                  <span className="rounded bg-green-400/10 px-2 py-0.5 font-mono text-[11px] font-bold text-green-200">
+                    {w.metric}
+                  </span>
+                  <span className="ml-auto font-mono text-[11px] text-zinc-500 transition group-open:rotate-45 group-open:text-green-300">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 pl-9 max-w-3xl text-[15px] leading-relaxed text-zinc-300">
+                  {w.sowhat}
+                </p>
+                <p className="mt-2 pl-9 max-w-3xl text-sm leading-relaxed text-zinc-400">
+                  {w.how}{" "}
+                  <Link
+                    href={w.link.href}
+                    className="text-green-300 underline"
+                  >
+                    {w.link.label} →
+                  </Link>
+                </p>
+              </details>
+            </Reveal>
+          ))}
+        </div>
+        <p className="mt-4 font-mono text-[11px] text-zinc-500">
+          plain words first · engineering inside — click any row
+        </p>
       </div>
-      <p className="mt-3 font-mono text-[11px] text-zinc-600">
-        plain words first · engineering inside — click any row
-      </p>
     </section>
   );
 }

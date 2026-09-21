@@ -328,6 +328,89 @@ html.dark .headline-accent {
   animation: dashflow 1.2s linear infinite;
 }
 
+/* marquee — trust strip */
+.marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 12%,
+    black 88%,
+    transparent
+  );
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 42s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* hero aurora — the one colorful moment, right behind the product */
+.hero-aurora {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-aurora::before,
+.hero-aurora::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.55;
+}
+.hero-aurora::before {
+  width: 900px;
+  height: 420px;
+  top: 12%;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    closest-side,
+    color-mix(in oklab, var(--c-green-300) 22%, transparent),
+    transparent
+  );
+  animation: aurora-drift 11s ease-in-out infinite alternate;
+}
+.hero-aurora::after {
+  width: 640px;
+  height: 380px;
+  top: 42%;
+  transform: translateX(-72%);
+  background: radial-gradient(
+    closest-side,
+    color-mix(in oklab, var(--c-green-300) 13%, transparent),
+    transparent
+  );
+  animation: aurora-drift 14s ease-in-out infinite alternate-reverse;
+}
+@keyframes aurora-drift {
+  from {
+    transform: translateX(-50%) scale(1);
+  }
+  to {
+    transform: translateX(-44%) scale(1.12);
+  }
+}
+html.dark .hero-aurora::before,
+html.dark .hero-aurora::after {
+  opacity: 0.5;
+}
+
+/* hairline separators */
+.hairline-t {
+  border-top: 1px solid color-mix(in oklab, var(--c-white) 10%, transparent);
+}
+
 /* flowing packets for the pipeline demo */
 @keyframes flow-x {
   from {
@@ -373,12 +456,18 @@ html.dark .headline-accent {
 @media (prefers-reduced-motion: reduce) {
   .flowline,
   .packet,
-  .caret::after {
+  .caret::after,
+  .marquee-track,
+  .hero-aurora::before,
+  .hero-aurora::after {
     animation: none;
   }
   .packet {
     opacity: 0.6;
-    left: 50%;
+  }
+  .marquee-track {
+    flex-wrap: wrap;
+    width: 100%;
   }
   html {
     scroll-behavior: auto;
