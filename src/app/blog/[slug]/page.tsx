@@ -69,27 +69,29 @@ export default async function BlogPost({
   const { slug } = await params;
   const { meta, content } = getPost(slug);
   return (
-    <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
+    <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
       <ReadingProgress />
-      <Link
-        href="/blog"
-        className="font-mono text-xs text-zinc-500 hover:text-green-300"
-      >
-        ← all posts
-      </Link>
-      <div className="mt-4 flex items-center gap-2 font-mono text-[11px]">
-        <span className="rounded bg-green-400/10 px-2 py-1 text-green-200">
-          {meta.tag}
-        </span>
-        <span className="text-zinc-600">
-          {meta.date} · {meta.minutes} min
-        </span>
+      <div className="flex items-baseline justify-between gap-4">
+        <Link
+          href="/blog"
+          className="font-mono text-xs text-zinc-500 transition hover:text-green-300"
+        >
+          ← all posts
+        </Link>
+        <div className="flex items-center gap-2 font-mono text-[11px]">
+          <span className="text-green-300">{meta.tag}</span>
+          <span className="text-zinc-500">
+            {meta.date} · {meta.minutes} min
+          </span>
+        </div>
       </div>
-      <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
+      <h1 className="mt-8 font-display text-4xl font-bold leading-[1.08] tracking-[-0.02em] text-white sm:text-5xl">
         {meta.title}
       </h1>
-      <p className="mt-3 text-zinc-400">{meta.excerpt}</p>
-      <div className="md-body mt-6">
+      <p className="mt-5 border-l-2 border-green-400/40 pl-4 text-[15px] leading-relaxed text-zinc-400">
+        {meta.excerpt}
+      </p>
+      <div className="md-body mt-10">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{ code: CodeBlock, pre: Pre }}
@@ -97,7 +99,7 @@ export default async function BlogPost({
           {content}
         </ReactMarkdown>
       </div>
-      <div className="mt-10 rounded-lg border border-white/10 bg-white/[0.02] p-5 font-mono text-xs text-zinc-500">
+      <div className="hairline-t mt-14 pt-8 font-mono text-xs text-zinc-500">
         <span className="text-green-300">$</span> questions / corrections →{" "}
         <a
           className="text-zinc-200 underline"
