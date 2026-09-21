@@ -4,7 +4,7 @@ export const dynamic = "force-static";
 
 import { getAllPosts } from "@/lib/blog";
 
-const BASE = "https://arin016.github.io";
+const BASE = "https://arintumbagi.me";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
