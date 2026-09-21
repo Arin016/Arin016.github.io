@@ -1,7 +1,10 @@
 import type { MetadataRoute } from "next";
+
+export const dynamic = "force-static";
+
 import { getAllPosts } from "@/lib/blog";
 
-const BASE = "https://arinmallannagithubio.vercel.app";
+const BASE = "https://arin016.github.io";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

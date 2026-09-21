@@ -1,6 +1,8 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
+// Node runtime (not "edge") + force-static: keeps the image buildable in
+// both modes — static export for GitHub Pages and server mode for Vercel.
+export const dynamic = "force-static";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -30,6 +32,8 @@ export default function Image() {
         </div>
         <div
           style={{
+            display: "flex",
+            flexDirection: "column",
             fontSize: 84,
             fontWeight: 800,
             color: "#ffffff",
@@ -37,9 +41,8 @@ export default function Image() {
             marginTop: 16,
           }}
         >
-          Arin Mallanna
-          <br />
-          Tumbagi
+          <span>Arin Mallanna</span>
+          <span>Tumbagi</span>
         </div>
         <div style={{ fontSize: 30, color: "#4ade80", marginTop: 16 }}>
           Flat memory. Bounded agents. Every claim checked.

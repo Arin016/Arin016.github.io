@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   description:
     "Arin Tumbagi builds identity systems at Saviynt: a ~20-hour audit check rebuilt to minutes, bounded S3 uploads with explicit commit semantics, evidence-checked agents. IIT Madras. LeetCode Guardian / Codeforces Expert.",
-  metadataBase: new URL("https://arinmallannagithubio.vercel.app"),
+  metadataBase: new URL("https://arin016.github.io"),
   openGraph: {
     title: "Arin Mallanna Tumbagi — Systems Engineer",
     description:
