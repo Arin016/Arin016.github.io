@@ -174,8 +174,8 @@ export default function AskClient() {
       >
         {lines.map((l, i) => {
           if (l.kind === "cmd") return <div key={i} className="text-green-200">{l.text}</div>;
-          if (l.kind === "tool") return <div key={i} className="text-zinc-500">{l.text}</div>;
-          if (l.kind === "dim") return <div key={i} className="text-zinc-600">{l.text}</div>;
+          if (l.kind === "tool") return <div key={i} className="text-zinc-400">{l.text}</div>;
+          if (l.kind === "dim") return <div key={i} className="text-zinc-500">{l.text}</div>;
           if (l.kind === "links")
             return (
               <div key={i} className="flex flex-wrap gap-2">
@@ -225,7 +225,7 @@ export default function AskClient() {
             autoCorrect="off"
             spellCheck={false}
             aria-label="ask a question"
-            className="w-full bg-transparent text-green-100 caret-green-400 outline-none placeholder:text-zinc-700"
+            className="w-full bg-transparent text-green-100 caret-green-400 outline-none placeholder:text-zinc-500"
           />
         </div>
       </div>

@@ -85,7 +85,7 @@ export default async function BlogPost({
           {meta.date} · {meta.minutes} min
         </span>
       </div>
-      <h1 className="mt-4 text-3xl font-extrabold leading-tight tracking-tight text-white sm:text-4xl">
+      <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-4xl">
         {meta.title}
       </h1>
       <p className="mt-3 text-zinc-400">{meta.excerpt}</p>

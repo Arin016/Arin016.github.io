@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { useRouter } from "next/navigation";
 import { ask } from "@/lib/ask";
+import Window from "@/components/Window";
 
 type Tone = "cmd" | "out" | "dim";
 type Line = { text: string; tone: Tone };
@@ -341,19 +342,9 @@ export default function Terminal() {
       ref={frameRef}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
-      className="term-frame overflow-hidden rounded-xl border border-white/10 bg-[#070907]/95 shadow-[0_0_90px_-30px_rgba(74,222,128,0.5)]"
+      className="term-frame"
     >
-      <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
-        <span className="size-2.5 rounded-full bg-zinc-700" />
-        <span className="size-2.5 rounded-full bg-zinc-700" />
-        <span className="size-2.5 rounded-full bg-zinc-700" />
-              <span className="ml-3 font-mono text-xs text-zinc-500">
-                guest@arin:~
-              </span>
-        <span className="ml-auto rounded border border-green-400/30 bg-green-400/10 px-2 py-0.5 font-mono text-[10px] text-green-200">
-          LIVE
-        </span>
-      </div>
+      <Window title="guest@arin: ~" badge="LIVE" glow>
 
       <div
         ref={boxRef}
@@ -368,14 +359,14 @@ export default function Terminal() {
                 ? "text-green-200"
                 : l.tone === "out"
                   ? "text-zinc-300"
-                  : "text-zinc-600"
+                  : "text-zinc-500"
             }
           >
             {l.text}
           </div>
         ))}
         <div className="flex items-center gap-2">
-          <span className="shrink-0 text-zinc-600">{cwd}</span>
+          <span className="shrink-0 text-zinc-500">{cwd}</span>
           <span className="shrink-0 text-green-300">❯</span>
           <input
             ref={inputRef}
@@ -393,25 +384,26 @@ export default function Terminal() {
             autoCorrect="off"
             spellCheck={false}
             aria-label="terminal input"
-            className="w-full bg-transparent text-green-100 caret-green-400 outline-none placeholder:text-zinc-700"
+            className="w-full bg-transparent text-green-100 caret-green-400 outline-none placeholder:text-zinc-500"
           />
         </div>
       </div>
 
       <div className="space-y-2.5 border-t border-white/10 p-4 font-mono text-[12px]">
         <div className="grid gap-2.5 sm:grid-cols-2">
-          <div className="rounded-lg border border-green-400/20 bg-green-400/[0.06] p-3">
+          <div className="rounded-lg border border-green-400/20 bg-green-400/[0.06] p-3 transition hover:border-green-400/40">
             <span className="text-green-200">sod_eval:</span>{" "}
             <span className="text-zinc-400">worst case ~20h · now mins · </span>
             <span className="font-bold text-white">under ~1GB</span>
           </div>
-          <div className="rounded-lg border border-green-400/20 bg-green-400/[0.06] p-3">
+          <div className="rounded-lg border border-green-400/20 bg-green-400/[0.06] p-3 transition hover:border-green-400/40">
             <span className="text-green-200">fraud_agent:</span>{" "}
             <span className="text-zinc-400">cited events re-checked · </span>
             <span className="font-bold text-white">uncertain → human</span>
           </div>
         </div>
       </div>
+      </Window>
     </div>
   );
 }

@@ -1,17 +1,17 @@
+import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
 import { LINKS } from "@/data/content";
 
-export const metadata = { title: "About — Arin Mallanna Tumbagi" };
+export const metadata = { title: " · About — Arin Mallanna Tumbagi" };
 
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
-      <div className="font-mono text-[12px] text-green-300">
-        <span className="text-zinc-600">$</span> whoami -a
-      </div>
-      <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-white">
-        I&apos;m Arin. I build systems that survive production.
-      </h1>
-      <p className="mt-5 leading-relaxed text-zinc-400">
+      <PageHeader
+        cmd="whoami -a"
+        title="I'm Arin. I build systems that survive production."
+      />
+      <p className="-mt-2 leading-relaxed text-zinc-400">
         Software Engineer at{" "}
         <a
           className="text-white underline decoration-green-400/50 underline-offset-4"
@@ -40,7 +40,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <h2 className="mt-10 text-2xl font-bold text-white">
+      <h2 className="mt-10 font-display text-2xl font-bold text-white">
         The ~20-hour job that hooked me
       </h2>
       <p className="mt-3 leading-relaxed text-zinc-400">
@@ -72,7 +72,7 @@ export default function AboutPage() {
         collapsing a problem by two orders of magnitude.
       </p>
 
-      <h2 className="mt-10 text-2xl font-bold text-white">What I work on</h2>
+      <h2 className="mt-10 font-display text-2xl font-bold text-white">What I work on</h2>
       <div className="mt-6 space-y-8 text-[15px] leading-relaxed text-zinc-400">
         <div>
           <h3 className="font-mono text-[12px] tracking-[0.18em] text-green-300">
@@ -85,12 +85,12 @@ export default function AboutPage() {
             number of accounts or identities, with dollar savings attached.
             It acts on what it finds, creating removal tasks with records
             that survive the nightly data refresh.{" "}
-            <a
+            <Link
               className="text-green-300 underline"
               href="/blog/unused-permissions-priced-in-dollars"
             >
               Full story
-            </a>
+            </Link>
             .
           </p>
         </div>
@@ -104,12 +104,12 @@ export default function AboutPage() {
             Maven Central): one reusable 5 MiB part buffer, explicit commit/abort
             semantics, real-S3 conformance receipt. Paginated reads → 50-row sliding window → S3 multipart →
             streaming ZIP. Full breakdown in{" "}
-            <a
+            <Link
               className="text-green-300 underline"
               href="/blog/streaming-excel-to-s3"
             >
               this post
-            </a>
+            </Link>
             .
           </p>
         </div>
@@ -124,9 +124,9 @@ export default function AboutPage() {
             loop. Existing user-role checks didn&apos;t cover that setting, so I
             formulated the agent version and built the evaluation engine. Five risk patterns, deterministic
             checks, findings tracked to resolution.{" "}
-            <a className="text-green-300 underline" href="/blog/sod-for-agents">
+            <Link className="text-green-300 underline" href="/blog/sod-for-agents">
               Full model
-            </a>
+            </Link>
             {" · "}
             <a
               className="text-green-300 underline"
@@ -175,12 +175,12 @@ export default function AboutPage() {
           </h3>
           <p className="mt-2">
             Nostos, a KV-cache-aware LLM router (radix-tree prefix affinity,{" "}
-            <a
+            <Link
               className="text-green-300 underline"
               href="/blog/route-to-the-prefix"
             >
               write-up
-            </a>
+            </Link>
             ); ArinLM, a GPT built by hand with no model shortcuts; the same
             transformer in dependency-free C++ (
             <a
@@ -191,18 +191,18 @@ export default function AboutPage() {
               gpt2-cpp
             </a>
             , tested); and again in raw CUDA (in progress).{" "}
-            <a
+            <Link
               className="text-green-300 underline"
               href="/blog/gpt-from-scratch-thrice"
             >
               Why three times
-            </a>
+            </Link>
             .
           </p>
         </div>
       </div>
 
-      <h2 className="mt-10 text-2xl font-bold text-white">
+      <h2 className="mt-10 font-display text-2xl font-bold text-white">
         How I got here without a CS degree
       </h2>
       <p className="mt-3 leading-relaxed text-zinc-400">
@@ -242,7 +242,7 @@ export default function AboutPage() {
         pattern databases.
       </p>
 
-      <h2 className="mt-10 text-2xl font-bold text-white">Beyond engineering</h2>
+      <h2 className="mt-10 font-display text-2xl font-bold text-white">Beyond engineering</h2>
       <p className="mt-3 leading-relaxed text-zinc-400">
         <span className="text-white">Team Abhiyaan</span> (IITM autonomous
         vehicles). I led external relations and in 2023 pitched to Finance Minister
@@ -252,7 +252,7 @@ export default function AboutPage() {
         in my final year.
       </p>
 
-      <h2 className="mt-10 text-2xl font-bold text-white">
+      <h2 className="mt-10 font-display text-2xl font-bold text-white">
         What I&apos;m working toward
       </h2>
       <p className="mt-3 leading-relaxed text-zinc-400">
@@ -265,9 +265,9 @@ export default function AboutPage() {
       <p className="mt-4 leading-relaxed text-zinc-400">
         The current list (consensus, storage engines, verification, and
         serving intelligence cheaply) lives on the{" "}
-        <a className="text-green-300 underline" href="/#questions">
+        <Link className="text-green-300 underline" href="/#questions">
           homepage
-        </a>
+        </Link>
         , next to the production experience behind each item.
       </p>
 

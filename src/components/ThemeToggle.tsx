@@ -3,18 +3,18 @@ import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 
 export default function ThemeToggle() {
-  const [light, setLight] = useState(false);
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
-    setLight(document.documentElement.classList.contains("light"));
+    setDark(document.documentElement.classList.contains("dark"));
   }, []);
 
   const toggle = () => {
-    const next = !light;
-    setLight(next);
-    document.documentElement.classList.toggle("light", next);
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle("dark", next);
     try {
-      localStorage.setItem("arin-theme", next ? "light" : "dark");
+      localStorage.setItem("arin-theme", next ? "dark" : "light");
     } catch {
       /* private mode: theme just won't persist */
     }
@@ -23,10 +23,10 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggle}
-      aria-label={light ? "switch to dark mode" : "switch to light mode"}
+      aria-label={dark ? "switch to light mode" : "switch to dark mode"}
       className="rounded-md p-2 text-zinc-500 transition hover:bg-white/5 hover:text-white"
     >
-      {light ? <Moon size={16} /> : <Sun size={16} />}
+      {dark ? <Sun size={16} /> : <Moon size={16} />}
     </button>
   );
 }

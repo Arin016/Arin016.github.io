@@ -1,4 +1,5 @@
 import DsaBrowser from "@/components/DsaBrowser";
+import PageHeader from "@/components/PageHeader";
 import { getDsaIndex } from "@/lib/dsa";
 
 export const metadata = {
@@ -11,13 +12,8 @@ export default async function DsaPage() {
   const { topics, live, total } = await getDsaIndex();
   return (
     <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6">
-      <div className="font-mono text-[12px] text-green-300">
-        <span className="text-zinc-600">$</span> man dsa
-      </div>
-      <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-white">
-        A library of ways to think
-      </h1>
-      <div className="mt-4 max-w-2xl space-y-4 text-[15px] leading-relaxed text-zinc-400">
+      <PageHeader cmd="man dsa" title="A library of ways to think" />
+      <div className="-mt-2 max-w-2xl space-y-4 text-[15px] leading-relaxed text-zinc-400">
         <p>
           Most problems are new; almost none are novel. Four years of contests
           taught me that behind thousands of problem statements sit a few

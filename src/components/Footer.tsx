@@ -1,7 +1,6 @@
 "use client";
+import NextLink from "next/link";
 import { useEffect, useState } from "react";
-import { Mail } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/Icons";
 import { LINKS } from "@/data/content";
 
 function useSessionClock() {
@@ -20,46 +19,71 @@ function useSessionClock() {
 export default function Footer() {
   const session = useSessionClock();
   return (
-    <footer className="relative z-10 border-t border-white/10">
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div className="font-mono text-xs text-zinc-500">
-            <span className="text-green-300">$</span> whoami →{" "}
-            <span className="text-zinc-300">
-              arin — systems engineer, iit-madras, saviynt
-            </span>
+    <footer className="relative z-10 mt-8 border-t border-white/10">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+          <div className="max-w-sm">
+            <div className="font-mono text-[13px]">
+              <span className="text-green-300">guest@arin</span>
+              <span className="text-zinc-600">:~$</span>{" "}
+              <span className="text-zinc-300">whoami</span>
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-500">
+              Arin Mallanna Tumbagi — systems engineer. Production identity
+              systems at Saviynt, AI systems built in public, and four years
+              of contest training behind the ratings.
+            </p>
           </div>
-          <div className="flex items-center gap-2">
-            <a
-              href={LINKS.github}
-              target="_blank"
-              className="rounded-md border border-white/10 p-2 text-zinc-500 hover:border-green-400/40 hover:text-green-300"
-              aria-label="GitHub"
-            >
-              <GithubIcon size={15} />
-            </a>
-            <a
-              href={LINKS.linkedin}
-              target="_blank"
-              className="rounded-md border border-white/10 p-2 text-zinc-500 hover:border-green-400/40 hover:text-green-300"
-              aria-label="LinkedIn"
-            >
-              <LinkedinIcon size={15} />
-            </a>
-            <a
-              href={LINKS.email}
-              className="rounded-md border border-white/10 p-2 text-zinc-500 hover:border-green-400/40 hover:text-green-300"
-              aria-label="Email"
-            >
-              <Mail size={15} />
-            </a>
-          </div>
+          <nav
+            aria-label="footer"
+            className="grid grid-cols-2 gap-x-12 gap-y-2 font-mono text-[13px] sm:grid-cols-3"
+          >
+            <div className="col-span-2 mb-1 font-mono text-[11px] tracking-widest text-zinc-600 sm:col-span-3">
+              $ ls ~/
+            </div>
+            <Link href="/about">~/about</Link>
+            <Link href="/projects">~/projects</Link>
+            <Link href="/blog">~/blog</Link>
+            <Link href="/dsa">~/dsa</Link>
+            <Link href="/ask">~/ask</Link>
+            <Link href="/resume.pdf">resume.pdf ↗</Link>
+            <Link href={LINKS.github}>github ↗</Link>
+            <Link href={LINKS.linkedin}>linkedin ↗</Link>
+            <Link href={LINKS.email}>email</Link>
+          </nav>
         </div>
-        <div className="mt-6 flex flex-col gap-1 border-t border-white/5 pt-4 font-mono text-[11px] text-zinc-700 sm:flex-row sm:justify-between">
-          <span>session {session} · guest · readonly</span>
-          <span>© 2026 Arin Mallanna Tumbagi</span>
+      </div>
+
+      {/* tmux-style status line */}
+      <div className="border-t border-white/10 bg-chrome">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-1 px-4 py-2.5 font-mono text-[11px] sm:px-6">
+          <span className="flex items-center gap-1.5 rounded bg-green-400/10 px-2 py-0.5 text-green-200">
+            <span className="size-1.5 rounded-full bg-green-400" />
+            0:guest@arin
+          </span>
+          <span className="text-zinc-600">
+            session {session} · readonly
+          </span>
+          <span className="ml-auto flex items-center gap-1 text-zinc-600">
+            press <span className="kbd">⌘</span>
+            <span className="kbd">K</span> to jump
+          </span>
+          <span className="text-zinc-700">© 2026 Arin Mallanna Tumbagi</span>
         </div>
       </div>
     </footer>
+  );
+}
+
+function Link({ href, children }: { href: string; children: React.ReactNode }) {
+  const external = href.startsWith("http");
+  return (
+    <NextLink
+      href={href}
+      target={external ? "_blank" : undefined}
+      className="w-fit text-zinc-500 transition hover:text-green-200"
+    >
+      {children}
+    </NextLink>
   );
 }

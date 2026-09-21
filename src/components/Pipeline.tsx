@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import Reveal from "./Reveal";
 
 const STAGES = [
@@ -56,7 +57,7 @@ export default function Pipeline() {
             <div className="font-mono text-[12px] text-green-300">
               <span className="text-zinc-600">$</span> ./export --watch
             </div>
-            <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+            <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-white sm:text-3xl">
               A bounded export pipeline, running
             </h2>
           </div>
@@ -118,9 +119,9 @@ export default function Pipeline() {
           </div>
           <p className="mt-3 font-mono text-[11px] text-zinc-600">
             looped illustration of the stage bounds, not a live benchmark.{" "}
-            <a href="/blog/streaming-excel-to-s3" className="text-green-300 underline">
+            <Link href="/blog/streaming-excel-to-s3" className="text-green-300 underline">
               full write-up
-            </a>{" "}
+            </Link>{" "}
             · the upload stage is{" "}
             <a
               href="https://github.com/Arin016/s3-outputstream"

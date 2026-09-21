@@ -89,7 +89,7 @@ export default function Activity() {
             <div className="font-mono text-[12px] text-green-300">
               <span className="text-zinc-600">$</span> tail -f ~/github
             </div>
-            <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+            <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-white sm:text-3xl">
               Live from GitHub
             </h2>
           </div>
@@ -109,7 +109,7 @@ export default function Activity() {
         </div>
       </Reveal>
       <Reveal delay={0.08}>
-        <div className="overflow-hidden rounded-lg border border-white/10 bg-panel/80 font-mono text-[13px]">
+        <div className="overflow-hidden rounded-lg border border-white/10 bg-panel/80 font-mono text-[13px] transition">
           {items === null
             ? [0, 1, 2].map((i) => (
                 <div key={i} className="border-b border-white/5 p-4 last:border-0">

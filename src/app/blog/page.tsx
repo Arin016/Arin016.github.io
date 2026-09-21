@@ -1,28 +1,24 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
+import PageHeader from "@/components/PageHeader";
 
-export const metadata = { title: "Blog — Arin Mallanna Tumbagi" };
+export const metadata = { title: " · Blog — Arin Mallanna Tumbagi" };
 
 export default function BlogIndex() {
   const posts = getAllPosts();
   return (
     <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6">
-      <div className="font-mono text-[12px] text-green-300">
-        <span className="text-zinc-600">$</span> tail -f ./notes
-      </div>
-      <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-white">
-        Notes from production
-      </h1>
-      <p className="mt-3 text-zinc-400">
-        Long-form breakdowns of systems I&apos;ve actually shipped. No
-        listicles, no hot takes.
-      </p>
-      <div className="mt-8 space-y-4">
+      <PageHeader
+        cmd="tail -f ./notes"
+        title="Notes from production"
+        lede="Long-form breakdowns of systems I've actually shipped. No listicles, no hot takes."
+      />
+      <div className="space-y-4">
         {posts.map((p) => (
           <Link
             key={p.slug}
             href={`/blog/${p.slug}`}
-            className="group block rounded-lg border border-white/10 bg-panel p-6 transition hover:border-green-400/30"
+            className="group block rounded-lg border border-white/10 bg-panel p-6 transition hover:-translate-y-0.5 hover:border-green-400/30"
           >
             <div className="flex items-center gap-2 font-mono text-[11px]">
               <span className="rounded bg-green-400/10 px-2 py-1 text-green-200">

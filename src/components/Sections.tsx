@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "@/components/Icons";
+import Window from "@/components/Window";
 import Reveal, { SpotGrid } from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import { OSS_LIST, POSTS, STATS, WORK, AI_WORK, UPSTREAM } from "@/data/content";
@@ -19,15 +20,15 @@ export function SectionHead({
   return (
     <Reveal>
       <div className="mb-7 flex items-end justify-between gap-4">
-      <div>
-        <div className="font-mono text-[12px] text-green-300">
-          <span className="text-zinc-600">$</span> {cmd}
+        <div>
+          <div className="font-mono text-[12px] text-green-300">
+            <span className="text-zinc-600">$</span> {cmd}
+          </div>
+          <h2 className="mt-2 font-display text-2xl font-bold tracking-tight text-white sm:text-3xl">
+            {title}
+          </h2>
         </div>
-        <h2 className="mt-2 text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
-          {title}
-        </h2>
-      </div>
-      {right}
+        {right}
       </div>
     </Reveal>
   );
@@ -82,18 +83,18 @@ export function Work() {
         {WORK.filter((w) => FEATURED_WORK.includes(w.id)).map((w) => (
           <article
             key={w.id}
-            className="group relative overflow-hidden rounded-lg border border-white/10 bg-panel/80 p-6 transition hover:border-green-400/30"
+            className="group relative overflow-hidden rounded-lg border border-white/10 bg-panel/80 p-6 transition hover:-translate-y-0.5 hover:border-green-400/30"
           >
             <div className="flex items-center justify-between gap-3">
               <span className="flex items-center gap-2">
                 <span className="rounded border border-white/10 bg-white/5 px-2 py-1 font-mono text-[10px] tracking-widest text-zinc-400">
                   {w.tag}
                 </span>
-                <span className="font-mono text-[10px] text-zinc-600">
+                <span className="hidden font-mono text-[10px] text-zinc-600 sm:inline">
                   · internal system
                 </span>
               </span>
-              <span className="font-mono text-xs font-bold text-green-300">
+              <span className="rounded bg-green-400/10 px-2 py-0.5 font-mono text-xs font-bold text-green-200">
                 {w.metric}
               </span>
             </div>
@@ -150,7 +151,7 @@ export function AIWork() {
         {AI_WORK.map((w) => (
           <article
             key={w.id}
-            className="rounded-lg border border-white/10 bg-panel/80 p-6 transition hover:border-green-400/30"
+            className="rounded-lg border border-white/10 bg-panel/80 p-6 transition hover:-translate-y-0.5 hover:border-green-400/30"
           >
             <div className="flex items-center justify-between gap-3">
               <span className="rounded border border-white/10 bg-white/5 px-2 py-1 font-mono text-[10px] tracking-widest text-zinc-400">
@@ -208,17 +209,9 @@ export function AskEmbed({ children }: { children: React.ReactNode }) {
         Semantic search over everything here, judged by calibrated AI. It
         cites its page — or tells you it doesn&apos;t know.
       </p>
-      <div className="overflow-hidden rounded-xl border border-white/10 bg-[#070907]/95">
-        <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
-          <span className="size-2.5 rounded-full bg-zinc-700" />
-          <span className="size-2.5 rounded-full bg-zinc-700" />
-          <span className="size-2.5 rounded-full bg-zinc-700" />
-          <span className="ml-3 font-mono text-xs text-zinc-500">
-            guest@arin: ~/ask
-          </span>
-        </div>
+      <Window title="guest@arin: ~/ask" badge="LIVE" glow>
         {children}
-      </div>
+      </Window>
     </section>
   );
 }
@@ -252,10 +245,17 @@ export function OpenQuestions() {
         {qs.map((it, i) => (
           <div
             key={it.q}
-            className={`p-6 ${i > 0 ? "border-t border-white/10" : ""} bg-panel/60 transition hover:bg-green-400/[0.03]`}
+            className={`group p-6 transition hover:bg-green-400/[0.03] ${
+              i > 0 ? "border-t border-white/10" : ""
+            } bg-panel/60`}
           >
-            <div className="font-mono text-[13px] font-bold text-green-200">
-              {it.q}
+            <div className="flex items-baseline gap-3">
+              <span className="font-mono text-[11px] text-zinc-600 transition group-hover:text-green-300">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="font-mono text-[13px] font-bold text-green-200">
+                {it.q.replace(/^\d+ — /, "")}
+              </span>
             </div>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-400">
               {it.body}
@@ -292,7 +292,7 @@ export function Upstream() {
   ];
   return (
     <div className="mb-4 overflow-hidden rounded-lg border border-white/10 bg-panel/80 font-mono">
-      <div className="border-b border-white/10 px-5 py-3 text-[11px] text-zinc-500">
+      <div className="border-b border-white/10 bg-white/[0.02] px-5 py-3 text-[11px] text-zinc-500">
         <span className="text-green-300">$</span> beyond my own repos
       </div>
       {rows.map((r, i) => (
@@ -399,7 +399,7 @@ export function BlogPreview() {
           <Link
             key={p.slug}
             href={`/blog/${p.slug}`}
-            className="group rounded-lg border border-white/10 bg-panel p-6 transition hover:border-green-400/30"
+            className="group rounded-lg border border-white/10 bg-panel p-6 transition hover:-translate-y-0.5 hover:border-green-400/30"
           >
             <div className="flex items-center gap-2 font-mono text-[10px]">
               <span className="rounded bg-green-400/10 px-2 py-1 text-green-200">
@@ -455,7 +455,7 @@ export function Path() {
         {items.map((it, i) => (
           <div
             key={it.t}
-            className="relative rounded-lg border border-white/10 bg-white/[0.02] p-5"
+            className="relative rounded-lg border border-white/10 bg-white/[0.02] p-5 transition hover:border-green-400/25"
           >
             <div className="font-mono text-[11px] text-green-300">
               0{i + 1}
@@ -493,45 +493,55 @@ export function Contact() {
   };
   return (
     <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-      <div className="relative overflow-hidden rounded-lg border border-green-400/25 bg-panel p-8 sm:p-12">
-        <div className="font-mono text-[12px] text-green-300">
-          <span className="text-zinc-600">$</span> ./open_channel
-        </div>
-        <h2 className="mt-3 max-w-xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-          Get in touch.
-        </h2>
-        <p className="mt-3 max-w-xl text-zinc-400">
-          For questions about this work, research conversations, or
-          collaboration. Email is the fastest way to reach me.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-3 font-mono text-sm">
-          <button
-            onClick={copy}
-            className="rounded-md bg-green-400 px-5 py-3 font-bold text-black transition hover:bg-green-300"
-          >
-            {copied ? "copied ✓" : "arin16tumbagi@gmail.com"}
-          </button>
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            className="rounded-md border border-green-400/40 bg-green-400/10 px-5 py-3 font-bold text-green-200 transition hover:bg-green-400/20"
-          >
-            resume.pdf ↓
-          </a>
-          <a
-            href="https://github.com/Arin016"
-            target="_blank"
-            className="rounded-md border border-white/15 bg-white/5 px-5 py-3 text-white hover:border-green-400/40 hover:bg-white/10"
-          >
-            github/Arin016
-          </a>
-          <a
-            href="https://www.linkedin.com/in/arin-tumbagi-916407229/"
-            target="_blank"
-            className="rounded-md border border-white/15 bg-white/5 px-5 py-3 text-white hover:border-green-400/40 hover:bg-white/10"
-          >
-            linkedin
-          </a>
+      <div className="relative overflow-hidden rounded-xl border border-green-400/25 bg-panel p-8 sm:p-12">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-60"
+          style={{
+            background:
+              "radial-gradient(520px 200px at 20% 0%, var(--c-glow), transparent 70%)",
+          }}
+          aria-hidden
+        />
+        <div className="relative">
+          <div className="font-mono text-[12px] text-green-300">
+            <span className="text-zinc-600">$</span> ./open_channel
+          </div>
+          <h2 className="mt-3 max-w-xl font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Get in touch.
+          </h2>
+          <p className="mt-3 max-w-xl text-zinc-400">
+            For questions about this work, research conversations, or
+            collaboration. Email is the fastest way to reach me.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3 font-mono text-sm">
+            <button
+              onClick={copy}
+              className="rounded-md bg-green-400 px-5 py-3 font-bold text-black transition hover:bg-green-300"
+            >
+              {copied ? "copied ✓" : "arin16tumbagi@gmail.com"}
+            </button>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              className="rounded-md border border-green-400/40 bg-green-400/10 px-5 py-3 font-bold text-green-200 transition hover:bg-green-400/20"
+            >
+              resume.pdf ↓
+            </a>
+            <a
+              href="https://github.com/Arin016"
+              target="_blank"
+              className="rounded-md border border-white/15 bg-white/5 px-5 py-3 text-white transition hover:border-green-400/40 hover:bg-white/10"
+            >
+              github/Arin016
+            </a>
+            <a
+              href="https://www.linkedin.com/in/arin-tumbagi-916407229/"
+              target="_blank"
+              className="rounded-md border border-white/15 bg-white/5 px-5 py-3 text-white transition hover:border-green-400/40 hover:bg-white/10"
+            >
+              linkedin
+            </a>
+          </div>
         </div>
       </div>
     </section>

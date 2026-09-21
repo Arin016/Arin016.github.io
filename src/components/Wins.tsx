@@ -49,7 +49,7 @@ export default function Wins() {
               }`}
             >
               <summary className="flex cursor-pointer list-none flex-wrap items-baseline gap-x-4 gap-y-1 [&::-webkit-details-marker]:hidden">
-                <span className="font-mono text-[12px] text-zinc-600">
+                <span className="font-mono text-[12px] text-zinc-600 transition group-open:text-green-300">
                   {w.n}
                 </span>
                 <span className="text-[17px] font-bold text-white">

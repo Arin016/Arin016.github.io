@@ -32,22 +32,27 @@ export default function Hero() {
   const { start } = useTour();
   return (
     <section className="relative overflow-hidden lg:flex lg:min-h-[calc(100svh-3.5rem)] lg:items-center">
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-10 px-4 pb-16 pt-14 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:pt-10">
-        <div>
-          <div className="mb-5 font-mono text-[13px] leading-relaxed">
-            <div className="text-zinc-100">Arin Mallanna Tumbagi</div>
-            <div className="mt-1 text-zinc-500">
-              Software Engineer, Saviynt · B.Tech, IIT Madras
-            </div>
-          </div>
+      <div className="mx-auto w-full max-w-6xl px-4 pb-16 pt-14 sm:px-6 lg:pt-10">
+        <div className="mb-7 w-fit max-w-full rounded-lg border border-white/15 bg-white/[0.04] px-4 py-2 font-mono text-[13px] leading-relaxed">
+          <span className="text-green-300">❯ </span>
+          <span className="text-white">Arin Mallanna Tumbagi</span>
+          <span className="text-zinc-400">
+            {" "}— Software Engineer, Saviynt · B.Tech, IIT Madras
+          </span>
+        </div>
 
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+        <div>
           <motion.h1
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.05 }}
-            className="max-w-xl text-3xl font-extrabold leading-[1.12] tracking-tight text-white sm:text-5xl"
+            className="max-w-xl font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]"
           >
-            Slow enterprise systems, made fast. AI agents that show receipts.
+            Slow enterprise systems, made fast.{" "}
+            <span className="headline-accent">
+              AI agents that show receipts.
+            </span>
           </motion.h1>
 
           <p className="caret mt-6 min-h-7 font-mono text-sm text-green-200/90 sm:text-base">
@@ -98,6 +103,7 @@ export default function Hero() {
             click inside and type `help` · all figures from production systems
           </p>
         </motion.div>
+        </div>
       </div>
       <a
         href="#intro"

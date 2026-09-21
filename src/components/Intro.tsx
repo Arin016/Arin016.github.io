@@ -44,7 +44,7 @@ export default function Intro() {
       <div className="mt-7 grid max-w-2xl grid-cols-3 gap-3">
         {CHIPS.map((c, i) => (
           <Reveal key={c.t} delay={0.1 + i * 0.06}>
-            <div className="rounded-lg border border-white/10 bg-white/[0.03] p-3">
+            <div className="rounded-lg border border-white/10 bg-white/[0.03] p-3 transition hover:border-green-400/30 hover:bg-green-400/[0.04]">
               <c.icon size={16} className="text-green-300" />
               <div className="mt-2 text-sm font-bold text-white">{c.t}</div>
               <div className="font-mono text-[11px] text-zinc-500">{c.s}</div>

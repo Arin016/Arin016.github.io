@@ -98,7 +98,7 @@ export default function SodChecker() {
 
   return (
     <Reveal>
-      <div className="overflow-hidden rounded-lg border border-white/10 bg-panel/80 p-5 sm:p-6">
+      <div className="win p-5 sm:p-6">
         <div className="font-mono text-[12px] text-green-300">
           <span className="text-zinc-600">$</span> ./audit_desk — you are the auditor
         </div>
